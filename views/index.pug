@@ -1,0 +1,47 @@
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  meta(name='description', content='El colegio del futuro')
+  meta(name='author', content='Jesus Bossa')
+  link(rel='stylesheet', href='../public/app.css')
+  title Utopia | El colegio del futuro
+header
+  nav.visible
+    div
+      a.navbar-brand.logo(href='#barra-navegacion')
+        img(src='img/logo.svg', alt='Logo', width='50', height='50')
+    ul.lista.nav.justify-content-end.titulog
+      li.nav-item
+        a(href='#sobre-mi') Acerca de
+      li.nav-item
+        a(href='#experiencia') Habilidades
+      li.nav-item
+        a(href='#contacto') Contacto
+    .button
+      i.btn.btn-primary.btn-open(href='#')
+  .overlay
+    .wrap.container
+      ul.wrap-nav.row
+        li.col-12
+          a(href='#sobre-mi') Acerca de
+          ul
+            li
+              a(href='#frase') Algo para recordar
+        li.col-12
+          a(href='#experiencia') Habilidades
+          ul
+            li
+              a(href='#experiencia') Experiencia
+            li
+              a(href='#educacion') Educación
+            li
+              a(href='#skills') Conocimientos
+        li.col-12
+          a(href='#contacto') Contacto
+          ul
+            li
+              a(href='#contacto') Contactame
+body
+    footer
+        h1 Jesus
