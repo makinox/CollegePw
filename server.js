@@ -1,5 +1,5 @@
-let express = require('express')
-let app = express()
+const express = require('express')
+const app = express()
 
 //Inicializando el puerto dinamico local y el de heroku
 app.set('port', (process.env.PORT || 5000))
@@ -21,5 +21,5 @@ app.get('/profile', (req, res) => {res.render('index')})
 
 //Montando el servidor en el puerto 5000
 app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
+    console.log('Utopia corriendo en el puerto ', app.get('port'));
   })
