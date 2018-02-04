@@ -1,10 +1,2 @@
 node_modules
 package-lock.json
-gulpfile
-lib
-assets
-gulpfile.js
-index.scss
-root.html
-package.json
-package-lock.json
