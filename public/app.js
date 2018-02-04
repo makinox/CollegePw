@@ -1,25 +1,84 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 const page = require('page');
 const $ = require('jquery');
-
-let $main = $('#main-container');
+const template = require('./template');
 
 page('/', (ctx, next) => {
-    $main.append('Hola buenos dias');
+    let $main = $('#main-container');
+    $main.append(template);
 });
 
-page('/home', (ctx, next) => {
-    $main.append('Hola buenas tardes');
-});
+},{"./template":2,"jquery":6,"page":7}],2:[function(require,module,exports){
+
+
+module.exports = `<section class="Bienvenida">
+<div class="container">
+  <div class="row d-flex justify-content-center text-center">
+    <div class="col jumbotron">
+      <h2 class="bienvenida titulo display-4">
+        Bienvenidos estudiantes de utopia
+      </h2>
+      <p class="lead">
+        Un espacio de estudio y educacion de alta calidad pensado para el futuro de los estudiantes
+      </p>
+      <hr class="my-4">
+      <p>Mira que te lo que te ofrece utopia para ti</p>
+      <p class="lead">
+        <a href="#" class="btn btn-primary btn-lg" role="button">Saber mas</a>
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+<section id="acerca-de">
+<div class="container">
+  <div class="row d-flex justify-content-center pb-3">
+    <div class="card text-center ">
+      <h5 class="card-header">Quienes somos</h5>
+      <div class="card-body">
+        <h5 class="card-title">Somos un proyecto del pueblo para el pueblo</h5>
+        <p class="card-text">Atacamos la necesidad de una mejor gestion de educacion para aquellos que no tienen la posibilidad
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center pb-3">
+    <div class="card text-center ">
+      <h5 class="card-header">Que hacemos</h5>
+      <div class="card-body">
+        <h5 class="card-title">Mejoramos por medio de la tecnologia el proceso educativo</h5>
+        <p class="card-text"> 
+          automatizamos procesos de organizacion, escritura y supervicion de estudiantes y profesores
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>`;
+
+},{}],3:[function(require,module,exports){
+const page = require('page');
+
+require('./home');
+require('./profile');
 
 page();
 
-},{"jquery":3,"page":4}],2:[function(require,module,exports){
+},{"./home":1,"./profile":4,"page":7}],4:[function(require,module,exports){
+const page = require('page');
+const $ = require('jquery');
+
+page('/profile', (ctx, next) => {
+    let $main = $('#main-container');
+    $main.append('Prefiles UwU');
+});
+
+},{"jquery":6,"page":7}],5:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],3:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10385,7 +10444,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],4:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function (process){
   /* globals require, module */
 
@@ -11117,7 +11176,7 @@ return jQuery;
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":6,"path-to-regexp":5}],5:[function(require,module,exports){
+},{"_process":9,"path-to-regexp":8}],8:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -11509,7 +11568,7 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":2}],6:[function(require,module,exports){
+},{"isarray":5}],9:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11695,4 +11754,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[1]);
+},{}]},{},[3]);

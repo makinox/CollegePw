@@ -4,8 +4,7 @@
   "description": "El colegio del futuro",
   "main": "server.js",
   "scripts": {
-    "build": "gulp",
-    "watch": "gulp watch",
+    "build": "gulp && node server",
     "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
