@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "El colegio del futuro",
   "main": "server.js",
+  "engines": {
+    "node": "5.0.0",
+    "npm": "4.6.1"
+    },
   "scripts": {
     "build": "gulp && node server",
     "server": "node server.js",
