@@ -19,7 +19,7 @@ app.get('/profile', (req, res) => {res.render('index')})
 //Montando el servidor en el puerto 3000
 
 let port = process.env.PORT || 3000;
-app.listen(port, "0.0.0.0", function() {
+app.listen(port, "0.0.0.0", function(err) {
     if (err) return console.log('Hubo un error'), process.exit(1)
     console.log("Utopia escuchando en el puerto 3000");
 });
