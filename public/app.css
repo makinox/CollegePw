@@ -6064,6 +6064,7 @@ nav .lista li a {
   display: inline-block;
   padding: 2px 20px;
   text-decoration: none;
+  transition: all .2 linear 0s;
   transition-property: all .2s linear 0s;
   -moz-transition: all .2s linear 0s;
   -webkit-transition: all .2s linear 0s;
@@ -6076,7 +6077,7 @@ nav ul li a:hover {
   border-bottom-style: inset;
   border-color: inherit; }
 
-/*styling open close button*/
+/*Boton de navegacion*/
 @media screen and (min-width: 768px) {
   .button i {
     display: none; } }
@@ -6098,6 +6099,7 @@ nav ul li a:hover {
     position: fixed; }
   .btn-open:after {
     color: #00649F;
+    transition: all .2 linear 0s;
     transition-property: all .2s linear 0s;
     -moz-transition: all .2s linear 0s;
     -webkit-transition: all .2s linear 0s;
@@ -6106,6 +6108,7 @@ nav ul li a:hover {
     color: #00DBE7; }
   .btn-close:after {
     color: #00649F;
+    transition: all .2 linear 0s;
     transition-property: all .2s linear 0s;
     -moz-transition: all .2s linear 0s;
     -webkit-transition: all .2s linear 0s;
@@ -6146,6 +6149,7 @@ nav ul li a:hover {
   font-family: 'Roboto Slab', serif;
   font-size: 40px;
   text-decoration: none;
+  transition: all .2 linear 0s;
   transition-property: all .2s linear 0s;
   -moz-transition: all .2s linear 0s;
   -webkit-transition: all .2s linear 0s;
@@ -6173,11 +6177,5 @@ nav ul li a:hover {
 body {
   position: relative; }
 
-.news {
-  padding-top: 80px; }
-
-footer {
-  background-color: black; }
-
-footer h1 {
-  color: green; }
+.jumbotron {
+  margin-top: 80px; }

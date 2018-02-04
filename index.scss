@@ -1,5 +1,6 @@
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
+//Navbar
 ul {
     margin: 0;
     padding: 0;
@@ -45,6 +46,7 @@ nav .lista li a {
     display: inline-block;
     padding: 2px 20px;
     text-decoration: none;
+    transition: all .2 linear 0s;
     transition-property: all .2s linear 0s;
     -moz-transition: all .2s linear 0s;
     -webkit-transition: all .2s linear 0s;
@@ -59,7 +61,7 @@ nav ul li a:hover {
     border-color: inherit;
 }
 
-/*styling open close button*/
+/*Boton de navegacion*/
 
 @media screen and (min-width: 768px) {
     .button i {
@@ -87,6 +89,7 @@ nav ul li a:hover {
     }
     .btn-open:after {
         color: #00649F;
+        transition: all .2 linear 0s;
         transition-property: all .2s linear 0s;
         -moz-transition: all .2s linear 0s;
         -webkit-transition: all .2s linear 0s;
@@ -97,6 +100,7 @@ nav ul li a:hover {
     }
     .btn-close:after {
         color: #00649F;
+        transition: all .2 linear 0s;
         transition-property: all .2s linear 0s;
         -moz-transition: all .2s linear 0s;
         -webkit-transition: all .2s linear 0s;
@@ -145,6 +149,7 @@ nav ul li a:hover {
     font-family: 'Roboto Slab', serif;
     font-size: 40px;
     text-decoration: none;
+    transition: all .2 linear 0s;
     transition-property: all .2s linear 0s;
     -moz-transition: all .2s linear 0s;
     -webkit-transition: all .2s linear 0s;
@@ -179,18 +184,14 @@ body {
     position: relative;
 }
 
-//news
+//Bienvenida
 
-.news {
-    padding-top: 80px;
+.jumbotron {
+    margin-top: 80px; 
 }
+
+//Acerca de nosotros
+
+
 
 // inicio footer
-
-footer {
-    background-color: black;
-}
-
-footer h1{
-    color: green;
-}
