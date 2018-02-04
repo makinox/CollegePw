@@ -1,5 +1,22 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 const page = require('page');
+
+require('./root');
+require('./profile');
+
+page();
+
+},{"./profile":2,"./root":3,"page":7}],2:[function(require,module,exports){
+const page = require('page');
+const $ = require('jquery');
+
+page('/profile', (ctx, next) => {
+    let $main = $('#main-container');
+    $main.append('Prefiles UwU');
+});
+
+},{"jquery":6,"page":7}],3:[function(require,module,exports){
+const page = require('page');
 const $ = require('jquery');
 const template = require('./template');
 
@@ -8,7 +25,7 @@ page('/', (ctx, next) => {
     $main.append(template);
 });
 
-},{"./template":2,"jquery":6,"page":7}],2:[function(require,module,exports){
+},{"./template":4,"jquery":6,"page":7}],4:[function(require,module,exports){
 
 
 module.exports = `<section class="Bienvenida">
@@ -56,24 +73,7 @@ module.exports = `<section class="Bienvenida">
 </div>
 </section>`;
 
-},{}],3:[function(require,module,exports){
-const page = require('page');
-
-require('./home');
-require('./profile');
-
-page();
-
-},{"./home":1,"./profile":4,"page":7}],4:[function(require,module,exports){
-const page = require('page');
-const $ = require('jquery');
-
-page('/profile', (ctx, next) => {
-    let $main = $('#main-container');
-    $main.append('Prefiles UwU');
-});
-
-},{"jquery":6,"page":7}],5:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
@@ -11754,4 +11754,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[3]);
+},{}]},{},[1]);
