@@ -1,21 +1,104 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 const page = require('page');
+const $ = require('jquery');
+const template = require('./template');
+
+page('/home', (ctx, next) => {
+    let $main = $('#main-container');
+    $main.append(template);
+});
+
+},{"./template":2,"jquery":7,"page":8}],2:[function(require,module,exports){
+
+
+module.exports = `<div class="container">
+<div class="row d-flex justify-content-center">
+  <div class="col-12 col-md-3">
+    <div class="card mt-3">
+      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">
+      <div class="card-body">
+        <h5 class="card-title">Noticia</h5>
+        <p class="card-text">horarios</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-3">
+    <div class="card mt-3">
+      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">
+      <div class="card-body">
+        <h5 class="card-title">Noticia</h5>
+        <p class="card-text">horarios</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-3">
+    <div class="card mt-3">
+      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">
+      <div class="card-body">
+        <h5 class="card-title">Noticia</h5>
+        <p class="card-text">horarios</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col-12 col-md-7 p-3">
+    <div class="card">
+      <div class="card-header">
+        <img src="https://placem.at/places?w=40" alt="place" class="d-inline-flex">
+        <h5 class="d-inline-flex text-muted">@alguien</h5>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">#hastag #hastag
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-7 p-3">
+    <div class="card">
+      <div class="card-header">
+        <img src="https://placem.at/places?w=40" alt="place" class="d-inline-flex">
+        <h5 class="d-inline-flex text-muted">@alguien</h5>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">#hastag #hastag
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-7 p-3">
+    <div class="card">
+      <div class="card-header">
+        <img src="https://placem.at/places?w=40" alt="place" class="d-inline-flex">
+        <h5 class="d-inline-flex text-muted">@alguien</h5>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">#hastag #hastag
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+</div>`;
+
+},{}],3:[function(require,module,exports){
+const page = require('page');
 
 require('./root');
-require('./profile');
+require('./home');
 
 page();
 
-},{"./profile":2,"./root":3,"page":7}],2:[function(require,module,exports){
-const page = require('page');
-const $ = require('jquery');
-
-page('/profile', (ctx, next) => {
-    let $main = $('#main-container');
-    $main.append('Prefiles UwU');
-});
-
-},{"jquery":6,"page":7}],3:[function(require,module,exports){
+},{"./home":1,"./root":4,"page":8}],4:[function(require,module,exports){
 const page = require('page');
 const $ = require('jquery');
 const template = require('./template');
@@ -25,7 +108,7 @@ page('/', (ctx, next) => {
     $main.append(template);
 });
 
-},{"./template":4,"jquery":6,"page":7}],4:[function(require,module,exports){
+},{"./template":5,"jquery":7,"page":8}],5:[function(require,module,exports){
 
 
 module.exports = `<section class="Bienvenida">
@@ -73,12 +156,12 @@ module.exports = `<section class="Bienvenida">
 </div>
 </section>`;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10444,7 +10527,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process){
   /* globals require, module */
 
@@ -11176,7 +11259,7 @@ return jQuery;
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":9,"path-to-regexp":8}],8:[function(require,module,exports){
+},{"_process":10,"path-to-regexp":9}],9:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -11568,7 +11651,7 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":5}],9:[function(require,module,exports){
+},{"isarray":6}],10:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11754,4 +11837,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[1]);
+},{}]},{},[3]);
