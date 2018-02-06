@@ -186,11 +186,18 @@ body {
 
 //Bienvenida
 
-.jumbotron {
+.jumbotron-root {
     margin-top: 80px; 
 }
 
-//
+// Home
+
+.jumbotron-home {
+    margin-top: 80px;
+}
 
 // inicio footer
-    
+
+#footer {
+    background: #F7F7F7;
+}

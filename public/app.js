@@ -14,6 +14,18 @@ page('/home', (ctx, next) => {
 'use strict';
 
 module.exports = `<div class="container">
+<div class="row d-flex justify-content-center text-center">
+  <div class="col jumbotron jumbotron-home">
+    <h2 class="bienvenida titulo display-4">
+      Puedes llamarme home
+    </h2>
+    <p class="lead">
+      Aqui puedes ver todo lo que se dice respecto a tu institucion
+    </p>
+  </div>
+</div>
+</div>
+<div class="container">
 <div class="row d-flex justify-content-center">
   <div class="col-12 col-md-3">
     <div class="card mt-3">
@@ -47,13 +59,13 @@ module.exports = `<div class="container">
   <div class="col-12 col-md-7 p-3">
     <div class="card">
       <div class="card-header">
-        <img src="https://placem.at/places?w=40" alt="place" class="d-inline-flex">
+        <img src="https://placem.at/places?w=40" alt="place">
         <h5 class="d-inline-flex text-muted">@alguien</h5>
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">#hastag #hastag
+          <footer class="blockquote-footer">algo
           </footer>
         </blockquote>
       </div>
@@ -62,13 +74,13 @@ module.exports = `<div class="container">
   <div class="col-12 col-md-7 p-3">
     <div class="card">
       <div class="card-header">
-        <img src="https://placem.at/places?w=40" alt="place" class="d-inline-flex">
+        <img src="https://placem.at/places?w=40" alt="place">
         <h5 class="d-inline-flex text-muted">@alguien</h5>
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">#hastag #hastag
+          <footer class="blockquote-footer">algo
           </footer>
         </blockquote>
       </div>
@@ -77,13 +89,13 @@ module.exports = `<div class="container">
   <div class="col-12 col-md-7 p-3">
     <div class="card">
       <div class="card-header">
-        <img src="https://placem.at/places?w=40" alt="place" class="d-inline-flex">
+        <img src="https://placem.at/places?w=40" alt="place">
         <h5 class="d-inline-flex text-muted">@alguien</h5>
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">#hastag #hastag
+          <footer class="blockquote-footer">algo
           </footer>
         </blockquote>
       </div>
@@ -120,7 +132,7 @@ page('/', (ctx, next) => {
 module.exports = `<section class="Bienvenida">
 <div class="container">
   <div class="row d-flex justify-content-center text-center">
-    <div class="col jumbotron">
+    <div class="col jumbotron jumbotron-root">
       <h2 class="bienvenida titulo display-4">
         Bienvenidos estudiantes de utopia
       </h2>

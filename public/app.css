@@ -6177,5 +6177,11 @@ nav ul li a:hover {
 body {
   position: relative; }
 
-.jumbotron {
+.jumbotron-root {
   margin-top: 80px; }
+
+.jumbotron-home {
+  margin-top: 80px; }
+
+#footer {
+  background: #F7F7F7; }
