@@ -10,7 +10,7 @@ page('/home', (ctx, next) => {
   $main.append(template);
 });
 
-},{"./template":2,"jquery":7,"page":8}],2:[function(require,module,exports){
+},{"./template":2,"jquery":9,"page":10}],2:[function(require,module,exports){
 'use strict';
 
 module.exports = `<div class="container">
@@ -122,11 +122,12 @@ module.exports = `<div class="container">
 const page = require('page');
 
 require('./root');
+require('./signin');
 require('./home');
 
 page();
 
-},{"./home":1,"./root":4,"page":8}],4:[function(require,module,exports){
+},{"./home":1,"./root":4,"./signin":6,"page":10}],4:[function(require,module,exports){
 'use strict';
 
 const page = require('page');
@@ -138,7 +139,7 @@ page('/', (ctx, next) => {
   $main.append(template);
 });
 
-},{"./template":5,"jquery":7,"page":8}],5:[function(require,module,exports){
+},{"./template":5,"jquery":9,"page":10}],5:[function(require,module,exports){
 'use strict';
 
 module.exports = `<section class="Bienvenida">
@@ -187,11 +188,52 @@ module.exports = `<section class="Bienvenida">
 </section>`;
 
 },{}],6:[function(require,module,exports){
+'use strict';
+
+const page = require('page');
+const $ = require('jquery');
+const template = require('./template');
+
+page('/signin', (ctx, next) => {
+  let $main = $('#main-container');
+  $main.append(template);
+});
+
+},{"./template":7,"jquery":9,"page":10}],7:[function(require,module,exports){
+'use strict';
+
+module.exports = `<div class="container">
+<div class="row d-flex justify-content-center text-center">
+  <div class="col jumbotron jumbotron-signin">
+    <h2 class="bienvenida titulo display-4">
+      Bienvenido
+    </h2>
+    <p class="lead">Inicia sesion</p>
+  </div>
+</div>
+</div>
+<div class="container">
+<div class="row d-flex justify-content-center text-center">
+  <div class="card col-6 signin">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="contraseña" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+</div>
+</div>`;
+
+},{}],8:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10557,7 +10599,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function (process){
   /* globals require, module */
 
@@ -11289,7 +11331,7 @@ return jQuery;
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":10,"path-to-regexp":9}],9:[function(require,module,exports){
+},{"_process":12,"path-to-regexp":11}],11:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -11681,7 +11723,7 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":6}],10:[function(require,module,exports){
+},{"isarray":8}],12:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 

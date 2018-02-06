@@ -16,9 +16,9 @@ li {
 nav {
     width: 100%;
     height: auto;
-    box-shadow: -2px -7px 47px 9px rgba(0, 0, 0, 0.35);
-    -moz-box-shadow: -2px -7px 47px 9px rgba(0, 0, 0, 0.35);
-    -webkit-box-shadow: -2px -7px 47px 9px rgba(0, 0, 0, 0.35);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .logo {
@@ -194,6 +194,15 @@ body {
 
 .jumbotron-home {
     margin-top: 80px;
+}
+
+// signin
+.jumbotron-signin {
+    margin-top: 80px;
+}
+
+.signin {
+    margin-bottom: 140px;
 }
 
 // inicio footer
