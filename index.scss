@@ -63,21 +63,15 @@ nav ul li a:hover {
 
 /*Boton de navegacion*/
 
-@media screen and (min-width: 768px) {
-    .button i {
-        display: none;
-    }
-}
 
-@media screen and (max-width: 768px) {
     .lista {
         display: none;
     }
     .button {
-        display: inline;
-        position: absolute;
-        right: 50px;
-        top: 18px;
+        // display: inline;
+        text-align: right;
+        float: right;
+        
         z-index: 999;
         font-size: 30px;
     }
@@ -109,7 +103,7 @@ nav ul li a:hover {
     .btn-close:hover:after {
         color: #00DBE7;
     }
-}
+
 
 /*overlay*/
 

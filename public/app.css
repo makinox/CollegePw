@@ -6078,43 +6078,42 @@ nav ul li a:hover {
   border-color: inherit; }
 
 /*Boton de navegacion*/
-@media screen and (min-width: 768px) {
-  .button i {
-    display: none; } }
+.lista {
+  display: none; }
 
-@media screen and (max-width: 768px) {
-  .lista {
-    display: none; }
-  .button {
-    display: inline;
-    position: absolute;
-    right: 50px;
-    top: 18px;
-    z-index: 999;
-    font-size: 30px; }
-  .button i {
-    color: #00649F;
-    text-decoration: none;
-    cursor: pointer;
-    position: fixed; }
-  .btn-open:after {
-    color: #00649F;
-    transition: all .2 linear 0s;
-    transition-property: all .2s linear 0s;
-    -moz-transition: all .2s linear 0s;
-    -webkit-transition: all .2s linear 0s;
-    -o-transition: all .2s linear 0s; }
-  .btn-open:hover:after {
-    color: #00DBE7; }
-  .btn-close:after {
-    color: #00649F;
-    transition: all .2 linear 0s;
-    transition-property: all .2s linear 0s;
-    -moz-transition: all .2s linear 0s;
-    -webkit-transition: all .2s linear 0s;
-    -o-transition: all .2s linear 0s; }
-  .btn-close:hover:after {
-    color: #00DBE7; } }
+.button {
+  text-align: right;
+  float: right;
+  z-index: 999;
+  font-size: 30px; }
+
+.button i {
+  color: #00649F;
+  text-decoration: none;
+  cursor: pointer;
+  position: fixed; }
+
+.btn-open:after {
+  color: #00649F;
+  transition: all .2 linear 0s;
+  transition-property: all .2s linear 0s;
+  -moz-transition: all .2s linear 0s;
+  -webkit-transition: all .2s linear 0s;
+  -o-transition: all .2s linear 0s; }
+
+.btn-open:hover:after {
+  color: #00DBE7; }
+
+.btn-close:after {
+  color: #00649F;
+  transition: all .2 linear 0s;
+  transition-property: all .2s linear 0s;
+  -moz-transition: all .2s linear 0s;
+  -webkit-transition: all .2s linear 0s;
+  -o-transition: all .2s linear 0s; }
+
+.btn-close:hover:after {
+  color: #00DBE7; }
 
 /*overlay*/
 .overlay {
