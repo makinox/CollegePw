@@ -2,6 +2,7 @@
 'use strict';
 
 const $ = require('jquery');
+const page = require('page');
 
 let faded = () => {
   $('.overlay').fadeToggle(500);
@@ -13,9 +14,19 @@ let faded = () => {
 $(document).ready(() => {
   $('.button a').click(faded);
   $('.overlay a').click(faded);
+  // Redireccion
+  $('.signinl').click(() => {
+    page.redirect('./signin');
+  });
+  $('.homel').click(() => {
+    page.redirect('./home');
+  });
+  $('.signout').click(() => {
+    page.redirect('./sigout');
+  });
 });
 
-},{"jquery":10}],2:[function(require,module,exports){
+},{"jquery":10,"page":11}],2:[function(require,module,exports){
 'use strict';
 
 const page = require('page');
