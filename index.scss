@@ -1,13 +1,102 @@
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
-
 // General
-
 .gauss {
     filter: blur(3px);
     -ms-filter: blur(3px);
     -webkit-filter: blur(3px);
 }
 
+.relleno {
+    padding-top: 120px; 
+    padding-bottom: 120px;
+}
+
+// Spinner
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+    margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: #00649F;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
 
 //Navbar
 ul {
@@ -42,6 +131,10 @@ nav {
     z-index: 1;
 }
 
+.invisible {
+    display: none;
+}
+
 nav .lista {
     text-align: center;
 }
@@ -72,45 +165,49 @@ nav ul li a:hover {
 
 /*Boton de navegacion*/
 
+.lista {
+    display: none;
+}
 
-    .lista {
-        display: none;
-    }
-    .button {
-        display: inline;
-        position: absolute;
-        right: 80px;
-        z-index: 999;
-        font-size: 30px;
-      }
-      .button a {
-        color: #00649F;
-        text-decoration: none;
-        position: fixed;
-      }
-    .btn-open:after {
-        color: #00649F;
-        transition: all .2 linear 0s;
-        transition-property: all .2s linear 0s;
-        -moz-transition: all .2s linear 0s;
-        -webkit-transition: all .2s linear 0s;
-        -o-transition: all .2s linear 0s;
-    }
-    .btn-open:hover:after {
-        color: #00DBE7;
-    }
-    .btn-close:after {
-        color: #00649F;
-        transition: all .2 linear 0s;
-        transition-property: all .2s linear 0s;
-        -moz-transition: all .2s linear 0s;
-        -webkit-transition: all .2s linear 0s;
-        -o-transition: all .2s linear 0s;
-    }
-    .btn-close:hover:after {
-        color: #00DBE7;
-    }
+.button {
+    display: inline;
+    position: absolute;
+    right: 80px;
+    z-index: 999;
+    font-size: 30px;
+}
 
+.button a {
+    color: #00649F;
+    text-decoration: none;
+    position: fixed;
+}
+
+.btn-open:after {
+    color: #00649F;
+    transition: all .2 linear 0s;
+    transition-property: all .2s linear 0s;
+    -moz-transition: all .2s linear 0s;
+    -webkit-transition: all .2s linear 0s;
+    -o-transition: all .2s linear 0s;
+}
+
+.btn-open:hover:after {
+    color: #00DBE7;
+}
+
+.btn-close:after {
+    color: #00649F;
+    transition: all .2 linear 0s;
+    transition-property: all .2s linear 0s;
+    -moz-transition: all .2s linear 0s;
+    -webkit-transition: all .2s linear 0s;
+    -o-transition: all .2s linear 0s;
+}
+
+.btn-close:hover:after {
+    color: #00DBE7;
+}
 
 /*overlay*/
 
@@ -186,13 +283,11 @@ body {
 }
 
 //Root
-
 .jumbotron-root {
-    margin-top: 80px; 
+    margin-top: 80px;
 }
 
 // Home
-
 .jumbotron-home {
     margin-top: 80px;
 }
@@ -207,7 +302,6 @@ body {
 }
 
 // inicio footer
-
 #footer {
     background: #F7F7F7;
 }

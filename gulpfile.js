@@ -23,7 +23,7 @@ gulp.task('assets', () => {
 
 gulp.task('build', () => {
   browserify('./lib/index.js')
-    .transform(babel)
+    .transform(babel, { presets: ['es2015'] })
     .bundle()
     .pipe(source('index.js'))
     .pipe(rename('app.js'))
