@@ -1,6 +1,23 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+const $ = require('jquery');
+
+let faded = () => {
+  $('.overlay').fadeToggle(500);
+  $('nav').toggleClass('visible');
+  $('#main-container').toggleClass('gauss');
+  $('.button i').toggleClass('btn-open').toggleClass('btn-close');
+};
+
+$(document).ready(() => {
+  $('.button a').click(faded);
+  $('.overlay a').click(faded);
+});
+
+},{"jquery":10}],2:[function(require,module,exports){
+'use strict';
+
 const page = require('page');
 const $ = require('jquery');
 const template = require('./template');
@@ -10,7 +27,7 @@ page('/home', (ctx, next) => {
   $main.append(template);
 });
 
-},{"./template":2,"jquery":9,"page":10}],2:[function(require,module,exports){
+},{"./template":3,"jquery":10,"page":11}],3:[function(require,module,exports){
 'use strict';
 
 module.exports = `<div class="container">
@@ -116,18 +133,19 @@ module.exports = `<div class="container">
 </div>
 </div>`;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 'use strict';
 
 const page = require('page');
 
+require('./global');
 require('./root');
 require('./signin');
 require('./home');
 
 page();
 
-},{"./home":1,"./root":4,"./signin":6,"page":10}],4:[function(require,module,exports){
+},{"./global":1,"./home":2,"./root":5,"./signin":7,"page":11}],5:[function(require,module,exports){
 'use strict';
 
 const page = require('page');
@@ -139,7 +157,7 @@ page('/', (ctx, next) => {
   $main.append(template);
 });
 
-},{"./template":5,"jquery":9,"page":10}],5:[function(require,module,exports){
+},{"./template":6,"jquery":10,"page":11}],6:[function(require,module,exports){
 'use strict';
 
 module.exports = `<section class="Bienvenida">
@@ -163,7 +181,7 @@ module.exports = `<section class="Bienvenida">
 </section>
 <section id="acerca-de">
 <div class="container">
-  <div class="row d-flex justify-content-center pb-3 p-5">
+  <div class="row d-flex justify-content-center pb-3">
     <div class="card text-center">
       <h5 class="card-header">Quienes somos</h5>
       <div class="card-body">
@@ -173,7 +191,7 @@ module.exports = `<section class="Bienvenida">
       </div>
     </div>
   </div>
-  <div class="row d-flex justify-content-center pb-3 p-5">
+  <div class="row d-flex justify-content-center pb-3">
     <div class="card text-center">
       <h5 class="card-header">Que hacemos</h5>
       <div class="card-body">
@@ -194,7 +212,7 @@ module.exports = `<section class="Bienvenida">
 </div>
 </section>`;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 const page = require('page');
@@ -206,7 +224,7 @@ page('/signin', (ctx, next) => {
   $main.append(template);
 });
 
-},{"./template":7,"jquery":9,"page":10}],7:[function(require,module,exports){
+},{"./template":8,"jquery":10,"page":11}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = `<div class="container">
@@ -235,12 +253,12 @@ module.exports = `<div class="container">
 </div>
 </div>`;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10606,7 +10624,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 (function (process){
   /* globals require, module */
 
@@ -11338,7 +11356,7 @@ return jQuery;
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":12,"path-to-regexp":11}],11:[function(require,module,exports){
+},{"_process":13,"path-to-regexp":12}],12:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -11730,7 +11748,7 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":8}],12:[function(require,module,exports){
+},{"isarray":9}],13:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11916,4 +11934,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[3]);
+},{}]},{},[4]);

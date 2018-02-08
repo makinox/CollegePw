@@ -23,33 +23,29 @@ header
   nav.visible
     div
       a.navbar-brand.logo(href='#barra-navegacion')
-        img(src='favicon.ico', alt='Logo', width='50', height='50')
-    ul.lista.nav.justify-content-end.titulog
-      li.nav-item
-        a(href='#sobre-mi') Acerca de
-      li.nav-item
-        a(href='#experiencia') Habilidades
-      li.nav-item
-        a(href='#contacto') Contacto
+        img(src=' favicon.ico', alt='Logo', width='50', height='50')
     .button
-      i.btn.btn-primary.btn-open(href='#')
+      a.btn
+        img(src='open.svg', alt='Logo', width='50', height='50')
   .overlay
     .wrap.container
       ul.wrap-nav.row
         li.col-12
-          a(href='#sobre-mi') Acerca de
+          a() Ingresa
           ul
             li
-              a(href='#frase') Algo para recordar
+              a(href='/signin') Inicia sesión
+            li
+              a(href='/signout') Regístrate
         li.col-12
-          a(href='#experiencia') Habilidades
+          a() Descubre  
           ul
             li
-              a(href='#experiencia') Experiencia
-            li
-              a(href='#educacion') Educación
-            li
-              a(href='#skills') Conocimientos
+              a(href='/home') Inicio 
+            //- li
+            //-   a(href='#educacion') Educación
+            //- li
+            //-   a(href='#skills') Conocimientos
         li.col-12
           a(href='#contacto') Contacto
           ul

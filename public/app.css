@@ -6026,6 +6026,11 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #ddd !important; } }
 
+.gauss {
+  filter: blur(3px);
+  -ms-filter: blur(3px);
+  -webkit-filter: blur(3px); }
+
 ul {
   margin: 0;
   padding: 0;
@@ -6082,15 +6087,15 @@ nav ul li a:hover {
   display: none; }
 
 .button {
-  text-align: right;
-  float: right;
+  display: inline;
+  position: absolute;
+  right: 80px;
   z-index: 999;
   font-size: 30px; }
 
-.button i {
+.button a {
   color: #00649F;
   text-decoration: none;
-  cursor: pointer;
   position: fixed; }
 
 .btn-open:after {
