@@ -1,6 +1,22 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+var page = require('page');
+var $ = require('jquery');
+var template = require('./template');
+
+page('/admin', function (ctx, next) {
+  $('#main-container').append(template);
+});
+
+},{"./template":2,"jquery":14,"page":15}],2:[function(require,module,exports){
+'use strict';
+
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Administrador\n    </h2>\n    <p class="lead">Aqui puedes administrar, gestionar y crear recursos para la institucion</p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row mb-3">\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Generar periodos academicos</h5>\n        <p class="card-text">Aqui puedes generar nuevos periodos academicos y generar asignaturas con sus respectivas clases</p>\n        <a href="#" class="btn btn-primary">Generar</a>\n      </div>\n    </div>\n  </div>\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Generar usuarios</h5>\n        <p class="card-text">Aqui puedes generar nuevos usuarios tales como estudiantes profesores y administradores</p>\n        <a href="#" class="btn btn-primary">Generar</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="row mb-3">\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Gestionar periodos academicos</h5>\n        <p class="card-text">Aqui puedes gestionar todos los atributos de los periodos academiscos existentes</p>\n        <a href="#" class="btn btn-primary">Gestionar</a>\n      </div>\n    </div>\n  </div>\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Gestionar usuarios</h5>\n        <p class="card-text">Aqui puedes gestionar toda la informacion de los usuarios</p>\n        <a href="#" class="btn btn-primary">Gestionar</a>\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
 var $ = require('jquery');
 var page = require('page');
 
@@ -35,9 +51,12 @@ $.when($container.ready).then(function () {
   $('.signoutl').click(function () {
     page.redirect('./signout');
   });
+  $('.adminl').click(function () {
+    page.redirect('./admin');
+  });
 });
 
-},{"jquery":12,"page":13}],2:[function(require,module,exports){
+},{"jquery":14,"page":15}],4:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -48,12 +67,12 @@ page('/home', function (ctx, next) {
   $('#main-container').append(template);
 });
 
-},{"./template":3,"jquery":12,"page":13}],3:[function(require,module,exports){
+},{"./template":5,"jquery":14,"page":15}],5:[function(require,module,exports){
 'use strict';
 
 module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-home">\n    <h2 class="bienvenida titulo display-4">\n      Puedes llamarme home\n    </h2>\n    <p class="lead">\n      Aqui puedes ver todo lo que se dice respecto a tu institucion\n    </p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center">\n  <div class="card">\n    <div class="card-header">\n      <h5>Hoy</h5>\n    </div>\n    <div class="card-body p-5">\n      <p class="card-text">Nada pendiente para hoy</p>\n    </div>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center">\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center">\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -61,12 +80,13 @@ var page = require('page');
 require('./global');
 require('./root');
 require('./signin');
+require('./admin');
 require('./signout');
 require('./home');
 
 page();
 
-},{"./global":1,"./home":2,"./root":5,"./signin":7,"./signout":9,"page":13}],5:[function(require,module,exports){
+},{"./admin":1,"./global":3,"./home":4,"./root":7,"./signin":9,"./signout":11,"page":15}],7:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -77,12 +97,12 @@ page('/', function (ctx, next) {
   $('#main-container').append(template);
 });
 
-},{"./template":6,"jquery":12,"page":13}],6:[function(require,module,exports){
+},{"./template":8,"jquery":14,"page":15}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = '<section class="Bienvenida">\n<div class="container">\n  <div class="row d-flex justify-content-center text-center">\n    <div class="col jumbotron jumbotron-root p-5">\n      <h2 class="bienvenida titulo display-4">\n        Bienvenidos estudiantes de utopia\n      </h2>\n      <p class="lead">\n        Un espacio de estudio y educacion de alta calidad pensado para el futuro de los estudiantes\n      </p>\n      <hr class="my-4">\n      <p>Mira que te lo que te ofrece utopia para ti</p>\n      <p class="lead">\n        <a href="#" class="btn btn-primary btn-lg" role="button">Saber mas</a>\n      </p>\n    </div>\n  </div>\n</div>\n</section>\n<section id="acerca-de">\n<div class="container">\n  <div class="row d-flex justify-content-center pb-3">\n    <div class="card text-center">\n      <h5 class="card-header">Quienes somos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Somos un proyecto del pueblo para el pueblo</h5>\n        <p class="card-text">Atacamos la necesidad de una mejor gestion de educacion para aquellos que no tienen la posibilidad\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center pb-3">\n    <div class="card text-center">\n      <h5 class="card-header">Que hacemos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Mejoramos por medio de la tecnologia el proceso educativo</h5>\n        <p class="card-text"> \n          automatizamos procesos de organizacion, escritura y supervicion de estudiantes y profesores\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="container">\n  <div class="row">\n    <div class="col time-educacion">\n      <img src="proceso.svg" alt="proceso" width="100%" height="100%">\n    </div>\n  </div>\n</div>\n</section>';
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -93,12 +113,12 @@ page('/signin', function (ctx, next) {
   $('#main-container').append(template);
 });
 
-},{"./template":8,"jquery":12,"page":13}],8:[function(require,module,exports){
+},{"./template":10,"jquery":14,"page":15}],10:[function(require,module,exports){
 'use strict';
 
 module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Bienvenido\n    </h2>\n    <p class="lead">Inicia sesion</p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="card col-6 signin">\n    <div class="card-body">\n      <div class="input-group mb-3">\n        <input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">\n      </div>\n      \n      <div class="input-group mb-3">\n        <input type="password" class="form-control" placeholder="contrase\xF1a" aria-label="Username" aria-describedby="basic-addon1">\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -109,17 +129,17 @@ page('/signout', function (ctx, next) {
   $('#main-container').append(template);
 });
 
-},{"./template":10,"jquery":12,"page":13}],10:[function(require,module,exports){
+},{"./template":12,"jquery":14,"page":15}],12:[function(require,module,exports){
 'use strict';
 
 module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Registro\n    </h2>\n    <p class="lead">Aqui puedes iniciar el proceso de registro de tu institucion</p>\n  </div>\n</div>\n</div>\n<div class="container sub">\n<form class="need-validation" novalidate>\n  <div class="form-row d-flex justify-content-center text-center">\n    <div class="col-md-7 mb-3">\n      <label for="validationCustomUsername">Identificacion</label>\n      <div class="input-group">\n        <div class="input-group-prepend">\n          <span class="input-group-text" id="inputGroupPrepend">@</span>\n        </div>\n        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nombre por el cual la institucion va a ser identificada"\n          aria-describedby="inputGroupPrepend" required>\n        <div class="valid-feedback">Correcto</div>  \n        <div class="invalid-feedback">Necesita poner un nombre valido</div>\n      </div>\n    </div>\n    <div class="col-md-7 mb-3">\n      <label for="validationCustom01">Nombre de la institucion</label>\n      <input type="text" class="form-control" id="validationCustom01" placeholder="Ex: Institucion educativa utopia" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Necesita poner un nombre valido</div>\n    </div>\n    <div class="form-group col-7">\n      <label for="validationCustom02">Elija los servicios que va a prestar</label>\n      <select class="custom-select" id="validationCustom02" required>\n        <option value="">Seleccione una de las opciones</option>\n        <option value="1">Primaria</option>\n        <option value="2">Bachillerato</option>\n        <option value="3">Ambas</option>\n      </select>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Debe escoger una de esas</div>\n    </div>\n    <div class="col-12"></div>\n    <div class="col-md-4 mb-3">\n      <label for="validationCustom03">Usuario administrador</label>\n      <input type="text" class="form-control" id="validationCustom03" placeholder="Usuario" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Debe escoger un valor no mayor a 12 caracteres</div>\n    </div>\n    <div class="col-md-4 mb-3">\n      <label for="validationCustom04">Contrase\xF1a administrador</label>\n      <input type="password" class="form-control" id="validationCustom04" placeholder="Contrase\xF1a" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Por favor ingrese una contrase\xF1a valida</div>\n    </div>\n    <div class="form-group col-12">\n      <div class="form-check">\n        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>\n        <label class="form-check-label" for="invalidCheck">\n          Aceptar terminos y condiciones\n        </label>\n        <div class="invalid-feedback">Debe aceptar antes de enviar los datos</div>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n      <button class="btn btn-primary mb-3 envio" type="submit">Registrarse</button>\n  </div>\n</form>\n</div>';
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10485,7 +10505,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (process){
   /* globals require, module */
 
@@ -11217,7 +11237,7 @@ return jQuery;
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":15,"path-to-regexp":14}],14:[function(require,module,exports){
+},{"_process":17,"path-to-regexp":16}],16:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -11609,7 +11629,7 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":11}],15:[function(require,module,exports){
+},{"isarray":13}],17:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11795,4 +11815,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[4]);
+},{}]},{},[6]);

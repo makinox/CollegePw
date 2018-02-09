@@ -21,7 +21,10 @@ app.get('/home', (req, res) => { res.render('index') })
 // Get de la pagina Inicio de sesion
 app.get('/signin', (req, res) => { res.render('index') })
 
-// Get de la pagina Inicio de sesion
+// Get de la pagina admin
+app.get('/admin', (req, res) => { res.render('index') })
+
+// Get de la pagina de registro
 app.get('/signout', (req, res) => { res.render('index') })
 
 // Get de la pagina de noticias
