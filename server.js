@@ -21,6 +21,9 @@ app.get('/home', (req, res) => { res.render('index') })
 // Get de la pagina Inicio de sesion
 app.get('/signin', (req, res) => { res.render('index') })
 
+// Get de la pagina Inicio de sesion
+app.get('/signout', (req, res) => { res.render('index') })
+
 // Get de la pagina de noticias
 app.get('/profile', (req, res) => { res.render('index') })
 

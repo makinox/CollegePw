@@ -6269,5 +6269,12 @@ body {
 .signin {
   margin-bottom: 140px; }
 
+.sub {
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
+  border-radius: 5px;
+  margin-bottom: 5px; }
+
 #footer {
   background: #F7F7F7; }
