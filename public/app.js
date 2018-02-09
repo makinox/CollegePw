@@ -19,7 +19,7 @@ $.when($container.ready).then(function () {
   $('.relleno').remove();
 
   // Mostrando las vistas
-  $container.fadeIn('slow');
+  $container.fadeIn(10000000);
 
   // Barra de navegacion
   $('.button a').click(faded);
