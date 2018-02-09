@@ -6276,5 +6276,12 @@ body {
   border-radius: 5px;
   margin-bottom: 5px; }
 
+.form-gen-curses {
+  border-style: solid;
+  border-width: thin;
+  border-color: lightgray;
+  border-radius: 5px;
+  margin-bottom: 5px; }
+
 #footer {
   background: #F7F7F7; }
