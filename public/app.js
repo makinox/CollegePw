@@ -29,7 +29,7 @@ page('/gen-academy', function (ctx, next) {
 'use strict';
 'use-strict';
 
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta de que si se va a armar un grupo el periodo y el grado deben ser los mismos para que haya relacion\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grupo de estudiantes al cual estara destinado el curso</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="8-A" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingresar el que se hara cargo del curso</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="Alberto Jimenez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n      <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta de que si se va a armar un grupo el periodo y el grado deben ser los mismos para que haya relacion\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n<div class="row d-flex justify-content-center text-center">\n<span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n<div class="input-group mb-3 col-6">\n  <input type="text" class="form-control" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n    required>\n</div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grupo de estudiantes al cual estara destinado el curso</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="8-A" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingresar el que se hara cargo del curso</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="Alberto Jimenez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n      <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -59,7 +59,10 @@ page('/ges-academy', function (ctx, next) {
 });
 
 },{"./template":8,"jquery":22,"page":23}],8:[function(require,module,exports){
-"use strict";
+'use strict';
+'use-script';
+
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],9:[function(require,module,exports){
 'use strict';
@@ -73,12 +76,15 @@ page('/ges-users', function (ctx, next) {
 });
 
 },{"./template":10,"jquery":22,"page":23}],10:[function(require,module,exports){
-arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],11:[function(require,module,exports){
+'use strict';
+'user strict';
+
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica a los usuarios por medio de sus identificaciones o nombres\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombre completo</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Jes\xFAs david bossa \xE1lvarez" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Id usuario</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus123" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
-// const page = require('page')
 
 var $container = $('#main-container');
 
@@ -95,57 +101,12 @@ $.when($container.ready).then(function () {
   $('.relleno').remove();
 
   // Mostrando las vistas
-  $container.fadeIn();
+  $container.fadeIn('slow');
 
   // Barra de navegacion
   $('.button a').click(faded);
   $('.overlay a').click(faded);
-
-  // Redireccion
-  // $('.logo').click(() => {
-  //   page.redirect('./')
-  // })
-  // $('.signinl').click(() => {
-  //   page.redirect('./signin')
-  // })
-  // $('.homel').click(() => {
-  //   page.redirect('./home')
-  // })
-  // $('.signoutl').click(() => {
-  //   page.redirect('./signout')
-  // })
-  // $('.adminl').click(() => {
-  //   page.redirect('./admin')
-  // })
-  // $('.gen-academy').click(() => {
-  //   page.redirect('./gen-academy')
-  // })
-  // $('.gen-users').click(() => {
-  //   page.redirect('./gen-users')
-  // })
-  // $('.ges-academy').click(() => {
-  //   page.redirect('./ges-academy')
-  // })
-  // $('.ges-users').click(() => {
-  //   page.redirect('./ges-users')
-  // })
 });
-
-// Transitions
-// Base
-// page.base('/')
-
-// page('*', (ctx, next) => {
-//   if (ctx.init) {
-//     next()
-//   } else {
-//     $.classList.add('transition')
-//     setTimeout(() => {
-//       $.classList.remove('transition')
-//       next()
-//     }, 300)
-//   }
-// })
 
 },{"jquery":22}],12:[function(require,module,exports){
 'use strict';
@@ -189,7 +150,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":16,"jquery":22,"page":23}],16:[function(require,module,exports){
