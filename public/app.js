@@ -6,7 +6,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/admin', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":2,"jquery":22,"page":23}],2:[function(require,module,exports){
@@ -22,7 +22,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/gen-academy', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":4,"jquery":22,"page":23}],4:[function(require,module,exports){
@@ -39,7 +39,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/gen-users', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":6,"jquery":22,"page":23}],6:[function(require,module,exports){
@@ -48,19 +48,37 @@ page('/gen-users', function (ctx, next) {
 module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta que los usuarios disponibles son de estudiantes, profesores y administradores\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombre completo</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Jes\xFAs david bossa \xE1lvarez" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Id usuario</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus123" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="estudiante // profesor // administrador" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Grado</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="11-A" aria-label="11" aria-describedby="basic-addon1" required disabled>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],7:[function(require,module,exports){
-arguments[4][3][0].apply(exports,arguments)
-},{"./template":8,"dup":3,"jquery":22,"page":23}],8:[function(require,module,exports){
+'use strict';
+
+var page = require('page');
+var $ = require('jquery');
+var template = require('./template');
+
+page('/ges-academy', function (ctx, next) {
+  $('#main-container').empty().append(template);
+});
+
+},{"./template":8,"jquery":22,"page":23}],8:[function(require,module,exports){
 "use strict";
 
 },{}],9:[function(require,module,exports){
-arguments[4][3][0].apply(exports,arguments)
-},{"./template":10,"dup":3,"jquery":22,"page":23}],10:[function(require,module,exports){
+'use strict';
+
+var page = require('page');
+var $ = require('jquery');
+var template = require('./template');
+
+page('/ges-users', function (ctx, next) {
+  $('#main-container').empty().append(template);
+});
+
+},{"./template":10,"jquery":22,"page":23}],10:[function(require,module,exports){
 arguments[4][8][0].apply(exports,arguments)
 },{"dup":8}],11:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
-var page = require('page');
+// const page = require('page')
 
 var $container = $('#main-container');
 
@@ -84,36 +102,52 @@ $.when($container.ready).then(function () {
   $('.overlay a').click(faded);
 
   // Redireccion
-  $('.logo').click(function () {
-    page.redirect('./');
-  });
-  $('.signinl').click(function () {
-    page.redirect('./signin');
-  });
-  $('.homel').click(function () {
-    page.redirect('./home');
-  });
-  $('.signoutl').click(function () {
-    page.redirect('./signout');
-  });
-  $('.adminl').click(function () {
-    page.redirect('./admin');
-  });
-  $('.gen-academy').click(function () {
-    page.redirect('./gen-academy');
-  });
-  $('.gen-users').click(function () {
-    page.redirect('./gen-users');
-  });
-  $('.ges-academy').click(function () {
-    page.redirect('./ges-academy');
-  });
-  $('.ges-users').click(function () {
-    page.redirect('./ges-users');
-  });
+  // $('.logo').click(() => {
+  //   page.redirect('./')
+  // })
+  // $('.signinl').click(() => {
+  //   page.redirect('./signin')
+  // })
+  // $('.homel').click(() => {
+  //   page.redirect('./home')
+  // })
+  // $('.signoutl').click(() => {
+  //   page.redirect('./signout')
+  // })
+  // $('.adminl').click(() => {
+  //   page.redirect('./admin')
+  // })
+  // $('.gen-academy').click(() => {
+  //   page.redirect('./gen-academy')
+  // })
+  // $('.gen-users').click(() => {
+  //   page.redirect('./gen-users')
+  // })
+  // $('.ges-academy').click(() => {
+  //   page.redirect('./ges-academy')
+  // })
+  // $('.ges-users').click(() => {
+  //   page.redirect('./ges-users')
+  // })
 });
 
-},{"jquery":22,"page":23}],12:[function(require,module,exports){
+// Transitions
+// Base
+// page.base('/')
+
+// page('*', (ctx, next) => {
+//   if (ctx.init) {
+//     next()
+//   } else {
+//     $.classList.add('transition')
+//     setTimeout(() => {
+//       $.classList.remove('transition')
+//       next()
+//     }, 300)
+//   }
+// })
+
+},{"jquery":22}],12:[function(require,module,exports){
 'use strict';
 
 var page = require('page');
@@ -121,7 +155,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/home', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":13,"jquery":22,"page":23}],13:[function(require,module,exports){
@@ -171,7 +205,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/signin', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":18,"jquery":22,"page":23}],18:[function(require,module,exports){
@@ -187,7 +221,7 @@ var $ = require('jquery');
 var template = require('./template');
 
 page('/signout', function (ctx, next) {
-  $('#main-container').append(template);
+  $('#main-container').empty().append(template);
 });
 
 },{"./template":20,"jquery":22,"page":23}],20:[function(require,module,exports){
