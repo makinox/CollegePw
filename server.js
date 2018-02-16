@@ -28,7 +28,7 @@ app.get('/admin', (req, res) => { res.render('index') })
 // Get de la pagina de registro
 app.get('/signout', (req, res) => { res.render('index') })
 
-// Get de la pagina de noticias
+// Get de la pagina de perfil
 app.get('/profile', (req, res) => { res.render('index') })
 
 // Get de las pagina generacion y gestion

@@ -6281,7 +6281,7 @@ body {
   border-width: thin;
   border-color: lightgray;
   border-radius: 5px;
-  padding-bottom: 10px; }
+  margin-bottom: 5px; }
 
 #footer {
   background: #F7F7F7; }
