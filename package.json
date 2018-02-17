@@ -18,7 +18,8 @@
     "page": "^1.8.3",
     "popper.js": "^1.12.9",
     "pug": "^2.0.0-rc.4",
-    "spin.js": "^3.1.0"
+    "spin.js": "^3.1.0",
+    "title": "^3.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
