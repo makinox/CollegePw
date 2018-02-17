@@ -1,5 +1,5 @@
 FROM node:8.9-alpine
-MAINTAINER Jesus Bossa <jesusboss@protonmail.com>
+MAINTAINER Jesus Bossa <jesusbossa@protonmail.com>
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
