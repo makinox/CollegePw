@@ -92,9 +92,13 @@ page('/ges-users', function (ctx, next) {
 module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica a los usuarios por medio de sus identificaciones o nombres\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombre completo</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Jes\xFAs david bossa \xE1lvarez" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Id usuario</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus123" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],11:[function(require,module,exports){
+(function (process){
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var $ = require('jquery');
+var host = process.env.ip || '192.168.0.31:3001';
 
 var $container = $('#main-container');
 
@@ -118,7 +122,20 @@ $.when($container.ready).then(function () {
   $('.overlay a').click(faded);
 });
 
-},{"jquery":25}],12:[function(require,module,exports){
+$.ajax({
+  url: 'http://' + host + '/users/1',
+  type: 'GET',
+  success: async function success(data, textStatus, xhr) {
+    // console.log(data)
+    data.forEach(function (user) {
+      $container.find('.name').empty().html(user.nombres);
+      console.log(typeof user === 'undefined' ? 'undefined' : _typeof(user));
+    });
+  }
+});
+
+}).call(this,require('_process'))
+},{"_process":28,"jquery":25}],12:[function(require,module,exports){
 'use strict';
 
 var orig = document.title;
@@ -195,7 +212,7 @@ page('/profile', function (ctx, next) {
 },{"./../global/title":12,"./template":17,"jquery":25,"page":26}],17:[function(require,module,exports){
 'use strict';
 
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<div class="row d-flex justify-content-center p-3">\n  <div class="card bg-dark text-white">\n    <img class="card-img" src="https://placem.at/places?w=720&h=240" alt="Card image">\n    <div class="card-img-overlay">\n      <h5 class="card-title">Armando Casas</h5>\n      <p class="card-text">11-A</p>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-left">\n  <div class="card pt-3 m-2 col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Notas recientes</h5>\n      <hr>\n      <p class="card-text">Matematicas 11 = <strong>5.0</strong></p>\n      <p class="card-text">Sociales 11 = <strong>4.0</strong></p>\n      <p class="card-text">Espa\xF1ol 11 = <strong>4.7</strong></p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Hoy tienes disponible estas clases</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Tienes tareas pendientes</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n</div>\n</div>';
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<div class="row d-flex justify-content-center p-3">\n  <div class="card bg-dark text-white">\n    <img class="card-img" src="https://placem.at/places?w=720&h=240" alt="Card image">\n    <div class="card-img-overlay">\n      <h5 class="card-title name">:name:</h5>\n      <p class="card-text">11-A</p>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-left">\n  <div class="card pt-3 m-2 col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Notas recientes</h5>\n      <hr>\n      <p class="card-text">Matematicas 11 = <strong>5.0</strong></p>\n      <p class="card-text">Sociales 11 = <strong>4.0</strong></p>\n      <p class="card-text">Espa\xF1ol 11 = <strong>4.7</strong></p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Hoy tienes disponible estas clases</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Tienes tareas pendientes</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n</div>\n</div>';
 
 },{}],18:[function(require,module,exports){
 'use strict';

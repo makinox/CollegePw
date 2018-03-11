@@ -4,8 +4,8 @@
   "description": "El colegio del futuro",
   "main": "server.js",
   "scripts": {
-    "test": "standard",
-    "start": "standard && gulp && node server",
+    "lint": "standard --fix",
+    "start": "npm run lint && gulp && node server",
     "server": "node server.js"
   },
   "author": "Jesus Bossa",
@@ -28,6 +28,7 @@
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "nodemon": "^1.17.1",
     "standard": "^10.0.3",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0"
