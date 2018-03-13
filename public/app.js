@@ -23,17 +23,48 @@ var page = require('page');
 var $ = require('jquery');
 var template = require('./template');
 var title = require('./../global/title');
+var conect = require('./../global/index');
+var $main = $('#main-container');
 
 page('/gen-academy', function (ctx, next) {
   title('Utopia | Genera nuevos cursos');
-  $('#main-container').empty().append(template);
+  $main.empty().append(template);
+  $main.find('#gen-academy').on('submit', function (ev) {
+    ev.preventDefault();
+    var nombreCurso = $main.find('.nombreCurso').val();
+    var periodo = $main.find('.periodo').val();
+    var curso = $main.find('.curso').val();
+    var codigoG = $main.find('.codigoG').val();
+    console.log(nombreCurso);
+    console.log(periodo);
+    console.log(curso);
+    console.log(codigoG);
+    $.ajax({
+      type: 'POST',
+      url: 'http://' + conect.host + '/subjects',
+      data: {
+        nombreCurso: nombreCurso,
+        periodo: periodo,
+        curso: curso,
+        codigoG: codigoG
+      },
+      success: function success(data, textStatus, jqXHR) {
+        console.log(data);
+        console.log(textStatus);
+        console.log(jqXHR);
+      },
+      error: function error(jqXHR, text, _error) {
+        console.log('Hubo un error');
+      }
+    });
+  });
 });
 
-},{"./../global/title":12,"./template":4,"jquery":25,"page":26}],4:[function(require,module,exports){
+},{"./../global/index":11,"./../global/title":12,"./template":4,"jquery":25,"page":26}],4:[function(require,module,exports){
 'use strict';
 'use-strict';
 
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta de que si se va a armar un grupo el periodo y el grado deben ser los mismos para que haya relacion\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n<div class="row d-flex justify-content-center text-center">\n<span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n<div class="input-group mb-3 col-6">\n  <input type="text" class="form-control" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n    required>\n</div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grupo de estudiantes al cual estara destinado el curso</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control" placeholder="8-A" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingresar el que se hara cargo del curso</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="Alberto Jimenez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n      <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta de que si se va a armar un grupo el periodo y el grado deben ser los mismos para que haya relacion\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2" id="gen-academy">\n<div class="row d-flex justify-content-center text-center">\n<span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n<div class="input-group mb-3 col-6">\n  <input type="text" class="form-control nombreCurso" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n    required>\n</div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control periodo" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control curso" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el codigo especial del curso</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control codigoG" placeholder="math-a" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n  <div class="row d-flex justify-content-center text-center">\n      <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -207,14 +238,14 @@ var page = require('page');
 var $ = require('jquery');
 var template = require('./template');
 var title = require('./../global/title');
-var host = require('../global/index');
+var conect = require('../global/index');
 
 page('/profile', function (ctx, next) {
   title('Utopia | Tu perfil');
   $('#main-container').empty().append(template);
 
   $.ajax({
-    url: 'http://' + host.host + '/users/' + host.id,
+    url: 'http://' + conect.host + '/users/' + conect.id,
     type: 'GET',
     success: async function success(data, textStatus, xhr) {
       // console.log(data)
