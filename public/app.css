@@ -6126,6 +6126,12 @@ nav {
   float: left;
   padding: 6px; }
 
+.logon {
+  text-align: right;
+  float: right;
+  padding-top: 16px;
+  padding-right: 80px; }
+
 .visible {
   position: fixed;
   background: rgba(255, 255, 255, 0.9);

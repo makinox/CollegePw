@@ -19,39 +19,41 @@ head
   meta(name='theme-color', content='#ffffff')
   link(rel='stylesheet', href='app.css')
   title=title
-header
-  nav.visible.fixed-top
-    div
-      a.navbar-brand.logo(href='/')
-        img(src=' favicon.ico', alt='Logo', width='50', height='50')
-    .button
-      a.btn
-        img(src='open.svg', alt='Logo', width='50', height='50')
-  .overlay
-    .wrap.container
-      ul.wrap-nav.row
-        li.col-12
-          a() Ingresa
-          ul
-            li
-              a.signinl(href='/signin') Inicia sesión
-            li
-              a.signoutl(href='/signout') Regístrate
-        li.col-12
-          a() Descubre  
-          ul
-            li
-              a.homel(href='/home') Inicio 
-            li
-              a(href='/profile') Perfil
-            //- li
-            //-   a(href='#skills') Conocimientos
-        li.col-12
-          a() Administracion
-          ul
-            li
-              a.adminl(href='/admin') administrador
 body
+    section#header-container
+      header
+        nav.visible.fixed-top
+          div
+            a.navbar-brand.logo(href='/')
+              img(src=' favicon.ico', alt='Logo', width='50', height='50')
+          div
+            h4.logon.name
+          .button
+            a.btn
+              img(src='open.svg', alt='Logo', width='50', height='50')
+        .overlay
+          .wrap.container
+            ul.wrap-nav.row
+              li.col-12
+                a Ingresa
+                ul
+                  li
+                    a.signinl(href='/signin') Inicia sesión
+                  li
+                    a.signoutl(href='/signout') Regístrate
+              li.col-12
+                a Descubre
+                ul
+                  li
+                    a.homel(href='/home') Inicio
+                  li
+                    a(href='/profile') Perfil
+              li.col-12
+                a Administracion
+                ul
+                  li
+                    a.adminl(href='/admin') administrador
+
     div.relleno
     section#main-container
       .sk-cube-grid

@@ -95,10 +95,13 @@ module.exports = '<div class="container">\n<div class="row d-flex justify-conten
 (function (process){
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var $ = require('jquery');
-var host = process.env.ip || '192.168.0.31:3001';
+
+var conect = {
+  host: process.env.ip || '192.168.0.31:3001',
+  id: 1,
+  asignature: 0
+};
 
 var $container = $('#main-container');
 
@@ -123,16 +126,17 @@ $.when($container.ready).then(function () {
 });
 
 $.ajax({
-  url: 'http://' + host + '/users/1',
+  url: 'http://' + conect.host + '/users/' + conect.id,
   type: 'GET',
   success: async function success(data, textStatus, xhr) {
     // console.log(data)
-    data.forEach(function (user) {
-      $container.find('.name').empty().html(user.nombres);
-      console.log(typeof user === 'undefined' ? 'undefined' : _typeof(user));
+    await data.forEach(async function (user) {
+      await $('#header-container').find('.name').empty().html(user.nombres);
     });
   }
 });
+
+module.exports = conect;
 
 }).call(this,require('_process'))
 },{"_process":28,"jquery":25}],12:[function(require,module,exports){
@@ -203,16 +207,28 @@ var page = require('page');
 var $ = require('jquery');
 var template = require('./template');
 var title = require('./../global/title');
+var host = require('../global/index');
 
 page('/profile', function (ctx, next) {
   title('Utopia | Tu perfil');
   $('#main-container').empty().append(template);
+
+  $.ajax({
+    url: 'http://' + host.host + '/users/' + host.id,
+    type: 'GET',
+    success: async function success(data, textStatus, xhr) {
+      // console.log(data)
+      await data.forEach(async function (user) {
+        await $('#main-container').find('.apellidos').empty().html(user.nombres + ' ' + user.apellidos);
+      });
+    }
+  });
 });
 
-},{"./../global/title":12,"./template":17,"jquery":25,"page":26}],17:[function(require,module,exports){
+},{"../global/index":11,"./../global/title":12,"./template":17,"jquery":25,"page":26}],17:[function(require,module,exports){
 'use strict';
 
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<div class="row d-flex justify-content-center p-3">\n  <div class="card bg-dark text-white">\n    <img class="card-img" src="https://placem.at/places?w=720&h=240" alt="Card image">\n    <div class="card-img-overlay">\n      <h5 class="card-title name">:name:</h5>\n      <p class="card-text">11-A</p>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-left">\n  <div class="card pt-3 m-2 col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Notas recientes</h5>\n      <hr>\n      <p class="card-text">Matematicas 11 = <strong>5.0</strong></p>\n      <p class="card-text">Sociales 11 = <strong>4.0</strong></p>\n      <p class="card-text">Espa\xF1ol 11 = <strong>4.7</strong></p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Hoy tienes disponible estas clases</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Tienes tareas pendientes</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n</div>\n</div>';
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<div class="row d-flex justify-content-center p-3">\n  <div class="card bg-dark text-white">\n    <img class="card-img" src="https://placem.at/places?w=720&h=240" alt="Card image">\n    <div class="card-img-overlay">\n      <h5 class="card-title apellidos">:name:</h5>\n      <p class="card-text">11-A</p>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-left">\n  <div class="card pt-3 m-2 col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Notas recientes</h5>\n      <hr>\n      <p class="card-text">Matematicas 11 = <strong>5.0</strong></p>\n      <p class="card-text">Sociales 11 = <strong>4.0</strong></p>\n      <p class="card-text">Espa\xF1ol 11 = <strong>4.7</strong></p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Hoy tienes disponible estas clases</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Tienes tareas pendientes</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n</div>\n</div>';
 
 },{}],18:[function(require,module,exports){
 'use strict';
@@ -230,7 +246,7 @@ page('/', function (ctx, next) {
 },{"./../global/title":12,"./template":19,"jquery":25,"page":26}],19:[function(require,module,exports){
 'use strict';
 
-module.exports = '<section class="Bienvenida">\n<div class="container">\n  <div class="row d-flex justify-content-center text-center">\n    <div class="col jumbotron jumbotron-root p-5">\n      <h2 class="bienvenida titulo display-4">\n        Bienvenidos estudiantes de utopia\n      </h2>\n      <p class="lead">\n        Un espacio de estudio y educacion de alta calidad pensado para el futuro de los estudiantes\n      </p>\n      <hr class="my-4">\n      <p>Mira que te lo que te ofrece utopia para ti</p>\n      <p class="lead">\n        <a href="#acerca-de" class="btn btn-primary btn-lg" role="button">Saber mas</a>\n      </p>\n    </div>\n  </div>\n</div>\n</section>\n<section id="acerca-de">\n<div class="container">\n  <div class="row d-flex justify-content-center pb-3 pt-5">\n    <div class="card text-center">\n      <h5 class="card-header">Quienes somos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Somos un proyecto del pueblo para el pueblo</h5>\n        <p class="card-text">Atacamos la necesidad de una mejor gestion de educacion para aquellos que no tienen la posibilidad\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center pb-5">\n    <div class="card text-center">\n      <h5 class="card-header">Que hacemos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Mejoramos por medio de la tecnologia el proceso educativo</h5>\n        <p class="card-text"> \n          automatizamos procesos de organizacion, escritura y supervicion de estudiantes y profesores\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n</section>\n<div class="container">\n  <div class="row">\n    <div class="col time-educacion">\n      <img src="proceso.svg" alt="proceso" width="100%" height="100%">\n    </div>\n  </div>\n</div>';
+module.exports = '<section class="Bienvenida">\n<div class="container">\n  <div class="row d-flex justify-content-center text-center">\n    <div class="col jumbotron jumbotron-root p-5">\n      <h2 class="bienvenida titulo display-4">\n        Bienvenidos estudiantes de utopia\n      </h2>\n      <p class="lead">\n        Un espacio de estudio y educacion de alta calidad pensado para el futuro de los estudiantes\n      </p>\n      <hr class="my-4">\n      <p>Mira que te lo que te ofrece utopia para ti</p>\n      <p class="lead">\n        <a href="#acerca-de" class="btn btn-primary btn-lg" role="button">Saber mas</a>\n      </p>\n    </div>\n  </div>\n</div>\n</section>\n<section id="acerca-de">\n<div class="container">\n  <div class="row d-flex justify-content-center pb-3 pt-5">\n    <div class="card text-center">\n      <h5 class="card-header">Quienes somos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Somos un proyecto del pueblo para el pueblo</h5>\n        <p class="card-text">Atacamos la necesidad de una mejor gestion de educacion para aquellos que no tienen la posibilidad\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center pb-5">\n    <div class="card text-center">\n      <h5 class="card-header">Que hacemos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Mejoramos por medio de la tecnologia el proceso educativo</h5>\n        <p class="card-text">\n          automatizamos procesos de organizacion, escritura y supervicion de estudiantes y profesores\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n</section>\n<div class="container">\n  <div class="row">\n    <div class="col time-educacion">\n      <img src="proceso.svg" alt="proceso" width="100%" height="100%">\n    </div>\n  </div>\n</div>';
 
 },{}],20:[function(require,module,exports){
 'use strict';
