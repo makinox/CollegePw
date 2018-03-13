@@ -9,8 +9,8 @@ const source = require('vinyl-source-stream')
 
 gulp.task('styles', () => {
   gulp
-    .src('index.scss')
-    .pipe(sass())
+    .src('styles/index.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(rename('app.css'))
     .pipe(gulp.dest('public'))
 })
