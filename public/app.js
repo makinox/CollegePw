@@ -54,7 +54,9 @@ page('/gen-academy', function (ctx, next) {
         console.log(jqXHR);
       },
       error: function error(jqXHR, text, _error) {
-        console.log('Hubo un error');
+        console.log(jqXHR);
+        console.log(text);
+        console.log(_error);
       }
     });
   });
@@ -73,16 +75,55 @@ var page = require('page');
 var $ = require('jquery');
 var template = require('./template');
 var title = require('./../global/title');
+var conect = require('./../global/index');
+var $main = $('#main-container');
 
 page('/gen-users', function (ctx, next) {
   title('Utopia | Genera nuevos usuarios');
-  $('#main-container').empty().append(template);
+  $main.empty().append(template);
+  $main.find('#gen-users').on('submit', function (ev) {
+    ev.preventDefault();
+    var nombres = $main.find('.nombresa').val();
+    var apellidos = $main.find('.apellidosa').val();
+    var contraseña = $main.find('.contraseñaa').val();
+    var email = $main.find('.emaila').val();
+    var rol = $main.find('.rola').val();
+    if (rol == null) {
+      return console.log('Seleccionar un rol valido');
+    }
+    console.log(nombres);
+    console.log(apellidos);
+    console.log(contraseña);
+    console.log(email);
+    console.log(rol);
+    $.ajax({
+      type: 'POST',
+      url: 'http://' + conect.host + '/users',
+      data: {
+        nombres: nombres,
+        apellidos: apellidos,
+        contraseña: contraseña,
+        email: email,
+        rol: rol
+      },
+      success: function success(data, textStatus, jqXHR) {
+        console.log(data);
+        console.log(textStatus);
+        console.log(jqXHR);
+      },
+      error: function error(jqXHR, text, _error) {
+        console.log(jqXHR);
+        console.log(text);
+        console.log(_error);
+      }
+    });
+  });
 });
 
-},{"./../global/title":12,"./template":6,"jquery":25,"page":26}],6:[function(require,module,exports){
+},{"./../global/index":11,"./../global/title":12,"./template":6,"jquery":25,"page":26}],6:[function(require,module,exports){
 'use strict';
 
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta que los usuarios disponibles son de estudiantes, profesores y administradores\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombres</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Jes\xFAs david" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Apellidos</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="bossa \xE1lvarez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <div class="input-group-prepend">\n        <label class="input-group-text" for="inputGroupSelect01">Opciones</label>\n      </div>\n      <select class="custom-select" id="inputGroupSelect01">\n        <option selected disabled>Escoja una de las siguientes</option>\n        <option value="1">Estudiante</option>\n        <option value="2">Profesor</option>\n        <option value="3">Administrador</option>\n      </select>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
+module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta que los usuarios disponibles son de estudiantes, profesores y administradores\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2" id="gen-users">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombres</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control nombresa" placeholder="Jes\xFAs david" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Apellidos</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control apellidosa" placeholder="bossa \xE1lvarez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control emaila" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control contrase\xF1aa" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <div class="input-group-prepend">\n        <label class="input-group-text" for="inputGroupSelect01">Opciones</label>\n      </div>\n      <select class="custom-select rola" id="inputGroupSelect01" required>\n        <option selected disabled>Escoja una de las siguientes</option>\n        <option value="estudiante">Estudiante</option>\n        <option value="profesor">Profesor</option>\n        <option value="administrador">Administrador</option>\n      </select>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],7:[function(require,module,exports){
 'use strict';
