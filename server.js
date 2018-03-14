@@ -2,12 +2,18 @@
 
 const express = require('express')
 const app = express()
+const compression = require('compression')
 
 // Inicializando el puerto dinamico local y el de heroku
 app.set('port', (process.env.PORT || 5000))
 
 // Se le dice a express que escoga pug como motor de vistas
 app.set('view engine', 'pug')
+
+// Middlewares
+
+// Midleware que comprimira los archivos
+app.use(compression())
 
 // Middleware que le dice a express que los archivos que se van a utilizar estan en la carpeta public
 app.use(express.static('public'))

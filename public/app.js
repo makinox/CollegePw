@@ -1,361 +1,73 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-
-page('/admin', function (ctx, next) {
-  title('Utopia | Hola administrador');
-  $('#main-container').empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title');page('/admin',function(){title('Utopia | Hola administrador'),$('#main-container').empty().append(template)});
 
 },{"./../global/title":12,"./template":2,"jquery":25,"page":26}],2:[function(require,module,exports){
-'use strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Administrador\n    </h2>\n    <p class="lead">Aqui puedes administrar, gestionar y crear recursos para la institucion</p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row mb-3">\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Generar periodos academicos</h5>\n        <p class="card-text">Aqui puedes generar nuevos periodos academicos y generar asignaturas con sus respectivas clases</p>\n        <a href="/gen-academy" class="btn btn-primary gen-academy">Generar</a>\n      </div>\n    </div>\n  </div>\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Generar usuarios</h5>\n        <p class="card-text">Aqui puedes generar nuevos usuarios tales como estudiantes profesores y administradores</p>\n        <a href="/gen-users" class="btn btn-primary gen-users">Generar</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="row mb-3">\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Gestionar periodos academicos</h5>\n        <p class="card-text">Aqui puedes gestionar todos los atributos de los periodos academiscos existentes</p>\n        <a href="/ges-academy" class="btn btn-primary ges-academy">Gestionar</a>\n      </div>\n    </div>\n  </div>\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Gestionar usuarios</h5>\n        <p class="card-text">Aqui puedes gestionar toda la informacion de los usuarios</p>\n        <a href="/ges-users" class="btn btn-primary ges-users">Gestionar</a>\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
+'use strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Administrador\n    </h2>\n    <p class="lead">Aqui puedes administrar, gestionar y crear recursos para la institucion</p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row mb-3">\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Generar periodos academicos</h5>\n        <p class="card-text">Aqui puedes generar nuevos periodos academicos y generar asignaturas con sus respectivas clases</p>\n        <a href="/gen-academy" class="btn btn-primary gen-academy">Generar</a>\n      </div>\n    </div>\n  </div>\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Generar usuarios</h5>\n        <p class="card-text">Aqui puedes generar nuevos usuarios tales como estudiantes profesores y administradores</p>\n        <a href="/gen-users" class="btn btn-primary gen-users">Generar</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="row mb-3">\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Gestionar periodos academicos</h5>\n        <p class="card-text">Aqui puedes gestionar todos los atributos de los periodos academiscos existentes</p>\n        <a href="/ges-academy" class="btn btn-primary ges-academy">Gestionar</a>\n      </div>\n    </div>\n  </div>\n  <div class="col-sm-6">\n    <div class="card">\n      <div class="card-body">\n        <h5 class="card-title">Gestionar usuarios</h5>\n        <p class="card-text">Aqui puedes gestionar toda la informacion de los usuarios</p>\n        <a href="/ges-users" class="btn btn-primary ges-users">Gestionar</a>\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
 
 },{}],3:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-var conect = require('./../global/index');
-var $main = $('#main-container');
-
-page('/gen-academy', function (ctx, next) {
-  title('Utopia | Genera nuevos cursos');
-  $main.empty().append(template);
-  $main.find('#gen-academy').on('submit', function (ev) {
-    ev.preventDefault();
-    var nombreCurso = $main.find('.nombreCurso').val();
-    var periodo = $main.find('.periodo').val();
-    var curso = $main.find('.curso').val();
-    var codigoG = $main.find('.codigoG').val();
-    console.log(nombreCurso);
-    console.log(periodo);
-    console.log(curso);
-    console.log(codigoG);
-    $.ajax({
-      type: 'POST',
-      url: 'http://' + conect.host + '/subjects',
-      data: {
-        nombreCurso: nombreCurso,
-        periodo: periodo,
-        curso: curso,
-        codigoG: codigoG
-      },
-      success: function success(data, textStatus, jqXHR) {
-        console.log(data);
-        console.log(textStatus);
-        console.log(jqXHR);
-      },
-      error: function error(jqXHR, text, _error) {
-        console.log(jqXHR);
-        console.log(text);
-        console.log(_error);
-      }
-    });
-  });
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title'),conect=require('./../global/index'),$main=$('#main-container');page('/gen-academy',function(){title('Utopia | Genera nuevos cursos'),$main.empty().append(template),$main.find('#gen-academy').on('submit',function(a){a.preventDefault();var b=$main.find('.nombreCurso').val(),c=$main.find('.periodo').val(),d=$main.find('.curso').val(),e=$main.find('.codigoG').val();console.log(b),console.log(c),console.log(d),console.log(e),$.ajax({type:'POST',url:'http://'+conect.host+'/subjects',data:{nombreCurso:b,periodo:c,curso:d,codigoG:e},success:function success(a,b,c){console.log(a),console.log(b),console.log(c)},error:function error(a,b,c){console.log(a),console.log(b),console.log(c)}})})});
 
 },{"./../global/index":11,"./../global/title":12,"./template":4,"jquery":25,"page":26}],4:[function(require,module,exports){
-'use strict';
-'use-strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta de que si se va a armar un grupo el periodo y el grado deben ser los mismos para que haya relacion\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2" id="gen-academy">\n<div class="row d-flex justify-content-center text-center">\n<span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n<div class="input-group mb-3 col-6">\n  <input type="text" class="form-control nombreCurso" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n    required>\n</div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control periodo" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control curso" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el codigo especial del curso</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control codigoG" placeholder="math-a" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n  <div class="row d-flex justify-content-center text-center">\n      <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
+'use strict';'use-strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta de que si se va a armar un grupo el periodo y el grado deben ser los mismos para que haya relacion\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2" id="gen-academy">\n<div class="row d-flex justify-content-center text-center">\n<span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n<div class="input-group mb-3 col-6">\n  <input type="text" class="form-control nombreCurso" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n    required>\n</div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control periodo" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control curso" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2">Ingresar el codigo especial del curso</span>\n  <div class="input-group mb-3 col-7">\n    <input type="text" class="form-control codigoG" placeholder="math-a" aria-label="11" aria-describedby="basic-addon1" required>\n  </div>\n</div>\n  <div class="row d-flex justify-content-center text-center">\n      <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],5:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-var conect = require('./../global/index');
-var $main = $('#main-container');
-
-page('/gen-users', function (ctx, next) {
-  title('Utopia | Genera nuevos usuarios');
-  $main.empty().append(template);
-  $main.find('#gen-users').on('submit', function (ev) {
-    ev.preventDefault();
-    var nombres = $main.find('.nombresa').val();
-    var apellidos = $main.find('.apellidosa').val();
-    var contraseña = $main.find('.contraseñaa').val();
-    var email = $main.find('.emaila').val();
-    var rol = $main.find('.rola').val();
-    if (rol == null) {
-      return console.log('Seleccionar un rol valido');
-    }
-    console.log(nombres);
-    console.log(apellidos);
-    console.log(contraseña);
-    console.log(email);
-    console.log(rol);
-    $.ajax({
-      type: 'POST',
-      url: 'http://' + conect.host + '/users',
-      data: {
-        nombres: nombres,
-        apellidos: apellidos,
-        contraseña: contraseña,
-        email: email,
-        rol: rol
-      },
-      success: function success(data, textStatus, jqXHR) {
-        console.log(data);
-        console.log(textStatus);
-        console.log(jqXHR);
-      },
-      error: function error(jqXHR, text, _error) {
-        console.log(jqXHR);
-        console.log(text);
-        console.log(_error);
-      }
-    });
-  });
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title'),conect=require('./../global/index'),$main=$('#main-container');page('/gen-users',function(){title('Utopia | Genera nuevos usuarios'),$main.empty().append(template),$main.find('#gen-users').on('submit',function(a){a.preventDefault();var b=$main.find('.nombresa').val(),c=$main.find('.apellidosa').val(),d=$main.find('.contrase\xF1aa').val(),e=$main.find('.emaila').val(),f=$main.find('.rola').val();return null==f?console.log('Seleccionar un rol valido'):void(console.log(b),console.log(c),console.log(d),console.log(e),console.log(f),$.ajax({type:'POST',url:'http://'+conect.host+'/users',data:{nombres:b,apellidos:c,contraseña:d,email:e,rol:f},success:function success(a,b,c){console.log(a),console.log(b),console.log(c)},error:function error(a,b,c){console.log(a),console.log(b),console.log(c)}}))})});
 
 },{"./../global/index":11,"./../global/title":12,"./template":6,"jquery":25,"page":26}],6:[function(require,module,exports){
-'use strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta que los usuarios disponibles son de estudiantes, profesores y administradores\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2" id="gen-users">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombres</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control nombresa" placeholder="Jes\xFAs david" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Apellidos</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control apellidosa" placeholder="bossa \xE1lvarez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control emaila" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control contrase\xF1aa" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <div class="input-group-prepend">\n        <label class="input-group-text" for="inputGroupSelect01">Opciones</label>\n      </div>\n      <select class="custom-select rola" id="inputGroupSelect01" required>\n        <option selected disabled>Escoja una de las siguientes</option>\n        <option value="estudiante">Estudiante</option>\n        <option value="profesor">Profesor</option>\n        <option value="administrador">Administrador</option>\n      </select>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
+'use strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Crea\n    </h2>\n    <p class="lead">Ten en cuenta que los usuarios disponibles son de estudiantes, profesores y administradores\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2" id="gen-users">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombres</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control nombresa" placeholder="Jes\xFAs david" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Apellidos</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control apellidosa" placeholder="bossa \xE1lvarez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control emaila" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control contrase\xF1aa" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <div class="input-group-prepend">\n        <label class="input-group-text" for="inputGroupSelect01">Opciones</label>\n      </div>\n      <select class="custom-select rola" id="inputGroupSelect01" required>\n        <option selected disabled>Escoja una de las siguientes</option>\n        <option value="estudiante">Estudiante</option>\n        <option value="profesor">Profesor</option>\n        <option value="administrador">Administrador</option>\n      </select>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n</div>';
 
 },{}],7:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-
-page('/ges-academy', function (ctx, next) {
-  title('Utopia | Gestiona tus cursos');
-  $('#main-container').empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title');page('/ges-academy',function(){title('Utopia | Gestiona tus cursos'),$('#main-container').empty().append(template)});
 
 },{"./../global/title":12,"./template":8,"jquery":25,"page":26}],8:[function(require,module,exports){
-'use strict';
-'use-script';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de su Id\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar Id del curso</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="30" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n<div class="col p-5 m-3"></div>\n<form class="form-general mb-2  form-hide">\n  <div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n  <div class="input-group mb-3 col-6">\n    <input type="text" class="form-control" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n      required>\n  </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n\n  <div class="row d-flex justify-content-center text-center">\n      <span for="basic-url" class="w-100 mb-2">Codigo especial del curso</span>\n      <div class="input-group mb-3 col-7">\n        <input type="text" class="form-control" placeholder="gen-30" aria-label="11" aria-describedby="basic-addon1" required>\n      </div>\n    </div>\n    <div class="row d-flex justify-content-center text-center">\n        <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n    </div>\n  </form>\n</div>\n';
+'use strict';'use-script';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de su Id\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar Id del curso</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="30" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n<div class="col p-5 m-3"></div>\n<form class="form-general mb-2  form-hide">\n  <div class="row d-flex justify-content-center text-center">\n  <span for="basic-url" class="w-100 mb-2 mt-2">Nombre del curso</span>\n  <div class="input-group mb-3 col-6">\n    <input type="text" class="form-control" placeholder="Matematicas 11" aria-label="Username" aria-describedby="basic-addon1"\n      required>\n  </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Ingresar el periodo academico</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="2018-A" aria-label="Username" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingresar el grado</span>\n    <div class="input-group mb-3 col-7">\n      <input type="text" class="form-control" placeholder="11" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n\n  <div class="row d-flex justify-content-center text-center">\n      <span for="basic-url" class="w-100 mb-2">Codigo especial del curso</span>\n      <div class="input-group mb-3 col-7">\n        <input type="text" class="form-control" placeholder="gen-30" aria-label="11" aria-describedby="basic-addon1" required>\n      </div>\n    </div>\n    <div class="row d-flex justify-content-center text-center">\n        <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n    </div>\n  </form>\n</div>\n';
 
 },{}],9:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-var $main = $('#main-container');
-
-page('/ges-users', function (ctx, next) {
-  title('Utopia | Gestiona tus usuarios');
-  $main.empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title'),$main=$('#main-container');page('/ges-users',function(){title('Utopia | Gestiona tus usuarios'),$main.empty().append(template)});
 
 },{"./../global/title":12,"./template":10,"jquery":25,"page":26}],10:[function(require,module,exports){
-'use strict';
-'user strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica a los usuarios por medio de sus identificaciones o nombres\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingrese el Id del usuario</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="20" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n<!-- Ventana de estado de el usuario en la base de datos -->\n<div class="row dbStatus justify-content-center">\n      <div class="card pt-3 m-2 col-md-7">\n        <div class="card-body pl-5 pr-5">\n          <h5 class="card-title">Datos actuales</h5>\n          <hr>\n          <p class="card-text">Nombre:\n            <strong class="nombresb">:nombre:</strong>\n          </p>\n          <p class="card-text">Apellido:\n            <strong class="apellidosb">:apellido:</strong>\n          </p>\n          <p class="card-text">Contrase\xF1a:\n            <strong class="contrase\xF1ab">:contrase\xF1a:</strong>\n          </p>\n          <p class="card-text">email:\n            <strong class="emailb">:email:</strong>\n          </p>\n          <p class="card-text">rol:\n            <strong class="rolb">:rol:</strong>\n          </p>\n          <p class="card-text">codigo:\n            <strong class="codigob">:codigo:</strong>\n          </p>\n        </div>\n      </div>\n    </div>\n    <!-- Formulario de modificacion -->\n    <form class="form-general mb-2 form-hide">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombres</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Jes\xFAs david" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Apellidos</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="bossa \xE1lvarez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <div class="input-group-prepend">\n        <label class="input-group-text" for="inputGroupSelect01">Opciones</label>\n      </div>\n      <select class="custom-select" id="inputGroupSelect01">\n        <option selected disabled>Escoja una de las siguientes</option>\n        <option value="1">Estudiante</option>\n        <option value="2">Profesor</option>\n        <option value="3">Administrador</option>\n      </select>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n<div class="col p-5 m-5 "></div>\n</div>';
+'use strict';'user strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica a los usuarios por medio de sus identificaciones o nombres\n    </p>\n  </div>\n</div>\n<form class="form-general mb-2">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Ingrese el Id del usuario</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="20" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <span for="basic-url" class="w-100 mb-2"></span>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n<!-- Ventana de estado de el usuario en la base de datos -->\n<div class="row dbStatus justify-content-center">\n      <div class="card pt-3 m-2 col-md-7">\n        <div class="card-body pl-5 pr-5">\n          <h5 class="card-title">Datos actuales</h5>\n          <hr>\n          <p class="card-text">Nombre:\n            <strong class="nombresb">:nombre:</strong>\n          </p>\n          <p class="card-text">Apellido:\n            <strong class="apellidosb">:apellido:</strong>\n          </p>\n          <p class="card-text">Contrase\xF1a:\n            <strong class="contrase\xF1ab">:contrase\xF1a:</strong>\n          </p>\n          <p class="card-text">email:\n            <strong class="emailb">:email:</strong>\n          </p>\n          <p class="card-text">rol:\n            <strong class="rolb">:rol:</strong>\n          </p>\n          <p class="card-text">codigo:\n            <strong class="codigob">:codigo:</strong>\n          </p>\n        </div>\n      </div>\n    </div>\n    <!-- Formulario de modificacion -->\n    <form class="form-general mb-2 form-hide">\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2 mt-2">Nombres</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="Jes\xFAs david" aria-label="Username" aria-describedby="basic-addon1"\n        required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Apellidos</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="bossa \xE1lvarez" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Email</span>\n    <div class="input-group mb-3 col-6">\n      <input type="text" class="form-control" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Contrase\xF1a</span>\n    <div class="input-group mb-3 col-6">\n      <input type="password" class="form-control" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <span for="basic-url" class="w-100 mb-2">Rol que manejara</span>\n    <div class="input-group mb-3 col-6">\n      <div class="input-group-prepend">\n        <label class="input-group-text" for="inputGroupSelect01">Opciones</label>\n      </div>\n      <select class="custom-select" id="inputGroupSelect01">\n        <option selected disabled>Escoja una de las siguientes</option>\n        <option value="1">Estudiante</option>\n        <option value="2">Profesor</option>\n        <option value="3">Administrador</option>\n      </select>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n    <button type="submit" class="btn btn-primary mb-3">Enviar</button>\n  </div>\n</form>\n<div class="col p-5 m-5 "></div>\n</div>';
 
 },{}],11:[function(require,module,exports){
 (function (process){
-'use strict';
-
-var $ = require('jquery');
-
-var conect = {
-  host: process.env.ip || '192.168.0.31:3001',
-  id: 1,
-  asignature: 0
-};
-
-var $container = $('#main-container');
-
-var faded = function faded() {
-  $('.overlay').fadeToggle(500);
-  $('nav').toggleClass('visible').toggleClass('invisible');
-  $container.toggleClass('gauss');
-  $('.button i').toggleClass('btn-open').toggleClass('btn-close');
-};
-
-$.when($container.ready).then(function () {
-  // Quitando las cargas
-  $container.find('.sk-cube-grid').empty();
-  $('.relleno').remove();
-
-  // Mostrando las vistas
-  $container.fadeIn('slow');
-
-  // Barra de navegacion
-  $('.button a').click(faded);
-  $('.overlay a').click(faded);
-});
-
-$.ajax({
-  url: 'http://' + conect.host + '/users/' + conect.id,
-  type: 'GET',
-  success: async function success(data, textStatus, xhr) {
-    // console.log(data)
-    await data.forEach(async function (user) {
-      await $('#header-container').find('.name').empty().html(user.nombres);
-    });
-  }
-});
-
-module.exports = conect;
+'use strict';var $=require('jquery'),conect={host:process.env.ip||'192.168.0.31:3001',id:1,asignature:0},$container=$('#main-container'),faded=function(){$('.overlay').fadeToggle(500),$('nav').toggleClass('visible').toggleClass('invisible'),$container.toggleClass('gauss'),$('.button i').toggleClass('btn-open').toggleClass('btn-close')};$.when($container.ready).then(function(){$container.find('.sk-cube-grid').empty(),$('.relleno').remove(),$container.fadeIn('slow'),$('.button a').click(faded),$('.overlay a').click(faded)}),$.ajax({url:'http://'+conect.host+'/users/'+conect.id,type:'GET',success:async function success(a){await a.forEach(async function(a){await $('#header-container').find('.name').empty().html(a.nombres)})}}),module.exports=conect;
 
 }).call(this,require('_process'))
 },{"_process":28,"jquery":25}],12:[function(require,module,exports){
-'use strict';
-
-var orig = document.title;
-
-exports = module.exports = set;
-
-function set(str) {
-  var i = 1;
-  var args = arguments;
-  document.title = str.replace(/%[os]/g, function (_) {
-    switch (_) {
-      case '%o':
-        return orig;
-      case '%s':
-        return args[i++];
-    }
-  });
-}
-
-exports.reset = function () {
-  set(orig);
-};
+'use strict';var orig=document.title;exports=module.exports=set;function set(a){var b=1,c=arguments;document.title=a.replace(/%[os]/g,function(a){return'%o'===a?orig:'%s'===a?c[b++]:void 0})}exports.reset=function(){set(orig)};
 
 },{}],13:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-
-page('/home', function (ctx, next) {
-  title('Utopia | Hola bienvenido');
-  $('#main-container').empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title');page('/home',function(){title('Utopia | Hola bienvenido'),$('#main-container').empty().append(template)});
 
 },{"./../global/title":12,"./template":14,"jquery":25,"page":26}],14:[function(require,module,exports){
-'use strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-home">\n    <h2 class="bienvenida titulo display-4">\n      Puedes llamarme home\n    </h2>\n    <p class="lead">\n      Aqui puedes ver todo lo que se dice respecto a tu institucion\n    </p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center">\n  <div class="card">\n    <div class="card-header">\n      <h5>Hoy</h5>\n    </div>\n    <div class="card-body p-5">\n      <p class="card-text">Nada pendiente para hoy</p>\n    </div>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center">\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center">\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
+'use strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-home">\n    <h2 class="bienvenida titulo display-4">\n      Puedes llamarme home\n    </h2>\n    <p class="lead">\n      Aqui puedes ver todo lo que se dice respecto a tu institucion\n    </p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center">\n  <div class="card">\n    <div class="card-header">\n      <h5>Hoy</h5>\n    </div>\n    <div class="card-body p-5">\n      <p class="card-text">Nada pendiente para hoy</p>\n    </div>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center">\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-3">\n    <div class="card mt-3">\n      <img class="card-img-top" src="https://placem.at/places?w=300" alt="place">\n      <div class="card-body">\n        <h5 class="card-title">Noticia</h5>\n        <p class="card-text">horarios</p>\n      </div>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center">\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n  <div class="col-12 col-md-7 p-3">\n    <div class="card">\n      <div class="card-header">\n        <img src="https://placem.at/places?w=40" alt="place">\n        <h5 class="d-inline-flex text-muted">@alguien</h5>\n      </div>\n      <div class="card-body">\n        <blockquote class="blockquote mb-0">\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>\n          <footer class="blockquote-footer">algo\n          </footer>\n        </blockquote>\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
 
 },{}],15:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-
-require('./global');
-require('./root');
-require('./signin');
-require('./signout');
-require('./profile');
-require('./admin');
-require('./gen-academy');
-require('./gen-users');
-require('./ges-academy');
-require('./ges-users');
-require('./home');
-
-page();
+'use strict';var page=require('page');require('./global'),require('./root'),require('./signin'),require('./signout'),require('./profile'),require('./admin'),require('./gen-academy'),require('./gen-users'),require('./ges-academy'),require('./ges-users'),require('./home'),page();
 
 },{"./admin":1,"./gen-academy":3,"./gen-users":5,"./ges-academy":7,"./ges-users":9,"./global":11,"./home":13,"./profile":16,"./root":18,"./signin":20,"./signout":22,"page":26}],16:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-var conect = require('../global/index');
-
-page('/profile', function (ctx, next) {
-  title('Utopia | Tu perfil');
-  $('#main-container').empty().append(template);
-
-  $.ajax({
-    url: 'http://' + conect.host + '/users/' + conect.id,
-    type: 'GET',
-    success: async function success(data, textStatus, xhr) {
-      // console.log(data)
-      await data.forEach(async function (user) {
-        await $('#main-container').find('.apellidos').empty().html(user.nombres + ' ' + user.apellidos);
-      });
-    }
-  });
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title'),conect=require('../global/index');page('/profile',function(){title('Utopia | Tu perfil'),$('#main-container').empty().append(template),$.ajax({url:'http://'+conect.host+'/users/'+conect.id,type:'GET',success:async function success(a){await a.forEach(async function(a){await $('#main-container').find('.apellidos').empty().html(a.nombres+' '+a.apellidos)})}})});
 
 },{"../global/index":11,"./../global/title":12,"./template":17,"jquery":25,"page":26}],17:[function(require,module,exports){
-'use strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<div class="row d-flex justify-content-center p-3">\n  <div class="card bg-dark text-white">\n    <img class="card-img" src="https://placem.at/places?w=720&h=240" alt="Card image">\n    <div class="card-img-overlay">\n      <h5 class="card-title apellidos">:name:</h5>\n      <p class="card-text">11-A</p>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-left">\n  <div class="card pt-3 m-2 col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Notas recientes</h5>\n      <hr>\n      <p class="card-text">Matematicas 11 = <strong>5.0</strong></p>\n      <p class="card-text">Sociales 11 = <strong>4.0</strong></p>\n      <p class="card-text">Espa\xF1ol 11 = <strong>4.7</strong></p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Hoy tienes disponible estas clases</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Tienes tareas pendientes</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n</div>\n</div>';
+'use strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Modifica\n    </h2>\n    <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de sus Id o periodo academico\n    </p>\n  </div>\n</div>\n<div class="row d-flex justify-content-center p-3">\n  <div class="card bg-dark text-white">\n    <img class="card-img" src="https://placem.at/places?w=720&h=240" alt="Card image">\n    <div class="card-img-overlay">\n      <h5 class="card-title apellidos">:name:</h5>\n      <p class="card-text">11-A</p>\n    </div>\n  </div>\n</div>\n<div class="row d-flex justify-content-center text-left">\n  <div class="card pt-3 m-2 col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Notas recientes</h5>\n      <hr>\n      <p class="card-text">Matematicas 11 = <strong>5.0</strong></p>\n      <p class="card-text">Sociales 11 = <strong>4.0</strong></p>\n      <p class="card-text">Espa\xF1ol 11 = <strong>4.7</strong></p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Hoy tienes disponible estas clases</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n  <div class="card pt-3 m-2  col-md-7">\n    <div class="card-body pl-5 pr-5">\n      <h5 class="card-title">Tienes tareas pendientes</h5>\n      <hr>\n      <p class="card-text">Sociales</p>\n      <p class="card-text">Ingles</p>\n      <p class="card-text">Fisica</p>\n    </div>\n  </div>\n</div>\n</div>';
 
 },{}],18:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-
-page('/', function (ctx, next) {
-  title('Utopia | Mejorando la calidad de educacion');
-  $('#main-container').empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title');page('/',function(){title('Utopia | Mejorando la calidad de educacion'),$('#main-container').empty().append(template)});
 
 },{"./../global/title":12,"./template":19,"jquery":25,"page":26}],19:[function(require,module,exports){
-'use strict';
-
-module.exports = '<section class="Bienvenida">\n<div class="container">\n  <div class="row d-flex justify-content-center text-center">\n    <div class="col jumbotron jumbotron-root p-5">\n      <h2 class="bienvenida titulo display-4">\n        Bienvenidos estudiantes de utopia\n      </h2>\n      <p class="lead">\n        Un espacio de estudio y educacion de alta calidad pensado para el futuro de los estudiantes\n      </p>\n      <hr class="my-4">\n      <p>Mira que te lo que te ofrece utopia para ti</p>\n      <p class="lead">\n        <a href="#acerca-de" class="btn btn-primary btn-lg" role="button">Saber mas</a>\n      </p>\n    </div>\n  </div>\n</div>\n</section>\n<section id="acerca-de">\n<div class="container">\n  <div class="row d-flex justify-content-center pb-3 pt-5">\n    <div class="card text-center">\n      <h5 class="card-header">Quienes somos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Somos un proyecto del pueblo para el pueblo</h5>\n        <p class="card-text">Atacamos la necesidad de una mejor gestion de educacion para aquellos que no tienen la posibilidad\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center pb-5">\n    <div class="card text-center">\n      <h5 class="card-header">Que hacemos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Mejoramos por medio de la tecnologia el proceso educativo</h5>\n        <p class="card-text">\n          automatizamos procesos de organizacion, escritura y supervicion de estudiantes y profesores\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n</section>\n<div class="container">\n  <div class="row">\n    <div class="col time-educacion">\n      <img src="proceso.svg" alt="proceso" width="100%" height="100%">\n    </div>\n  </div>\n</div>';
+'use strict';module.exports='<section class="Bienvenida">\n<div class="container">\n  <div class="row d-flex justify-content-center text-center">\n    <div class="col jumbotron jumbotron-root p-5">\n      <h2 class="bienvenida titulo display-4">\n        Bienvenidos estudiantes de utopia\n      </h2>\n      <p class="lead">\n        Un espacio de estudio y educacion de alta calidad pensado para el futuro de los estudiantes\n      </p>\n      <hr class="my-4">\n      <p>Mira que te lo que te ofrece utopia para ti</p>\n      <p class="lead">\n        <a href="#acerca-de" class="btn btn-primary btn-lg" role="button">Saber mas</a>\n      </p>\n    </div>\n  </div>\n</div>\n</section>\n<section id="acerca-de">\n<div class="container">\n  <div class="row d-flex justify-content-center pb-3 pt-5">\n    <div class="card text-center">\n      <h5 class="card-header">Quienes somos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Somos un proyecto del pueblo para el pueblo</h5>\n        <p class="card-text">Atacamos la necesidad de una mejor gestion de educacion para aquellos que no tienen la posibilidad\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center pb-5">\n    <div class="card text-center">\n      <h5 class="card-header">Que hacemos</h5>\n      <div class="card-body">\n        <h5 class="card-title">Mejoramos por medio de la tecnologia el proceso educativo</h5>\n        <p class="card-text">\n          automatizamos procesos de organizacion, escritura y supervicion de estudiantes y profesores\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n</section>\n<div class="container">\n  <div class="row">\n    <div class="col time-educacion">\n      <img src="proceso.svg" alt="proceso" width="100%" height="100%">\n    </div>\n  </div>\n</div>';
 
 },{}],20:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-
-page('/signin', function (ctx, next) {
-  title('Utopia | Ingresa');
-  $('#main-container').empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title');page('/signin',function(){title('Utopia | Ingresa'),$('#main-container').empty().append(template)});
 
 },{"./../global/title":12,"./template":21,"jquery":25,"page":26}],21:[function(require,module,exports){
-'use strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Bienvenido\n    </h2>\n    <p class="lead">Inicia sesion</p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="card col-6 signin">\n    <div class="card-body">\n      <div class="input-group mb-3">\n        <input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">\n      </div>\n      \n      <div class="input-group mb-3">\n        <input type="password" class="form-control" placeholder="contrase\xF1a" aria-label="Username" aria-describedby="basic-addon1">\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
+'use strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Bienvenido\n    </h2>\n    <p class="lead">Inicia sesion</p>\n  </div>\n</div>\n</div>\n<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="card col-6 signin">\n    <div class="card-body">\n      <div class="input-group mb-3">\n        <input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">\n      </div>\n      \n      <div class="input-group mb-3">\n        <input type="password" class="form-control" placeholder="contrase\xF1a" aria-label="Username" aria-describedby="basic-addon1">\n      </div>\n    </div>\n  </div>\n</div>\n</div>';
 
 },{}],22:[function(require,module,exports){
-'use strict';
-
-var page = require('page');
-var $ = require('jquery');
-var template = require('./template');
-var title = require('./../global/title');
-
-page('/signout', function (ctx, next) {
-  title('Utopia | Registrate');
-  $('#main-container').empty().append(template);
-});
+'use strict';var page=require('page'),$=require('jquery'),template=require('./template'),title=require('./../global/title');page('/signout',function(){title('Utopia | Registrate'),$('#main-container').empty().append(template)});
 
 },{"./../global/title":12,"./template":23,"jquery":25,"page":26}],23:[function(require,module,exports){
-'use strict';
-
-module.exports = '<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Registro\n    </h2>\n    <p class="lead">Aqui puedes iniciar el proceso de registro de tu institucion</p>\n  </div>\n</div>\n</div>\n<div class="container sub">\n<form class="need-validation" >\n  <div class="form-row d-flex justify-content-center text-center">\n    <div class="col-md-7 mb-3">\n      <label for="validationCustomUsername">Identificacion</label>\n      <div class="input-group">\n        <div class="input-group-prepend">\n          <span class="input-group-text" id="inputGroupPrepend">@</span>\n        </div>\n        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nombre por el cual la institucion va a ser identificada"\n          aria-describedby="inputGroupPrepend" required>\n        <div class="valid-feedback">Correcto</div>  \n        <div class="invalid-feedback">Necesita poner un nombre valido</div>\n      </div>\n    </div>\n    <div class="col-md-7 mb-3">\n      <label for="validationCustom01">Nombre de la institucion</label>\n      <input type="text" class="form-control" id="validationCustom01" placeholder="Ex: Institucion educativa utopia" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Necesita poner un nombre valido</div>\n    </div>\n    <div class="form-group col-7">\n      <label for="validationCustom02">Elija los servicios que va a prestar</label>\n      <select class="custom-select" id="validationCustom02" required>\n        <option value="">Seleccione una de las opciones</option>\n        <option value="1">Primaria</option>\n        <option value="2">Bachillerato</option>\n        <option value="3">Ambas</option>\n      </select>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Debe escoger una de esas</div>\n    </div>\n    <div class="col-12"></div>\n    <div class="col-md-4 mb-3">\n      <label for="validationCustom03">Usuario administrador</label>\n      <input type="text" class="form-control" id="validationCustom03" placeholder="Usuario" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Debe escoger un valor no mayor a 12 caracteres</div>\n    </div>\n    <div class="col-md-4 mb-3">\n      <label for="validationCustom04">Contrase\xF1a administrador</label>\n      <input type="password" class="form-control" id="validationCustom04" placeholder="Contrase\xF1a" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Por favor ingrese una contrase\xF1a valida</div>\n    </div>\n    <div class="form-group col-12">\n      <div class="form-check">\n        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>\n        <label class="form-check-label" for="invalidCheck">\n          Aceptar terminos y condiciones\n        </label>\n        <div class="invalid-feedback">Debe aceptar antes de enviar los datos</div>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n      <button class="btn btn-primary mb-3 envio" type="submit">Registrarse</button>\n  </div>\n</form>\n</div>';
+'use strict';module.exports='<div class="container">\n<div class="row d-flex justify-content-center text-center">\n  <div class="col jumbotron jumbotron-signin">\n    <h2 class="bienvenida titulo display-4">\n      Registro\n    </h2>\n    <p class="lead">Aqui puedes iniciar el proceso de registro de tu institucion</p>\n  </div>\n</div>\n</div>\n<div class="container sub">\n<form class="need-validation" >\n  <div class="form-row d-flex justify-content-center text-center">\n    <div class="col-md-7 mb-3">\n      <label for="validationCustomUsername">Identificacion</label>\n      <div class="input-group">\n        <div class="input-group-prepend">\n          <span class="input-group-text" id="inputGroupPrepend">@</span>\n        </div>\n        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nombre por el cual la institucion va a ser identificada"\n          aria-describedby="inputGroupPrepend" required>\n        <div class="valid-feedback">Correcto</div>  \n        <div class="invalid-feedback">Necesita poner un nombre valido</div>\n      </div>\n    </div>\n    <div class="col-md-7 mb-3">\n      <label for="validationCustom01">Nombre de la institucion</label>\n      <input type="text" class="form-control" id="validationCustom01" placeholder="Ex: Institucion educativa utopia" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Necesita poner un nombre valido</div>\n    </div>\n    <div class="form-group col-7">\n      <label for="validationCustom02">Elija los servicios que va a prestar</label>\n      <select class="custom-select" id="validationCustom02" required>\n        <option value="">Seleccione una de las opciones</option>\n        <option value="1">Primaria</option>\n        <option value="2">Bachillerato</option>\n        <option value="3">Ambas</option>\n      </select>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Debe escoger una de esas</div>\n    </div>\n    <div class="col-12"></div>\n    <div class="col-md-4 mb-3">\n      <label for="validationCustom03">Usuario administrador</label>\n      <input type="text" class="form-control" id="validationCustom03" placeholder="Usuario" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Debe escoger un valor no mayor a 12 caracteres</div>\n    </div>\n    <div class="col-md-4 mb-3">\n      <label for="validationCustom04">Contrase\xF1a administrador</label>\n      <input type="password" class="form-control" id="validationCustom04" placeholder="Contrase\xF1a" required>\n      <div class="valid-feedback">Correcto</div>\n      <div class="invalid-feedback">Por favor ingrese una contrase\xF1a valida</div>\n    </div>\n    <div class="form-group col-12">\n      <div class="form-check">\n        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>\n        <label class="form-check-label" for="invalidCheck">\n          Aceptar terminos y condiciones\n        </label>\n        <div class="invalid-feedback">Debe aceptar antes de enviar los datos</div>\n      </div>\n    </div>\n  </div>\n  <div class="row d-flex justify-content-center text-center">\n      <button class="btn btn-primary mb-3 envio" type="submit">Registrarse</button>\n  </div>\n</form>\n</div>';
 
 },{}],24:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
