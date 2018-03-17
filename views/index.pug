@@ -1,7 +1,23 @@
 doctype html
 html(lang='es')
-head
-body
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='El colegio del futuro')
+    meta(name='author', content='Jesus Bossa')
+    link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+    link(rel='manifest', href='/site.webmanifest')
+    link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#5bbad5')
+    link(rel='shortcut icon', type='image/x-icon', href='/favicon.ico')
+    meta(name='apple-mobile-web-app-title', content='Utopia')
+    meta(name='application-name', content='Utopia')
+    meta(name='msapplication-TileColor', content='#2d89ef')
+    meta(name='msapplication-TileImage', content='/mstile-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+    link(rel='stylesheet', href='app.css')
+  body
     section#header-container
       header
         nav.visible.fixed-top
@@ -35,8 +51,7 @@ body
                 ul
                   li
                     a.adminl(href='/admin') administrador
-
-    div.relleno
+    .relleno
     section#main-container
       .sk-cube-grid
         .sk-cube.sk-cube1
@@ -48,7 +63,7 @@ body
         .sk-cube.sk-cube7
         .sk-cube.sk-cube8
         .sk-cube.sk-cube9
-    div.relleno
+    .relleno
     footer#footer
       .container
         .row.d-flex
@@ -57,4 +72,4 @@ body
               a.btn(href='https://makinox.github.io/PortafolioPersonal/') Powered by: Jesus bossa
           .col.d-inline-flex.justify-content-end.mt-2
             h6.text-muted ©MIT Utopia1
-script(type='application/javascript' src='app.js')
+  script(type='application/javascript', src='app.js')
