@@ -1,6 +1,6 @@
 {
   "name": "collegepw",
-  "version": "0.8.7",
+  "version": "1.2.3",
   "description": "El colegio del futuro",
   "main": "server.js",
   "scripts": {
