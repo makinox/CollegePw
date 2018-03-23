@@ -31,58 +31,34 @@
         <p class="lead">Revisa o modifica los cursos creados anteriormente por medio de su Id
         </p>
       </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Curso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <section id="recent">
+            </section>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <!-- formulario de notas -->
-    <form class="form-general mb-2" id="dbStat">
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="w-100 mb-2 mt-2">Usuario del estudiante</span>
-        <div class="input-group mb-3 col-6">
-          <input type="text" class="form-control userc" placeholder="sasnjiro" aria-label="Username" aria-describedby="basic-addon1"
-            required>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center" id="dbForm">
-        <span for="basic-url" class="w-100 mb-2 mt-2">Calificacion estudiante</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control cec" placeholder="5.0" aria-label="Usernamed" aria-describedby="basic-addon2" required>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="w-100 mb-2">Calificacion de profesor</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control cpc" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1" required>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="w-100 mb-2">Nota 1 corte</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control nt1" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1" required>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="w-100 mb-2">Nota 2 corte</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control nt2" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1" required>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="w-100 mb-2">Nota 3 corte</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control nt3" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1" required>
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center">
-        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
-      </div>
-    </form>
-    <section id="">
-    </section>
-  </div>
 
+    <div class="card pt-3 m-2 col-md-7">
+      <div class="card-body pl-5 pr-5">
+        <h5 class="card-title">Notas recientes</h5>
+        <hr>
+        <section id="recent">
+        </section>
+      </div>
+    </div>
 
-  </div>
-
-  <!-- ho -->
+    <!-- ho -->
 
 </body>
 
