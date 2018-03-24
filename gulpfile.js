@@ -6,6 +6,7 @@ const rename = require('gulp-rename')
 const babel = require('babelify')
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
+const workboxBuild = require('workbox-build')
 
 gulp.task('styles', () => {
   gulp
@@ -30,4 +31,16 @@ gulp.task('build', () => {
     .pipe(gulp.dest('public'))
 })
 
-gulp.task('default', ['styles', 'assets', 'build'])
+gulp.task('service-worker', () => {
+  return workboxBuild.generateSW({
+    'globDirectory': 'public/',
+    'globPatterns': [
+      '**/*.{png,css,js,xml,html,webmanifest}'
+    ],
+    'swDest': 'public\\utopia.js'
+  }).then(({count, size}) => {
+    console.log(`Generated , which will precache ${count} files, totaling ${size / 131072} Mb.`)
+  })
+})
+
+gulp.task('default', ['styles', 'assets', 'build', 'service-worker'])

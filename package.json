@@ -34,11 +34,15 @@
     "nodemon": "^1.17.1",
     "standard": "^10.0.3",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.10.0"
+    "watchify": "^3.10.0",
+    "workbox-build": "^3.0.1"
   },
   "standard": {
     "ignore": [
-      "/public/app.js"
+      "/public/app.js",
+      "src/service-worker.js",
+      "/public/utopia.js",
+      "/public/ch.js"
     ]
   }
 }

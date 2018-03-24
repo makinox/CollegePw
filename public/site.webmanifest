@@ -1,6 +1,9 @@
 {
     "name": "Utopia",
     "short_name": "Utopia",
+    "descripton": "La aplicacion del futuro para la educación",
+    "lang": "es",
+    "dir": "rtl",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,5 +18,6 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
+    "start_url": "./?utm_source=web_app_manifest",
     "display": "standalone"
 }
