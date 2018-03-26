@@ -1,6 +1,6 @@
 {
   "name": "collegepw",
-  "version": "1.2.3",
+  "version": "2.1.2",
   "description": "El colegio del futuro",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "npm run lint && gulp && node server",
     "server": "node server.js"
   },
-  "author": "Jesus Bossa",
+  "author": "Jesus Bossa <jesusbossa@protonmail.com>",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.0.0",
@@ -46,5 +46,13 @@
       "/public/utopia.js",
       "/public/ch.js"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makinox/CollegePw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/makinox/CollegePw/issues"
+  },
+  "homepage": "https://github.com/makinox/CollegePw#readme"
 }

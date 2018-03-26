@@ -6,11 +6,12 @@ const rename = require('gulp-rename')
 const babel = require('babelify')
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
-const workboxBuild = require('workbox-build')
+// const workboxBuild = require('workbox-build')
 const imagemin = require('gulp-imagemin')
 const size = require('gulp-size')
 const webp = require('gulp-webp')
 
+// Comprimiendo los estilos en uno solo, así como tambien los optimiza y minifica
 gulp.task('styles', () => {
   return gulp
     .src('styles/index.scss')
@@ -20,6 +21,7 @@ gulp.task('styles', () => {
     .pipe(size({title: 'styles'}))
 })
 
+// Pasando todos los assets del proyecto a la carpeta publica
 gulp.task('assets', () => {
   return gulp
     .src('assets/*')
@@ -39,6 +41,7 @@ gulp.task('images', () => {
     .pipe(size({title: 'images'}))
 })
 
+// Realiza el bundle del javascript optimizandolo y minificandolo
 gulp.task('build', () => {
   return browserify('./lib/index.js')
     .transform(babel, { presets: ['es2015', 'minify'] })
@@ -49,16 +52,17 @@ gulp.task('build', () => {
     .pipe(size({title: 'build'}))
 })
 
-gulp.task('service-worker', () => {
-  return workboxBuild.generateSW({
-    'globDirectory': 'public/',
-    'globPatterns': [
-      '**/*.{png,css,js,xml,html,webmanifest,ico,jpg,webp}'
-    ],
-    'swDest': 'public\\utopia.js'
-  }).then(({count, size}) => {
-    console.log(`Service-worker generado , Se precacheará ${count} archivos, un total de ${size / 131072} Mb.`)
-  })
-})
+// // Generando el service-worker de la app
+// gulp.task('service-worker', () => {
+//   return workboxBuild.generateSW({
+//     'globDirectory': 'public/',
+//     'globPatterns': [
+//       '**/*.{png,css,js,xml,html,webmanifest,ico,jpg,webp}'
+//     ],
+//     'swDest': 'public\\utopia.js'
+//   }).then(({count, size}) => {
+//     console.log(`Service-worker generado , Se precacheará ${count} archivos, un total de ${size / 131072} Mb.`)
+//   })
+// })
 
-gulp.task('default', ['styles', 'assets', 'images', 'build', 'service-worker'])
+gulp.task('default', ['styles', 'assets', 'images', 'build'])
