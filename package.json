@@ -1,6 +1,6 @@
 {
   "name": "collegepw",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "El colegio del futuro",
   "main": "server.js",
   "scripts": {
@@ -28,6 +28,8 @@
     "babelify": "^8.0.0",
     "browserify": "^15.2.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-changed": "^3.2.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
