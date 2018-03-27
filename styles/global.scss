@@ -1,3 +1,5 @@
+$mBlue: #1D3557;
+
 .gauss {
   filter: blur(3px);
   -ms-filter: blur(3px);
@@ -13,4 +15,7 @@ body {
 }
 .mainer {
   display: none;
+}
+.btn-primary {
+  background-color: $mBlue;
 }

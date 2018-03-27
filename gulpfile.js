@@ -9,10 +9,11 @@ const source = require('vinyl-source-stream')
 // const workboxBuild = require('workbox-build')
 const imagemin = require('gulp-imagemin')
 const size = require('gulp-size')
-const webp = require('gulp-webp')
+// const webp = require('gulp-webp')
 const prefixer = require('gulp-autoprefixer')
 const changed = require('gulp-changed')
 const dest = 'public'
+const browserSync = require('browser-sync')
 
 // Comprimiendo los estilos en uno solo, así como tambien los optimiza y minifica
 gulp.task('styles', () => {
@@ -21,7 +22,7 @@ gulp.task('styles', () => {
     .pipe(changed(dest))
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(rename('app.css'))
-    .pipe(prefixer({browsers: ['> 5%', 'ie 8']}))
+    .pipe(prefixer({browsers: ['ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10']}))
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'styles'}))
 })
@@ -35,16 +36,13 @@ gulp.task('assets', () => {
     .pipe(size({title: 'assets'}))
 })
 
-// Optimizar Imagenes
+// Optimizar imagenes
 gulp.task('images', () => {
   return gulp
     .src('images/**/*')
     .pipe(changed(dest))
-    .pipe(imagemin({
-      progressive: true,
-      interlaced: true
-    }))
-    .pipe(webp())
+    .pipe(imagemin({progressive: true, interlaced: true}))
+    // .pipe(webp())
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'images'}))
 })
@@ -73,4 +71,19 @@ gulp.task('build', () => {
 //   })
 // })
 
+gulp.task('serve', () => {
+  browserSync.init({
+    server: {
+      baseDir: '.'
+    }
+  })
+})
+
+gulp.task('watch', () => {
+  gulp.watch('./styles/*', ['styles'], browserSync.reload)
+  gulp.watch('*.html').on('change', browserSync.reload)
+  gulp.watch('./styles/*').on('change', browserSync.reload)
+})
+
+// gulp.task('default', ['watch', 'serve'])
 gulp.task('default', ['styles', 'assets', 'images', 'build'])
