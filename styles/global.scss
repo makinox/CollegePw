@@ -1,4 +1,5 @@
 $mBlue: #1D3557;
+$lBlue: #A8DADC;
 
 .gauss {
   filter: blur(3px);
@@ -18,4 +19,7 @@ body {
 }
 .btn-primary {
   background-color: $mBlue;
+}
+.btn-info {
+  background-color: $lBlue;
 }

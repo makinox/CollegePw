@@ -22,7 +22,7 @@
       console.log(status)
       let n = new Notification('Utopia', {
         body: 'Bienvenido a utopia 😊',
-        icon: 'favicon-32x32.webp'
+        icon: 'favicon-32x32.png'
       })
     })
   }
@@ -71,13 +71,13 @@
       metaTagTheme.setAttribute('content', '#F7DF1E')
       let n = new Notification('Utopia', {
         body: 'Conexión reestablecida 😊',
-        icon: 'favicon-32x32.webp'
+        icon: 'favicon-32x32.png'
       })
     } else {
       metaTagTheme.setAttribute('content', '#666')
       let n = new Notification('Utopia', {
         body: 'Conexión perdida 😓',
-        icon: 'favicon-32x32.webp'
+        icon: 'favicon-32x32.png'
       })
     }
   }
