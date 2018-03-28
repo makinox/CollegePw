@@ -29,12 +29,12 @@
 
   // Activar Sincronización de Fondo
   if ('serviceWorker' in n && 'SyncManager' in w) {
-    function registerBGSync () {
+    function registerBGSync() {
       n.serviceWorker.ready
         .then(registration => {
-          return registration.sync.register('github')
-            .then(() => c('Sincronización de Fondo Registrada 😊'))
-            .catch(err => c(`Fallo la Sincronización de Fondo 😌 ${err.message}`))
+          return registration.sync.register('utopia')
+            .then(() => c('Sincronización de Fondo Registrada'))
+            .catch(err => c('Fallo la Sincronización de Fondo', err))
         })
     }
 
