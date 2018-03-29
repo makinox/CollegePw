@@ -11,129 +11,82 @@
   <meta name="application-name" content="Utopia">
   <meta name="theme-color" content="#ffffff">
   <!-- meta general support -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/webp" sizes="32x32" href="/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/favicon-16x16.webp">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <!-- meta safari support -->
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <!-- meta apple support -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp">
   <meta name="apple-mobile-web-app-title" content="Utopia">
   <!-- meta tags windows -->
   <meta name="msapplication-TileColor" content="#2d89ef">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.webp">
   <!-- multi device tags -->
   <meta property="og:tile" content="Utopia">
   <meta property="og:locale" content="es">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="/apple-touch-icon.png">
+  <meta property="og:site_name" content="/apple-touch-icon.webp">
   <meta property="og:url" content="https://makinox.github.io/PortafolioPersonal/">
   <link rel="stylesheet" href="./public/app.css">
 </head>
 
 <body>
-  <section id="signout-container">
-    <div class="container">
-      <div class="row d-flex justify-content-center text-center">
-        <div class="col jumbotron jumbotron-signin">
-          <h2 class="bienvenida titulo display-4">
-            Registro
-          </h2>
-          <p class="lead">Aquí puedes iniciar el proceso de registro de tu institución</p>
-        </div>
+  <header>
+    <nav class="visible fixed-top">
+      <div>
+        <a href="/" class="navbar-brand logo">
+          <img src="./public/android-chrome-512x512.webp" alt="Logo" width="45" height="45" />
+        </a>
+      </div>
+      <div>
+        <a href="#" class="navbar-brand logo info ">
+          <img src="./public/info.svg" alt="Logo" width="30" height="30" />
+        </a>
+      </div>
+      <div class="button">
+        <a class="btn">
+          <img src="./public/open.svg" alt="Logo" width="30" height="30" />
+        </a>
+      </div>
+    </nav>
+    <div class="overlay">
+      <div class="wrap container">
+        <ul class="wrap-nav row">
+          <li class="col-12">
+            <a>Ingresa</a>
+            <ul>
+              <li>
+                <a href="/signin" class="signinl">Inicia sesión</a>
+              </li>
+              <li>
+                <a href="/signout" class="signoutl">Regístrate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="col-12">
+            <a>Descubre</a>
+            <ul>
+              <li>
+                <a href="/home" class="homel">Inicio</a>
+              </li>
+              <li>
+                <a href="/profile">Perfil</a>
+              </li>
+            </ul>
+          </li>
+          <li class="col-12">
+            <a>Administracion</a>
+            <ul>
+              <li>
+                <a href="/admin" class="adminl">administrador</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="container">
-      <form class="form-general mb-2  mb-5" id="signout">
-        <div class="row d-flex justify-content-center text-center pt-4 ">
-          <span for="basic-url" class="w-100 mb-2 mt-2">Identificación de la institución</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control identificacion" placeholder="Institucion educativa ejemplo" aria-label="institucion"
-              aria-describedby="basic-addon1" required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2 mt-2">Nombre de la institución</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control nombreEnt" placeholder="Liceo del ejemplo" aria-label="institucion" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2">Nivel de educación que brinda</span>
-          <div class="input-group mb-3 col-8">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
-            </div>
-            <select class="custom-select servicios" id="inputGroupSelect01" required>
-              <option selected disabled>Escoja una de las siguientes</option>
-              <option value="primaria">Primaria</option>
-              <option value="bachillerato">Bachillerato</option>
-              <option value="ambas">Ambas</option>
-            </select>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2 mt-2">Usuario global</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control usuariob" placeholder="liceo01" aria-label="Username" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2 mt-2">Contraseña</span>
-          <div class="input-group mb-3 col-8">
-            <input type="password" class="form-control contraseñab" placeholder="......" aria-label="Username" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2 mt-2">Nombres del responsable</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control nombresb" placeholder="Jesús David" aria-label="Username" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2">Apellidos del responsable</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control apellidosb" placeholder="Alexander Álvarez" aria-label="11" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2">Documento de identidad</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control documentob" placeholder="187982639" aria-label="11" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <span for="basic-url" class="w-100 mb-2">Email</span>
-          <div class="input-group mb-3 col-8">
-            <input type="text" class="form-control emailb" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1"
-              required>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <div class="form-group col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                  Aceptar términos y condiciones
-              </label>
-              <div class="invalid-feedback">Debe aceptar antes de enviar los datos</div>
-            </div>
-          </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-          <button class="btn btn-primary mb-3 envio" type="submit">Registrarse</button>
-        </div>
-      </form>
-    </div>
-  </section>
-</body>
-<!-- <script type="application/javascript" src="./public/ch.js"></script> -->
-<script type="application/javascript" src="./public/app.js"></script>
+  </header>
+  <script type="application/javascript" src="./public/app.js"></script>
 
 </html>

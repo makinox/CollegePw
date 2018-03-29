@@ -6,10 +6,9 @@ const rename = require('gulp-rename')
 const babel = require('babelify')
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
-// const workboxBuild = require('workbox-build')
 const imagemin = require('gulp-imagemin')
 const size = require('gulp-size')
-// const webp = require('gulp-webp')
+const webp = require('gulp-webp')
 const prefixer = require('gulp-autoprefixer')
 const changed = require('gulp-changed')
 const dest = 'public'
@@ -42,9 +41,19 @@ gulp.task('images', () => {
     .src('images/**/*')
     .pipe(changed(dest))
     .pipe(imagemin({progressive: true, interlaced: true}))
-    // .pipe(webp())
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'images'}))
+})
+
+// Optimizar iconos
+gulp.task('icons', () => {
+  return gulp
+    .src('icons/**/*')
+    .pipe(changed(dest))
+    .pipe(imagemin({progressive: true, interlaced: true}))
+    .pipe(webp())
+    .pipe(gulp.dest(dest))
+    .pipe(size({title: 'icons'}))
 })
 
 // Realiza el bundle del javascript optimizandolo y minificandolo
@@ -53,6 +62,7 @@ gulp.task('build', () => {
     .transform(babel, { presets: ['es2015', 'minify'] })
     .bundle()
     .pipe(source('index.js'))
+    .pipe(changed(dest))
     .pipe(rename('app.js'))
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'build'}))
@@ -86,4 +96,4 @@ gulp.task('watch', () => {
 })
 
 // gulp.task('default', ['watch', 'serve'])
-gulp.task('default', ['styles', 'assets', 'images', 'build'])
+gulp.task('default', ['styles', 'assets', 'images', 'icons', 'build'])

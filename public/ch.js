@@ -61,20 +61,19 @@
 
 // Detección del Estado de la Conexión
 ((d, w, n, c) => {
-  const header = d.querySelector('.Header'),
-    metaTagTheme = d.querySelector('meta[name=theme-color]')
+  const info = d.querySelector('.info')
 
   function networkStatus (e) {
     c(e, e.type)
 
     if (n.onLine) {
-      metaTagTheme.setAttribute('content', '#F7DF1E')
+      info.classList.remove('offline')
       let n = new Notification('Utopia', {
         body: 'Conexión reestablecida 😊',
         icon: 'favicon-32x32.png'
       })
     } else {
-      metaTagTheme.setAttribute('content', '#666')
+      info.classList.add('offline')
       let n = new Notification('Utopia', {
         body: 'Conexión perdida 😓',
         icon: 'favicon-32x32.png'

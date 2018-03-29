@@ -1,32 +1,33 @@
 const CACHE_NAME = 'utopiaCache',
   urlsToCache = [
-    'android-chrome-192x192.png',
-    'android-chrome-512x512.png',
+    'android-chrome-192x192.webp',
+    'android-chrome-512x512.webp',
     'app.css',
     'app.js',
-    'apple-touch-icon-120x120.png',
-    'apple-touch-icon-152x152.png',
-    'apple-touch-icon-180x180.png',
-    'apple-touch-icon-60x60.png',
-    'apple-touch-icon-76x76.png',
-    'apple-touch-icon.png',
+    'apple-touch-icon-120x120.webp',
+    'apple-touch-icon-152x152.webp',
+    'apple-touch-icon-180x180.webp',
+    'apple-touch-icon-60x60.webp',
+    'apple-touch-icon-76x76.webp',
+    'apple-touch-icon.webp',
     'browserconfig.xml',
     'ch.js',
-    'favicon-16x16.png',
-    'favicon-32x32.png',
+    'favicon-16x16.webp',
+    'favicon-32x32.webp',
     'open.svg',
     'favicon.ico',
     'html_code.html',
-    'mstile-144x144.png',
-    'mstile-150x150.png',
+    'mstile-144x144.webp',
+    'mstile-150x150.webp',
     'port.jpg',
     'site.webmanifest',
     '/',
-    '/favicon-16x16.png',
-    '/favicon-32x32.png',
+    '/favicon-16x16.webp',
+    '/favicon-32x32.webp',
     '/proceso.svg',
     '/trianglify.svg',
-    '/utopiaMockup1Pres.jpg'
+    '/utopiaMockup1Pres.jpg',
+    '/info.svg'
   ]
 
 self.addEventListener('install', e => {
@@ -89,12 +90,12 @@ self.addEventListener('push', e => {
   let title = 'Utopia',
     options = {
       body: 'Quiero saber que piensas',
-      icon: 'favicon-16x16.png',
+      icon: 'favicon-16x16.webp',
       vibrate: [100, 50, 100],
       data: { id: 1 },
       actions: [
-        { 'action': 'Si', 'title': 'Te gusta esta aplicación? 😀', icon: 'favicon-16x16.png' },
-        { 'action': 'No', 'title': 'No me gusta esta aplicación 😔', icon: 'favicon-16x16.png' }
+        { 'action': 'Si', 'title': 'Te gusta esta aplicación? 😀', icon: 'favicon-16x16.webp' },
+        { 'action': 'No', 'title': 'No me gusta esta aplicación 😔', icon: 'favicon-16x16.webp' }
       ]
     }
 

@@ -10,22 +10,22 @@ html(lang='es')
     meta(name='application-name', content='Utopia')
     meta(name='theme-color', content='#ffffff')
     // meta general support
-    link(rel='icon', type='image/png', sizes='32x32', href='/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='/favicon-16x16.png')
+    link(rel='icon', type='image/webp', sizes='32x32', href='/favicon-32x32.webp')
+    link(rel='icon', type='image/webp', sizes='16x16', href='/favicon-16x16.webp')
     link(rel='shortcut icon', type='image/x-icon', href='/favicon.ico')
     // meta safari support
     link(rel='mask-icon', href='/safari-pinned-tab.svg', color='#5bbad5')
     // meta apple support
-    link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon.webp')
     meta(name='apple-mobile-web-app-title', content='Utopia')
     // meta tags windows
     meta(name='msapplication-TileColor', content='#2d89ef')
-    meta(name='msapplication-TileImage', content='/mstile-144x144.png')
+    meta(name='msapplication-TileImage', content='/mstile-144x144.webp')
     // multi device tags
     meta(property='og:tile', content='Utopia')
     meta(property='og:locale', content='es')
     meta(property='og:type', content='website')
-    meta(property='og:site_name', content='/apple-touch-icon.png')
+    meta(property='og:site_name', content='/apple-touch-icon.webp')
     meta(property='og:url', content='https://makinox.github.io/PortafolioPersonal/')
     link(rel='stylesheet', href='app.css')
   body
@@ -35,12 +35,13 @@ html(lang='es')
         nav.visible.fixed-top
           div
             a.navbar-brand.logo(href='/')
-              img(src=' favicon.ico', alt='Logo', width='50', height='50')
+              img(src='./favicon.ico', alt='Logo', width='45', height='45')
           div
-            h4.logon.name
+            a.navbar-brand.logo.info(href='http://utopia1.herokuapp.com/')
+              img(src='./info.svg', alt='Logo', width='30', height='30')
           .button
             a.btn
-              img(src='open.svg', alt='Logo', width='50', height='50')
+              img(src='./open.svg', alt='Logo', width='30', height='30')
         .overlay
           .wrap.container
             ul.wrap-nav.row

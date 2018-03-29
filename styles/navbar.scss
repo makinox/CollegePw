@@ -26,6 +26,15 @@ nav {
   padding: 6px;
 }
 
+.info {
+  padding-top: 12px;
+}
+
+.offline {
+  color: #E63946;
+  background-color: #E63946;
+}
+
 .logon {
   text-align: right;
   float: right;
@@ -75,6 +84,7 @@ nav {
 .button {
   display: inline;
   position: absolute;
+  bottom: 50px;
   right: 80px;
   z-index: 999;
   font-size: 30px;
@@ -156,6 +166,8 @@ nav {
         font-family: 'Open Sans', sans-serif;
         font-size: 20px;
         color: $dBlue;
+        transition: all .2 linear 0s;
+        transition-property: all .2s linear 0s;
       }
       a:hover {
         color: $lBlue;
