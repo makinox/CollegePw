@@ -35,7 +35,6 @@
     "gulp-webp": "^3.0.0",
     "standard": "^10.0.3",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.10.0",
     "workbox-build": "^3.0.1"
   },
   "standard": {
@@ -43,7 +42,11 @@
       "/public/app.js",
       "src/service-worker.js",
       "/public/utopia.js",
-      "/public/ch.js"
+      "/public/ch.js",
+      "lib/ges-academy/index.js",
+      "lib/ges-users/index.js",
+      "lib/signin/index.js",
+      "lib/global/index.js"
     ]
   },
   "repository": {
