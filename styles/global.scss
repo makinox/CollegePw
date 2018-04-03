@@ -1,6 +1,16 @@
 $mBlue: #457B9D;
 $lBlue: #A8DADC;
 
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Montserrat');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.titulog {
+  font-family: 'Fira Sans', sans-serif;
+}
+
 .gauss {
   filter: blur(3px);
   -ms-filter: blur(3px);
