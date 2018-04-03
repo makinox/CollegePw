@@ -40,14 +40,11 @@
   "standard": {
     "ignore": [
       "/public/app.js",
-      "src/service-worker.js",
       "/public/utopia.js",
-      "/public/ch.js",
       "lib/ges-academy/index.js",
       "lib/ges-users/index.js",
       "lib/signin/index.js",
       "/public/index.js",
-      "lib/worker/utopia.js",
       "lib/global/index.js"
     ]
   },

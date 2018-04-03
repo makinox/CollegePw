@@ -10,7 +10,7 @@ const imagemin = require('gulp-imagemin')
 const size = require('gulp-size')
 const webp = require('gulp-webp')
 const prefixer = require('gulp-autoprefixer')
-const changed = require('gulp-changed')
+// const changed = require('gulp-changed')
 const dest = 'public'
 const browserSync = require('browser-sync')
 
@@ -18,7 +18,6 @@ const browserSync = require('browser-sync')
 gulp.task('styles', () => {
   return gulp
     .src('styles/index.scss')
-    .pipe(changed(dest))
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(rename('app.css'))
     .pipe(prefixer({browsers: ['ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10']}))
@@ -30,7 +29,6 @@ gulp.task('styles', () => {
 gulp.task('assets', () => {
   return gulp
     .src('assets/*')
-    .pipe(changed(dest))
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'assets'}))
 })
@@ -39,7 +37,6 @@ gulp.task('assets', () => {
 gulp.task('images', () => {
   return gulp
     .src('images/**/*')
-    .pipe(changed(dest))
     .pipe(imagemin({progressive: true, interlaced: true}))
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'images'}))
@@ -49,7 +46,6 @@ gulp.task('images', () => {
 gulp.task('icons', () => {
   return gulp
     .src('icons/**/*')
-    .pipe(changed(dest))
     .pipe(imagemin({progressive: true, interlaced: true}))
     .pipe(webp())
     .pipe(gulp.dest(dest))
@@ -62,7 +58,6 @@ gulp.task('build', () => {
     .transform(babel, { presets: ['es2015', 'minify'] })
     .bundle()
     .pipe(source('index.js'))
-    .pipe(changed(dest))
     .pipe(rename('app.js'))
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'build'}))

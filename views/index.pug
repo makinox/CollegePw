@@ -29,6 +29,7 @@ html(lang='es')
     meta(property='og:url', content='https://makinox.github.io/PortafolioPersonal/')
     link(rel='stylesheet', href='app.css')
   body
+    script(type='application/javascript', src='index.js')
     section#header-container
       header
         nav.visible.fixed-top
@@ -47,24 +48,24 @@ html(lang='es')
           .wrap.container
             ul.wrap-nav.row
               li.col-12
-                a Ingresa
+                a.titulog Ingresa
                 ul
                   li
-                    a.titulog.signinl(href='/signin') Inicia sesión
+                    a.signinl(href='/signin') Inicia sesión
                   li
-                    a.titulog.signoutl(href='/signout') Regístrate
-              li.col-12
-                a Descubre
+                    a.signoutl(href='/signout') Regístrate
+              li.col-12.wUser.eUser.pUser.aUser
+                a.titulog Descubre
                 ul
                   li
-                    a.titulog.homel(href='/home') Inicio
+                    a.homel(href='/home') Inicio
                   li
                     a(href='/profile') Perfil
-              li.col-12
-                a Administracion
+              li.col-12.wUser.pUser.aUser
+                a.titulog Administracion
                 ul
                   li
-                    a.titulog.adminl(href='/admin') administrador
+                    a.adminl(href='/admin') administrador
     .relleno
     section#main-container
       .sk-cube-grid
