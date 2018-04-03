@@ -1,4 +1,4 @@
-const CACHE_NAME = 'utopiaCache',
+const CACHE_NAME = 'utopiaCachev2',
   urlsToCache = [
     'android-chrome-192x192.webp',
     'android-chrome-512x512.webp',
@@ -11,7 +11,7 @@ const CACHE_NAME = 'utopiaCache',
     'apple-touch-icon-76x76.webp',
     'apple-touch-icon.webp',
     'browserconfig.xml',
-    'ch.js',
+    'index.js',
     'favicon-16x16.webp',
     'favicon-32x32.webp',
     'open.svg',
@@ -19,7 +19,6 @@ const CACHE_NAME = 'utopiaCache',
     'html_code.html',
     'mstile-144x144.webp',
     'mstile-150x150.webp',
-    'port.jpg',
     'site.webmanifest',
     '/',
     '/favicon-16x16.webp',
@@ -27,6 +26,8 @@ const CACHE_NAME = 'utopiaCache',
     '/proceso.svg',
     '/trianglify.svg',
     '/utopiaMockup1Pres.jpg',
+    '/port.jpg',
+    '/utopia.js',
     '/info.svg'
   ]
 
@@ -57,11 +58,11 @@ self.addEventListener('activate', e => {
         })
       )
     })
-    .then(() => {
-      console.log('Cache actualizado')
-      // Le indica al SW activar el cache actual
-      return self.clients.claim()
-    })
+      .then(() => {
+        console.log('Cache actualizado')
+        // Le indica al SW activar el cache actual
+        return self.clients.claim()
+      })
   )
 })
 
@@ -80,7 +81,7 @@ self.addEventListener('fetch', e => {
         // Sino, lo solicitamos a la red
         return fetch(e.request)
       })
-    )
+  )
 })
 
 self.addEventListener('push', e => {

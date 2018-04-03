@@ -46,7 +46,7 @@
       "lib/ges-academy/index.js",
       "lib/ges-users/index.js",
       "lib/signin/index.js",
-      "lib/worker/index.js",
+      "/public/index.js",
       "lib/worker/utopia.js",
       "lib/global/index.js"
     ]

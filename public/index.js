@@ -67,13 +67,11 @@
     c(e, e.type)
 
     if (n.onLine) {
-      info.classList.remove('offline')
       let n = new Notification('Utopia', {
         body: 'Conexión reestablecida 😊',
         icon: 'favicon-32x32.webp'
       })
     } else {
-      info.classList.add('offline')
       let n = new Notification('Utopia', {
         body: 'Conexión perdida 😓',
         icon: 'favicon-32x32.webp'
