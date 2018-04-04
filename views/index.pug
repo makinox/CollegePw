@@ -47,21 +47,21 @@ html(lang='es')
         .overlay
           .wrap.container
             ul.wrap-nav.row
-              li.col-12
+              li.col-12.menuGen
                 a.titulog Ingresa
                 ul
                   li
                     a.signinl(href='/signin') Inicia sesión
                   li
                     a.signoutl(href='/signout') Regístrate
-              li.col-12.wUser.eUser.pUser.aUser
+              li.col-12#wUser.eUser.pUser.aUser
                 a.titulog Descubre
                 ul
                   li
                     a.homel(href='/home') Inicio
                   li
                     a(href='/profile') Perfil
-              li.col-12.wUser.pUser.aUser
+              li.col-12#wUser.pUser.aUser
                 a.titulog Administracion
                 ul
                   li
