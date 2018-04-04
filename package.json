@@ -45,7 +45,8 @@
       "lib/ges-users/index.js",
       "lib/signin/index.js",
       "/public/index.js",
-      "lib/global/index.js"
+      "lib/global/index.js",
+      "lib/admin/index.js"
     ]
   },
   "repository": {
