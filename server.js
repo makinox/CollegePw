@@ -2,6 +2,7 @@
 
 const express = require('express')
 const app = express()
+const sslRedirect = require('heroku-ssl-redirect')
 const compression = require('compression')
 
 // Inicializando el puerto dinamico local y el de heroku
@@ -17,6 +18,9 @@ app.use(compression())
 
 // Middleware que le dice a express que los archivos que se van a utilizar estan en la carpeta public
 app.use(express.static('public'))
+
+// Forzando la redireccion a https y mejorando la distribuccion en produccion
+app.use(sslRedirect(['other', 'development', 'production']))
 
 // Generando las paginas
 // Get de pagina raiz || root
