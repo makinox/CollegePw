@@ -23,6 +23,7 @@ app.use(express.static('public'))
 app.use(sslRedirect(['other', 'development', 'production']))
 
 // Generando las paginas
+
 // Get de pagina raiz || root
 app.get('/', (req, res) => { res.render('index') })
 
