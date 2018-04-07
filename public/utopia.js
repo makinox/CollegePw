@@ -28,7 +28,8 @@ const CACHE_NAME = 'utopiaCachev2',
     '/utopiaMockup1Pres.jpg',
     '/port.jpg',
     '/utopia.js',
-    '/info.svg'
+    '/info.svg',
+    '/favicon.ico'
   ]
 
 self.addEventListener('install', e => {
@@ -69,7 +70,14 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   console.log('Evento: SW Recuperando')
 
-  e.respondWith(
+  e.respondWith( 
+  //   async () => {
+  //   const cachedResponse = await caches.match(e.request)
+
+  //   if (cachedResponse) return cachedResponse
+
+  //   return fetch(e.request)
+  // }
     // Miramos si la petición coincide con algún elemento del cache
     caches.match(e.request)
       .then(res => {
