@@ -20,10 +20,10 @@ page('/gen-academy', (ctx, next) => {
       let periodo = $main.find('.periodo').val()
       let curso = $main.find('.curso').val()
       let codigoG = $main.find('.codigoG').val()
-      console.log(nombreCurso)
-      console.log(periodo)
-      console.log(curso)
-      console.log(codigoG)
+      // console.log(nombreCurso)
+      // console.log(periodo)
+      // console.log(curso)
+      // console.log(codigoG)
       $.ajax({
         type: 'POST',
         url: `http://${conect.host}/subjects`,
@@ -34,10 +34,12 @@ page('/gen-academy', (ctx, next) => {
           codigoG
         },
         success: (data, textStatus, jqXHR) => {
-          console.log(data)
+          // console.log(data.message)
+          alert('Asignatura agregada')
         },
         error: (jqXHR, text, error) => {
-          console.log(error)
+          console.log(`Lo que paso fue: ${error.message}`)
+          alert('Algo paso \nIntentalo de nuevo mas tarde')
         }
       })
     })

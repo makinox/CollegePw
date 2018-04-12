@@ -28,6 +28,4 @@ $.when($(document).ready(() => {
   //   let nombreSesion = sessionStorage.getItem('nombre')
   //   $('#header-container').find('.name').empty().html(nombreSesion)
   // }
-
-
 }))

@@ -11,6 +11,5 @@ page('/admin', (ctx, next) => {
   $.when($(document).ready(() => {
     $('#main-container').empty().append(template)
     restrict.global()
-
   }))
 })

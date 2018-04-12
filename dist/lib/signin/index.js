@@ -53,29 +53,20 @@ page('/signin', (ctx, next) => {
                   await sessionStorage.setItem('rol', user.rol)
                   let rolSesion = user.rol
                   console.log(`rol sesion ${rolSesion}`)
-                  console.log(`tipo rolsesion ${typeof(rolSesion)}`)
-                  if (rolSesion === 'estudiante'){
-
+                  console.log(`tipo rolsesion ${typeof (rolSesion)}`)
+                  if (rolSesion === 'estudiante') {
                     await $('#header-container').find('.menuGen').attr('id', 'wUser')
                     await $('body').find('.eUser').removeAttr('id')
-              
-                  }else if (rolSesion === 'profesor'){
-              
+                  } else if (rolSesion === 'profesor') {
                     await $('#header-container').find('.menuGen').attr('id', 'wUser')
                     await $('body').find('.pUser').removeAttr('id')
-              
-                  }else if (rolSesion === 'administrador'){
-              
+                  } else if (rolSesion === 'administrador') {
                     await $('#header-container').find('.menuGen').attr('id', 'wUser')
                     await $('body').find('.aUser').removeAttr('id')
-              
-                  }else if (rolSesion === 'super'){
-              
+                  } else if (rolSesion === 'super') {
                     await $('#header-container').find('.menuGen').attr('id', 'wUser')
                     await $('body').find('.aUser').removeAttr('id')
-              
                   }
-
                 })
                 sessionStorage.setItem('id', conect.id)
                 page.redirect('/profile')

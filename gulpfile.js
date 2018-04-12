@@ -17,7 +17,7 @@ const browserSync = require('browser-sync')
 // Comprimiendo los estilos en uno solo, así como tambien los optimiza y minifica
 gulp.task('styles', () => {
   return gulp
-    .src('styles/index.scss')
+    .src('dist/styles/index.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(rename('app.css'))
     .pipe(prefixer({browsers: ['ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10']}))
@@ -28,7 +28,7 @@ gulp.task('styles', () => {
 // Pasando todos los assets del proyecto a la carpeta publica
 gulp.task('assets', () => {
   return gulp
-    .src('assets/*')
+    .src('dist/assets/*')
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'assets'}))
 })
@@ -36,7 +36,7 @@ gulp.task('assets', () => {
 // Optimizar imagenes
 gulp.task('images', () => {
   return gulp
-    .src('images/**/*')
+    .src('dist/images/**/*')
     .pipe(imagemin({progressive: true, interlaced: true}))
     .pipe(gulp.dest(dest))
     .pipe(size({title: 'images'}))
@@ -45,7 +45,7 @@ gulp.task('images', () => {
 // Optimizar iconos
 gulp.task('icons', () => {
   return gulp
-    .src('icons/**/*')
+    .src('dist/icons/**/*')
     .pipe(imagemin({progressive: true, interlaced: true}))
     .pipe(webp())
     .pipe(gulp.dest(dest))
@@ -54,7 +54,7 @@ gulp.task('icons', () => {
 
 // Realiza el bundle del javascript optimizandolo y minificandolo
 gulp.task('build', () => {
-  return browserify('./lib/index.js')
+  return browserify('./dist/lib/index.js')
     .transform(babel, { presets: ['es2015', 'minify'] })
     .bundle()
     .pipe(source('index.js'))

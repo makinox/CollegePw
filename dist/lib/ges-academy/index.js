@@ -14,7 +14,7 @@ page('/ges-academy', (ctx, next) => {
   $.when($(document).ready(() => {
     $main.empty().append(template)
     restrict.global()
-    
+
     // Cuando haga ingrese la id de la materia
     $main.find('#ges-academy').on('submit', (ev) => {
       ev.preventDefault()
@@ -158,6 +158,4 @@ page('/ges-academy', (ctx, next) => {
       })
     })
   }))
-
-
 })

@@ -43,10 +43,12 @@ page('/gen-users', (ctx, next) => {
           documento
         },
         success: (data, textStatus, jqXHR) => {
-          console.log(data)
+          console.log(data.message)
+          alert('Usuario agregado')
         },
         error: (jqXHR, text, error) => {
-          console.log(error)
+          console.log(`Lo que paso fue: ${error.message}`)
+          alert('Algo paso \nIntentalo de nuevo mas tarde')
         }
       })
     })

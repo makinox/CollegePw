@@ -1,11 +1,11 @@
 {
   "name": "collegepw",
-  "version": "2.1.3",
+  "version": "2.5.3",
   "description": "El colegio del futuro",
   "main": "server.js",
   "scripts": {
     "lint": "standard --fix",
-    "start": "npm run lint && gulp && node server",
+    "start": "gulp && node server",
     "server": "node server.js"
   },
   "author": "Jesus Bossa <jesusbossa@protonmail.com>",
@@ -42,13 +42,13 @@
     "ignore": [
       "/public/app.js",
       "/public/utopia.js",
-      "lib/ges-academy/index.js",
-      "lib/ges-users/index.js",
-      "lib/signin/index.js",
+      "dist/lib/ges-academy/index.js",
+      "dist/lib/ges-users/index.js",
+      "dist/lib/signin/index.js",
       "/public/index.js",
-      "lib/global/restrict.js",
-      "lib/global/index.js",
-      "lib/admin/index.js"
+      "dist/lib/global/restrict.js",
+      "dist/lib/global/index.js",
+      "dist/lib/admin/index.js"
     ]
   },
   "repository": {
