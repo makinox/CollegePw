@@ -33,21 +33,21 @@ const CACHE_NAME = 'utopiaCachev2',
   ]
 
 self.addEventListener('install', e => {
-  console.log('Evento: SW Instalado')
+  // console.log('Evento: SW Instalado')
   e.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Archivos en cache')
+        // console.log('Archivos en cache')
         return cache.addAll(urlsToCache)
           .then(() => self.skipWaiting())
         // skipWaiting forza al SW a activarse
       })
-      .catch(err => console.log(`Falló registro de cache ${err.message}`))
+      // .catch(err => console.log(`Falló registro de cache ${err.message}`))
   )
 })
 
 self.addEventListener('activate', e => {
-  console.log('Evento: SW Activado')
+  // console.log('Evento: SW Activado')
   const cacheWhitelist = [CACHE_NAME]
 
   e.waitUntil(
@@ -60,7 +60,7 @@ self.addEventListener('activate', e => {
       )
     })
       .then(() => {
-        console.log('Cache actualizado')
+        // console.log('Cache actualizado')
         // Le indica al SW activar el cache actual
         return self.clients.claim()
       })
@@ -68,7 +68,7 @@ self.addEventListener('activate', e => {
 })
 
 self.addEventListener('fetch', e => {
-  console.log('Evento: SW Recuperando')
+  // console.log('Evento: SW Recuperando')
 
   e.respondWith( 
   //   async () => {
@@ -81,7 +81,7 @@ self.addEventListener('fetch', e => {
     // Miramos si la petición coincide con algún elemento del cache
     caches.match(e.request)
       .then(res => {
-        console.log('Recuperando cache')
+        // console.log('Recuperando cache')
         if (res) {
           // Si coincide lo retornamos del cache
           return res
@@ -93,7 +93,7 @@ self.addEventListener('fetch', e => {
 })
 
 self.addEventListener('push', e => {
-  console.log('Evento: Push')
+  // console.log('Evento: Push')
 
   let title = 'Utopia',
     options = {
@@ -111,20 +111,20 @@ self.addEventListener('push', e => {
 })
 
 self.addEventListener('notificationclick', e => {
-  console.log(e)
+  // console.log(e)
 
   if (e.action === 'Si') {
-    console.log('Amo esta aplicación')
+    // console.log('Amo esta aplicación')
     clients.openWindow('https://makinox.github.io/PortafolioPersonal/')
   } else if (e.action === 'No') {
-    console.log('No me gusta esta aplicación')
+    // console.log('No me gusta esta aplicación')
   }
 
   e.notification.close()
 })
 
 self.addEventListener('sync', e => {
-  console.log('Evento: Sincronización de Fondo', e)
+  // console.log('Evento: Sincronización de Fondo', e)
 
   // Revisamos que la etiqueta de sincronización sea la que definimos o la que emulan las devtools
   if (e.tag === 'utopia' || e.tag === 'test-tag-from-devtools') {
@@ -136,7 +136,7 @@ self.addEventListener('sync', e => {
             return client.postMessage('online')
           })
         })
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
     )
   }
 })
