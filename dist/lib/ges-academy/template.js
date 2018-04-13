@@ -42,8 +42,25 @@ module.exports = `
       <button class="btn titulog btn-danger borrarId aUser" id="wUser">Borrar</button>
     </div>
   </div>
-  <table class="table table-striped table-hover col-12 col-md-6 mt-2">
+  <!-- Estudiantes en el curso -->
+  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light">
   <caption class="titulog">Estudiantes en el curso</caption>
+    <thead>
+      <tr>
+        <th scope="col titulog">#</th>
+        <th scope="col titulog">Nombre</th>
+        <!-- <th scope="col titulog">Nota 1</th> -->
+        <!-- <th scope="col titulog">Nota 2</th> -->
+        <!-- <th scope="col titulog">Nota 3</th> -->
+      </tr>
+    </thead>
+    <tbody id="EstData">
+
+    </tbody>
+  </table>
+  <!-- Estudiantes con materias registradas -->
+  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light">
+  <caption class="titulog">Estudiantes con materias registradas</caption>
     <thead>
       <tr>
         <th scope="col titulog">#</th>
@@ -51,9 +68,10 @@ module.exports = `
         <th scope="col titulog">Nota 1</th>
         <th scope="col titulog">Nota 2</th>
         <th scope="col titulog">Nota 3</th>
+        <th scope="col titulog">Nota final</th>
       </tr>
     </thead>
-    <tbody id="EstData">
+    <tbody id="EstData2">
 
     </tbody>
   </table>

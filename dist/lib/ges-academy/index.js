@@ -21,6 +21,7 @@ page('/ges-academy', (ctx, next) => {
       $main.find('#ges-academy').addClass('form-hide')
       $main.find('#dbStatus2').removeClass('form-hide2')
       let idAsignaturas = $main.find('.idAsignaturas').val().trim()
+      let auser = ''
 
       // Pidiendo esa materia y relleando la tabla de los datos de la asignatura
       $.ajax({
@@ -31,6 +32,7 @@ page('/ges-academy', (ctx, next) => {
             await $main.find('.nombresb').empty().html(`Curso: <strong>${subject.nombreCurso}</strong>`)
             await $main.find('.apellidosb').empty().html(`Periodo academico: <strong>${subject.periodo}</strong>`)
             await $main.find('.contraseñab').empty().html(`Grado: <strong>${subject.curso}</strong>`)
+            auser = subject.curso
             await $main.find('.emailb').empty().html(`Codigo de curso: <strong>${subject.codigoG}</strong>`)
           })
           console.log(data)
@@ -38,30 +40,57 @@ page('/ges-academy', (ctx, next) => {
         error: (jqXHR, text, error) => {
           console.log(error)
         }
-      })
+      }).then(async () => {
 
-      let i = 0
-      // Pidiendo los usuarios de los cursos
-      $.ajax({
-        url: `http://${conect.host}/stats/${idAsignaturas}`,
-        type: 'GET',
-        success: async (data, textStatus, xhr) => {
-          await data.forEach(async (user) => {
-            i++
-            // $main.find('#EstData').append(`<p class="card-text"><strong>Estudiantes | Nota 1 | Nota 2 | Nota 3</strong>`)
-            // $main.find('#EstData').append(`<p class="card-text"><strong>${i}.</strong> ${user.usuario}<strong> | </strong>${user.nota1}<strong> | </strong>${user.nota2}<strong> | </strong>${user.nota3}</p>`)
-            await $main.find('#EstData').append(`
-            <tr>
+        let i = 0
+        // Pidiendo los usuarios de los cursos
+        $.ajax({
+          url: `http://${conect.host}/guser/${auser}`,
+          type: 'GET',
+          success: async (data, textStatus, xhr) => {
+            await data.forEach(async (user) => {
+              i++
+              // $main.find('#EstData').append(`<p class="card-text"><strong>Estudiantes | Nota 1 | Nota 2 | Nota 3</strong>`)
+              // $main.find('#EstData').append(`<p class="card-text"><strong>${i}.</strong> ${user.usuario}<strong> | </strong>${user.nota1}<strong> | </strong>${user.nota2}<strong> | </strong>${user.nota3}</p>`)
+
+              // Rellenando los usuarios
+              await $main.find('#EstData').append(`
+          <tr>
             <th scope="row">${i}</th>
             <td>${user.usuario}</td>
-            <td>${user.nota1}</td>
-            <td>${user.nota2}</td>
-            <td>${user.nota3}</td>
+            <!-- <td>${user.nota1}</td> -->
+            <!-- <td>${user.nota2}</td> -->
+            <!-- <td>${user.nota3}</td> -->
           </tr>
             `)
-          })
-        }
+            })
+          }
+        })
       })
+      // .then(async () => {
+        $.ajax({
+          url: `http://${conect.host}/stats/${idAsignaturas}`,
+          type: 'GET',
+          success: async (data, textStatus, xhr) => {
+            let i = 0
+            await data.forEach(async (user) => {
+              i++
+              // $main.find('#EstData').append(`<p class="card-text"><strong>Estudiantes | Nota 1 | Nota 2 | Nota 3</strong>`)
+              // $main.find('#EstData').append(`<p class="card-text"><strong>${i}.</strong> ${user.usuario}<strong> | </strong>${user.nota1}<strong> | </strong>${user.nota2}<strong> | </strong>${user.nota3}</p>`)
+              await $main.find('#EstData2').append(`
+              <tr>
+              <th scope="row">${i}</th>
+              <td>${user.usuario}</td>
+              <td>${user.nota1}</td>
+              <td>${user.nota2}</td>
+              <td>${user.nota3}</td>
+              <td>${user.notaFinal}</td>
+            </tr>
+              `)
+            })
+          }
+        })
+      // })
 
       // En caso que desee actualizar la materia
       $main.find('.modificarId').on('click', (ev) => {
