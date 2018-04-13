@@ -22,7 +22,7 @@ module.exports = `
     </div>
   </div>
   <div class="row d-flex justify-content-center text-left">
-    <table class="table table-striped table-hover col-12 col-md-7">
+    <table class="table table-striped table-hover col-12 col-md-7 bg-light">
     <caption class="titulog">Notas recientes</caption>
       <thead>
         <tr>
@@ -35,7 +35,7 @@ module.exports = `
 
       </tbody>
     </table>
-    <table class="table table-striped table-hover col-12 col-md-7">
+    <table class="table table-striped table-hover col-12 col-md-7 bg-light">
       <caption class="titulog">Asignaturas inscritas</caption>
       <thead>
         <tr>
