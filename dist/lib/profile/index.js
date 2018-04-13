@@ -15,7 +15,7 @@ page('/profile', (ctx, next) => {
     restrict.global()
       // Poniendo el usuario logeado
     $.ajax({
-      url: `http://${conect.host}/users/${conect.id}`,
+      url: `http://${conect.host}/users/${sessionStorage.getItem('id')}`,
       type: 'GET',
       success: async (data, textStatus, xhr) => {
         console.log(data)
@@ -68,6 +68,22 @@ page('/profile', (ctx, next) => {
               }
             })
           }
+        })
+      }
+    })
+    // Promedio 
+    $.ajax({
+      url: `http://${conect.host}/eve/${sessionStorage.getItem('id')}`,
+      type: 'GET',
+      success: async (dataPro, textStatus, xhr) => {
+        console.log(dataPro)
+        dataPro.forEach( async (prom) => {
+          console.log(prom)
+          await $('#main-container').find('#promedio').append(`
+          <tr>
+            <th scope="row">${prom.nota}</th>
+          </tr>
+        `)
         })
       }
     })

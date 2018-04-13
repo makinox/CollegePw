@@ -48,6 +48,17 @@ module.exports = `
 
       </tbody>
     </table>
+    <table class="table table-striped table-hover col-12 col-md-7 bg-light">
+    <caption class="titulog">Promedio</caption>
+    <thead>
+      <tr>
+        <th scope="col titulog">#</th>
+      </tr>
+    </thead>
+    <tbody id="promedio">
+
+    </tbody>
+  </table>
   </div>
     
   </div>
