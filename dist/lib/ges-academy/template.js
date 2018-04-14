@@ -29,7 +29,7 @@ module.exports = `
 <div class="row justify-content-center form-hide2" id="dbStatus2">
   <div class="card pt-3 m-2 col-md-5">
     <div class="card-body pl-5 pr-5">
-      <h5 class="card-title titulog">Datos actuales</h5>
+      <h5 class="card-title titulog">Datos de la asignatura</h5>
       <hr>
       <p class="card-text nombresb">Curso:</p>
       <p class="card-text apellidosb">Periodo:</p>
@@ -43,7 +43,7 @@ module.exports = `
     </div>
   </div>
   <!-- Estudiantes en el curso -->
-  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light">
+  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light aUser pUser" id="wUser">
   <caption class="titulog">Estudiantes en el curso</caption>
     <thead>
       <tr>
@@ -59,7 +59,7 @@ module.exports = `
     </tbody>
   </table>
   <!-- Estudiantes con materias registradas -->
-  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light">
+  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light aUser pUser" id="wUser">
   <caption class="titulog">Estudiantes con materias registradas</caption>
     <thead>
       <tr>
@@ -120,7 +120,7 @@ module.exports = `
         </div>
       </div>
       <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 pUser aUser" id="wUser">Calificacion de profesor</span>
+        <span for="basic-url" class="titulog w-100 mb-2 eUser aUser" id="wUser">Calificacion de profesor</span>
         <div class="input-group mb-3 col-7">
           <input type="text" class="form-control cpc pUser aUser" id="wUser" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1" >
         </div>

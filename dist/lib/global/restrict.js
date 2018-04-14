@@ -6,6 +6,7 @@ const restrict = {}
 
 restrict.global = async () => {
   if (sessionStorage.getItem('rol')) {
+    $('#header-container').find('.name').empty().html(sessionStorage.getItem('nombre'))
     let rolSesion = sessionStorage.getItem('rol')
     if (rolSesion === 'estudiante') {
       $('#header-container').find('.menuGen').attr('id', 'wUser')

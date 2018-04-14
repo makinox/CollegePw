@@ -9,7 +9,7 @@
           // c(registration)
           c('%cStop!', 'color: red;font-size:2.5rem;font-weight:bold;')
           c('%cEste es un espacio solo para los desarrolladores, si intentas ingresar algún código malicioso seras baneado. 😀', 'font-size:1.25rem;line-height:1.1;margin-top:.5em')
-          $('#header-container').find('.name').empty().html(sessionStorage.getItem('nombre'))
+          
           c(
             'Service Worker registrado con éxito 🤗',
             registration.scope

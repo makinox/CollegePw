@@ -6,7 +6,7 @@ module.exports = `
   <div class="row d-flex justify-content-center text-center">
     <div class="col jumbotron jumbotron-signin">
       <h2 class="bienvenida titulo display-4 titulog">
-        Administrador
+        Administración
       </h2>
       <p class="lead">Aqui puedes administrar, gestionar y crear recursos para la institucion</p>
     </div>

@@ -71,13 +71,13 @@ page('/profile', (ctx, next) => {
         })
       }
     })
-    // Promedio 
+    // Promedio
     $.ajax({
       url: `http://${conect.host}/eve/${sessionStorage.getItem('id')}`,
       type: 'GET',
       success: async (dataPro, textStatus, xhr) => {
         console.log(dataPro)
-        dataPro.forEach( async (prom) => {
+        dataPro.forEach(async (prom) => {
           console.log(prom)
           await $('#main-container').find('#promedio').append(`
           <tr>
