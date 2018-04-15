@@ -27,7 +27,7 @@ module.exports = `
 </form>
 <!-- Ventana de estado de el usuario en la base de datos -->
 <div class="row justify-content-center form-hide2" id="dbStatus2">
-  <div class="card pt-3 m-2 col-md-5">
+  <div class="card pt-3 m-2 col-md-7">
     <div class="card-body pl-5 pr-5">
       <h5 class="card-title titulog">Datos de la asignatura</h5>
       <hr>
@@ -43,7 +43,7 @@ module.exports = `
     </div>
   </div>
   <!-- Estudiantes en el curso -->
-  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light aUser pUser" id="wUser">
+  <table class="table table-striped table-hover col-12 col-md-4 mt-2 bg-light aUser pUser mr-1" id="wUser">
   <caption class="titulog">Estudiantes en el curso</caption>
     <thead>
       <tr>
@@ -59,7 +59,7 @@ module.exports = `
     </tbody>
   </table>
   <!-- Estudiantes con materias registradas -->
-  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light aUser pUser" id="wUser">
+  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light aUser pUser ml-1" id="wUser">
   <caption class="titulog">Estudiantes con materias registradas</caption>
     <thead>
       <tr>
@@ -106,47 +106,64 @@ module.exports = `
     </div>
   </form>
   <!-- formulario de notas -->
-    <form class="form-general mb-2 form-hide" id="dbStat">
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 mt-2">Usuario del estudiante</span>
-        <div class="input-group mb-3 col-6">
-          <input type="text" class="form-control userc" placeholder="sasnjiro" aria-label="Username" aria-describedby="basic-addon1" required>
-        </div>
+  <form class="form-general mb-2 form-hide" id="dbStat">
+  <div class="row d-flex justify-content-center text-center">
+    <span for="basic-url" class="titulog w-100 mb-2 mt-2">Usuario del estudiante</span>
+    <div class="input-group mb-3 col-6">
+      <input type="text" class="form-control userc" placeholder="sasnjiro" aria-label="Username" aria-describedby="basic-addon1"
+        required>
+    </div>
+  </div>
+
+  <section class="pUser eUser aUser" id="wUser">
+    <div class="row d-flex justify-content-center text-center">
+      <span for="basic-url" class="titulog w-100 mb-2 mt-2">Calificacion estudiante</span>
+      <div class="input-group mb-3 col-7">
+        <input type="text" class="form-control cec" placeholder="5.0" aria-label="Usernamed" aria-describedby="basic-addon2">
       </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 mt-2 eUser aUser" id="wUser">Calificacion estudiante</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control cec eUser aUser" id="wUser" placeholder="5.0" aria-label="Usernamed" aria-describedby="basic-addon2">
-        </div>
+    </div>
+  </section>
+
+  <section class="eUser aUser" id="wUser">
+    <div class="row d-flex justify-content-center text-center">
+      <span for="basic-url" class="titulog w-100 mb-2">Calificacion de profesor</span>
+      <div class="input-group mb-3 col-7">
+        <input type="text" class="form-control cpc" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
       </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 eUser aUser" id="wUser">Calificacion de profesor</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control cpc pUser aUser" id="wUser" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1" >
-        </div>
+    </div>
+  </section>
+
+  <section class=" pUser aUser" id="wUser">
+    <div class="row d-flex justify-content-center text-center">
+      <span for="basic-url" class="titulog w-100 mb-2">Nota 1 corte</span>
+      <div class="input-group mb-3 col-7">
+        <input type="text" class="form-control nt1" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
       </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 pUser aUser" id="wUser">Nota 1 corte</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control nt1 pUser aUser" id="wUser" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
-        </div>
+    </div>
+  </section>
+  
+  <section class="pUser aUser" id="wUser">
+    <div class="row d-flex justify-content-center text-center">
+      <span for="basic-url" class="titulog w-100 mb-2">Nota 2 corte</span>
+      <div class="input-group mb-3 col-7">
+        <input type="text" class="form-control nt2" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
       </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 pUser aUser" id="wUser">Nota 2 corte</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control nt2 pUser aUser" id="wUser" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
-        </div>
+    </div>
+  </section>
+
+  <section class=" pUser aUser" id="wUser">
+    <div class="row d-flex justify-content-center text-center">
+      <span for="basic-url" class="titulog w-100 mb-2">Nota 3 corte</span>
+      <div class="input-group mb-3 col-7">
+        <input type="text" class="form-control nt3" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
       </div>
-      <div class="row d-flex justify-content-center text-center">
-        <span for="basic-url" class="titulog w-100 mb-2 pUser aUser" id="wUser">Nota 3 corte</span>
-        <div class="input-group mb-3 col-7">
-          <input type="text" class="form-control nt3 pUser aUser" id="wUser" placeholder="5.0" aria-label="11" aria-describedby="basic-addon1">
-        </div>
-      </div>
-      <div class="row d-flex justify-content-center text-center">
-        <button type="submit" class="btn btn-primary mb-3 titulog">Enviar</button>
-      </div>
-    </form>
+    </div>
+  </section>
+
+  <div class="row d-flex justify-content-center text-center">
+    <button type="submit" class="btn btn-primary mb-3 titulog">Enviar</button>
+  </div>
+</form>
 </div>
 </section>
 `
