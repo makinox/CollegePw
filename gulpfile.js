@@ -53,15 +53,15 @@ gulp.task('icons', () => {
 })
 
 // Realiza el bundle del javascript optimizandolo y minificandolo
-gulp.task('build', () => {
-  return browserify('./dist/lib/index.js')
-    .transform(babel, { presets: ['es2015', 'minify'] })
-    .bundle()
-    .pipe(source('index.js'))
-    .pipe(rename('app.js'))
-    .pipe(gulp.dest(dest))
-    .pipe(size({title: 'build'}))
-})
+// gulp.task('build', () => {
+//   return browserify('./dist/lib/index.js')
+//     .transform(babel, { presets: ['env', 'minify'] })
+//     .bundle()
+//     .pipe(source('index.js'))
+//     .pipe(rename('app.js'))
+//     .pipe(gulp.dest(dest))
+//     .pipe(size({title: 'build'}))
+// })
 
 // // Generando el service-worker de la app
 // gulp.task('service-worker', () => {
@@ -91,4 +91,4 @@ gulp.task('watch', () => {
 })
 
 // gulp.task('default', ['watch', 'serve'])
-gulp.task('default', ['styles', 'assets', 'images', 'icons', 'build'])
+gulp.task('default', ['styles', 'assets', 'images', 'icons'])
