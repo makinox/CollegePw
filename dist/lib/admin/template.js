@@ -34,7 +34,7 @@ module.exports = `
     </div>
   </div>
   <div class="row mb-3">
-    <div id="wUser" class="col-sm-6 aUser pUser eUser">
+    <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title titulog">Gestionar periodos academicos</h5>
@@ -43,7 +43,7 @@ module.exports = `
         </div>
       </div>
     </div>
-    <div id="wUser" class="col-sm-6 aUser">
+    <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title titulog">Gestionar usuarios</h5>

@@ -32,75 +32,90 @@ module.exports = `
         <hr>
         <p class="card-text nombresb">Nombre:</p>
         <p class="card-text apellidosb">Apellido:</p>
-        <p class="card-text ususariob">Usuario:</p>
+        <p class="card-text usuariob">Usuario:</p>
         <p class="card-text contraseñab">Contraseña:</p>
         <p class="card-text emailb">email:</p>
         <p class="card-text rolb">rol:</p>
         <p class="card-text documentob">documento:</p>
         <button class="btn btn-primary modificarId">Modificar</button>
-        <button class="btn btn-danger borrarId">Borrar</button>
+        <button class="btn btn-danger borrarId aUser" id="wUser">Borrar</button>
       </div>
     </div>
   </div>
       <div class="col p-2 "></div>
       <!-- Formulario de modificacion -->
       <form class="form-general mb-2 form-hide pt-2" id="dbForm">
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2 mt-2">Nombres</span>
-      <div class="input-group mb-3 col-6">
-        <input type="text" class="form-control nombresa" placeholder="Jesús david" aria-label="Username" aria-describedby="basic-addon1"
-          required>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2">Apellidos</span>
-      <div class="input-group mb-3 col-6">
-        <input type="text" class="form-control apellidosa" placeholder="bossa álvarez" aria-label="11" aria-describedby="basic-addon1" required>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2">Email</span>
-      <div class="input-group mb-3 col-6">
-        <input type="text" class="form-control emaila" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1" required>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2">Documento de identidad</span>
-      <div class="input-group mb-3 col-6">
-        <input type="text" class="form-control documentoa" placeholder="263716287" aria-label="11" aria-describedby="basic-addon1"
-          required>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2 mt-2">Usuario</span>
-      <div class="input-group mb-3 col-6">
-        <input type="text" class="form-control usuarioa" placeholder="liceo01" aria-label="Username" aria-describedby="basic-addon1"
-          required>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2">Contraseña</span>
-      <div class="input-group mb-3 col-6">
-        <input type="password" class="form-control contraseñaa" placeholder="........." aria-label="11" aria-describedby="basic-addon1" required>
-      </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <span for="basic-url" class="titulog w-100 mb-2">Rol que manejara</span>
-      <div class="input-group mb-3 col-6">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01titulog ">Opciones</label>
+      <section class="aUser" id="wUser">
+        <div class="row d-flex justify-content-center text-center">
+          <span for="basic-url" class="titulog w-100 mb-2 mt-2">Nombres</span>
+          <div class="input-group mb-3 col-6">
+            <input type="text" class="form-control nombresa" placeholder="Jesús david" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
         </div>
-        <select class="custom-select rola" id="inputGroupSelect01">
-          <option selected disabled>Escoja una de las siguientes</option>
-          <option value="estudiante">Estudiante</option>
-          <option value="profesor">Profesor</option>
-          <option value="administrador">Administrador</option>
-        </select>
+      </section>
+
+      <section class="aUser" id="wUser">
+        <div class="row d-flex justify-content-center text-center">
+          <span for="basic-url" class="titulog w-100 mb-2">Apellidos</span>
+          <div class="input-group mb-3 col-6">
+            <input type="text" class="form-control apellidosa" placeholder="bossa álvarez" aria-label="11" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </section>
+
+      <section class="aUser" id="wUser">
+        <div class="row d-flex justify-content-center text-center">
+          <span for="basic-url" class="titulog w-100 mb-2">Email</span>
+          <div class="input-group mb-3 col-6">
+            <input type="text" class="form-control emaila" placeholder="jesus@correo.com" aria-label="11" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </section>
+
+      <section class="aUser" id="wUser">
+        <div class="row d-flex justify-content-center text-center">
+          <span for="basic-url" class="titulog w-100 mb-2">Documento de identidad</span>
+          <div class="input-group mb-3 col-6">
+            <input type="text" class="form-control documentoa" placeholder="263716287" aria-label="11" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </section>
+
+      <section class="aUser" id="wUser">
+        <div class="row d-flex justify-content-center text-center">
+          <span for="basic-url" class="titulog w-100 mb-2 mt-2">Usuario</span>
+          <div class="input-group mb-3 col-6">
+            <input type="text" class="form-control usuarioa" placeholder="liceo01" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </section>
+
+      <div class="row d-flex justify-content-center text-center">
+        <span for="basic-url" class="titulog w-100 mb-2">Contraseña</span>
+        <div class="input-group mb-3 col-6">
+          <input type="password" class="form-control contraseñaa" placeholder="........." aria-label="11" aria-describedby="basic-addon1">
+        </div>
       </div>
-    </div>
-    <div class="row d-flex justify-content-center text-center">
-      <button type="submit" class="btn btn-primary mb-3">Enviar</button>
-    </div>
-  </form>
+
+      <section class="aUser" id="wUser">
+        <div class="row d-flex justify-content-center text-center">
+          <span for="basic-url" class="titulog w-100 mb-2">Rol que manejara</span>
+          <div class="input-group mb-3 col-6">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01titulog ">Opciones</label>
+            </div>
+            <select class="custom-select rola" id="inputGroupSelect01">
+              <option selected disabled>Escoja una de las siguientes</option>
+              <option value="estudiante">Estudiante</option>
+              <option value="profesor">Profesor</option>
+              <option value="administrador">Administrador</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <div class="row d-flex justify-content-center text-center">
+        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+      </div>
+    </form>
 </div>
 </section>`

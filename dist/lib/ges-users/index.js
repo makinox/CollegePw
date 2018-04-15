@@ -54,12 +54,12 @@ page('/ges-users', (ctx, next) => {
           let apellidos = $main.find('.apellidosa').val().trim()
           let contraseña = $main.find('.contraseñaa').val().trim()
           let email = $main.find('.emaila').val().trim()
-          let rol = $main.find('.rola').val()
-          let usuario = $main.find('.usuarioa').val()
-          let documento = $main.find('.documentoa').val()
-          if (rol == null) {
-            return console.log('Seleccionar un rol valido')
-          }
+          let rol = $main.find('.rola').val().trim()
+          let usuario = $main.find('.usuarioa').val().trim()
+          let documento = $main.find('.documentoa').val().trim()
+          // if (rol == null) {
+          //   return console.log('Seleccionar un rol valido')
+          // }
           $.ajax({
             type: 'PUT',
             url: `http://${conect.host}/users/${idUsuario}`,
