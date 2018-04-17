@@ -59,7 +59,7 @@ module.exports = `
     </tbody>
   </table>
   <!-- Estudiantes con materias registradas -->
-  <table class="table table-striped table-hover col-12 col-md-6 mt-2 bg-light aUser pUser ml-1" id="wUser">
+  <table class="table table-striped table-hover col-12 col-md-7 mt-2 bg-light aUser pUser ml-1" id="wUser">
   <caption class="titulog">Estudiantes con materias registradas</caption>
     <thead>
       <tr>
@@ -75,6 +75,7 @@ module.exports = `
 
     </tbody>
   </table>
+  <div class="w-100"></div>
 <!-- Formulario de modificacion -->
 <form class="form-general mb-2 mt-3 form-hide" id="dbForm">
   <div class="row d-flex justify-content-center text-center">
