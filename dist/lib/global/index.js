@@ -23,6 +23,16 @@ $.when($(document).ready(() => {
   $('.button a').click(faded)
   $('.overlay a').click(faded)
 
+  // Cerrando sesion 
+  $('#header-container').find('.exit').on('click', () => {
+    sessionStorage.setItem('id', '')
+    sessionStorage.setItem('nombre', '')
+    sessionStorage.setItem('rol', '')
+    $('#header-container').find('.name').empty()
+    page.redirect('/')
+    page.redirect('/')
+  })
+
   // // Sesion
   // if (sessionStorage.getItem('nombre')) {
   //   let nombreSesion = sessionStorage.getItem('nombre')

@@ -25,6 +25,7 @@ restrict.global = async () => {
       $('body').find('.aUser').removeAttr('id')
       if (!$('.aUser')) return page.redirect('/profile')
     }
+
   } else {
     page.redirect('/signin')
   }

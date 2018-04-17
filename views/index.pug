@@ -32,41 +32,47 @@ html(lang='es')
   body
     script(type='application/javascript', src='index.js')
     section#header-container
-      header
-        nav.visible.fixed-top
-          div
-            a.navbar-brand.logo(href='/')
-              img(src='./favicon.ico', alt='Logo', width='45', height='45')
-          div
-            a.navbar-brand.logo.info(href='http://utopia1.herokuapp.com/')
-              img(src='./info.svg', alt='Logo', width='30', height='30')
-          div
-            h4.logon.name
-          .button
-            a.btn
-              img(src='./open.svg', alt='Logo', width='30', height='30')
-        .overlay
-          .wrap.container
-            ul.wrap-nav.row
-              li.col-12.menuGen
-                a.titulog Ingresa
-                ul
-                  li
-                    a.signinl(href='/signin') Inicia sesión
-                  li
-                    a.signoutl(href='/signout') Regístrate
-              li.col-12#wUser.eUser.pUser.aUser
-                a.titulog Descubre
-                ul
-                  //li
-                  //   a.homel.mainer(href='/home') Inicio
-                  li
-                    a(href='/profile') Perfil
-              li.col-12#wUser.pUser.aUser.eUser
-                a.titulog Administracion
-                ul
-                  li
-                    a.adminl(href='/admin') administrador
+      section#header-container
+        header
+          nav.visible.fixed-top
+            div
+              a.navbar-brand.logo(href='/')
+                img(src='./favicon.ico', alt='Logo', width='45', height='45')
+            div
+              a.navbar-brand.logo.info(href='http://utopia1.herokuapp.com/')
+                img(src='./info.svg', alt='Logo', width='30', height='30')
+            div
+              h4.logon.name
+            .button
+              a.btn
+                img(src='./open.svg', alt='Logo', width='30', height='30')
+          .overlay
+            .wrap.container
+              ul.wrap-nav.row
+                li.col-12.menuGen
+                  a.titulog Ingresa
+                  ul
+                    li
+                      a.signinl(href='/signin') Inicia sesión
+                    li
+                      a.signoutl(href='/signout') Regístrate
+                li#wUser.col-12.eUser.pUser.aUser
+                  a.titulog Descubre
+                  ul
+                    // li
+                    // a.homel.mainer(href='/home') Inicio
+                    li
+                      a(href='/profile') Perfil
+                li#wUser.col-12.pUser.aUser.eUser
+                  a.titulog Administracion
+                  ul
+                    li
+                      a.adminl(href='/admin') administrador
+                li
+                  ul
+                    li#wUser.pUser.aUser.eUser
+                      a.fixed-bottom.btn.exit(href="/")
+                        img(src='./exit.svg', alt='Salir', width='40', height='40')
     .relleno
     section#main-container
       .sk-cube-grid
