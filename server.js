@@ -2,7 +2,7 @@
 
 const express = require('express')
 const app = express()
-// const sslRedirect = require('heroku-ssl-redirect')
+
 const compression = require('compression')
 
 // Inicializando el puerto dinamico local y el de heroku
