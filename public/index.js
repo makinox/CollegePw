@@ -1,14 +1,15 @@
 ;
 // Registro de Características de PWA's
 ((d, w, n, c) => {
+  c('%cStop!', 'color: red;font-size:2.5rem;font-weight:bold;')
+  c('%cEste es un espacio solo para los desarrolladores, si intentas ingresar algún código malicioso seras baneado. 😀', 'font-size:1.25rem;line-height:1.1;margin-top:.5em')
   // Registro de SW
   if ('serviceWorker' in n) {
     w.addEventListener('load', () => {
       n.serviceWorker.register('./utopia.js')
         .then(registration => {
           // c(registration)
-          c('%cStop!', 'color: red;font-size:2.5rem;font-weight:bold;')
-          c('%cEste es un espacio solo para los desarrolladores, si intentas ingresar algún código malicioso seras baneado. 😀', 'font-size:1.25rem;line-height:1.1;margin-top:.5em')
+          
           
           c(
             'Service Worker registrado con éxito 🤗',

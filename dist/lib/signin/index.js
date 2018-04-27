@@ -5,8 +5,8 @@ const $ = require('jquery')
 const template = require('./template')
 const title = require('./../global/title')
 let conect = {
-  second: '192.168.0.29:3002',
-  host: process.env.ip || '192.168.0.29:3002',
+  second: '172.28.30.185:3001',
+  host: process.env.ip || '172.28.30.185:3001',
   id: '',
   nombre: '',
   rol: '',

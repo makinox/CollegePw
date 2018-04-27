@@ -1,4 +1,4 @@
-const CACHE_NAME = 'utopiaCachev2',
+const CACHE_NAME = 'utopiaCachev3',
   urlsToCache = [
     'android-chrome-192x192.webp',
     'android-chrome-512x512.webp',
