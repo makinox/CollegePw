@@ -35,7 +35,7 @@ page('/gen-academy', (ctx, next) => {
         },
         success: (data, textStatus, jqXHR) => {
           // console.log(data.message)
-          alert('Asignatura agregada')
+          alert(`Asignatura agregada con el id ${8 + 1}`)
         },
         error: (jqXHR, text, error) => {
           console.log(`Lo que paso fue: ${error.message}`)
