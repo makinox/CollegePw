@@ -6,5 +6,5 @@
       }
     }]
   ],
-  "plugins": ["transform-regenerator",["minify-dead-code-elimination", { "optimizeRawSize": true }],["transform-remove-console"]]
+  "plugins": ["transform-regenerator",["minify-dead-code-elimination", { "optimizeRawSize": true }]]
 }
