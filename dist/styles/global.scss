@@ -32,12 +32,14 @@ body {
 .mainer {
   display: none;
 }
-// .btn-primary {
-//   background-color: $mBlue;
-// }
-// .btn-info {
-//   background-color: $lBlue;
-// }
+.jumbotron {
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary, .btn-info, .btn-warning, .btn-danger, .card, .form-general, .table {
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
+}
+
 #wUser {
   display: none;
 }
