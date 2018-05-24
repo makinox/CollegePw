@@ -50,5 +50,5 @@ app.get('/ges-users', (req, res) => { res.render('index') })
 
 // Montando el servidor en el puerto 5000
 app.listen(app.get('port'), function () {
-  console.log('Utopia corriendo en el puerto ', app.get('port'))
+  console.log('Utopia corriendo en el puerto http://localhost',app.get('port'))
 })
