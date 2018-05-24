@@ -85,9 +85,9 @@ gulp.task('serve', () => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch('./styles/*', ['styles'], browserSync.reload)
+  gulp.watch('./dist/styles/*', ['styles'], browserSync.reload)
   gulp.watch('*.html').on('change', browserSync.reload)
-  gulp.watch('./styles/*').on('change', browserSync.reload)
+  gulp.watch('./dist/styles/*').on('change', browserSync.reload)
 })
 
 // gulp.task('default', ['watch', 'serve'])

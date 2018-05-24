@@ -33,47 +33,120 @@
 </head>
 
 <body>
-  <section id="header-container">
-    <header>
-      <nav class="visible fixed-top">
-        <div><a href="/" class="navbar-brand logo"><img src="./public/favicon.ico" alt="Logo" width="45" height="45"/></a></div>
-        <div><a href="http://utopia1.herokuapp.com/" class="navbar-brand logo info"><img src="./public/info.svg" alt="Logo" width="30" height="30"/></a></div>
-        <div>
-          <h4 class="logon name"></h4>
+  <section class="Bienvenida">
+    <div class="container">
+      <div class="row d-flex justify-content-between text-center">
+
+        <div class="col-12 col-md-6 p-5 jumbotron-root">
+          <h2 class="bienvenida titulo display-4 titulog">
+            Todos podemos estudiar
+          </h2>
+          <!-- <p class="lead">
+            Un espacio de estudio y educación de alta calidad pensado para el futuro de los estudiantes
+          </p> -->
+          <!-- <hr class="my-4"> -->
+          <p>Mira que te lo que te ofrece utopía para ti</p>
+          <p class="lead titulog">
+            <a href="#acerca-de" class="btn btn-primary btn-lg" role="button">Saber mas</a> o
+            <a href="/signin" class="btn btn-info btn-lg" role="button">Inicia sesión</a>
+          </p>
+          <!-- <div><img src="./public/book.svg" alt="Logo utopia" class="img-fluid"></div> -->
         </div>
-        <div class="button"><a class="btn"><img src="./public/open.svg" alt="Logo" width="30" height="30"/></a></div>
-      </nav>
-      <div class="overlay">
-        <div class="wrap container">
-          <ul class="wrap-nav row">
-            <li class="col-12 menuGen"><a class="titulog">Ingresa</a>
-              <ul>
-                <li><a href="/signin" class="signinl">Inicia sesión</a></li>
-                <li><a href="/signout" class="signoutl">Regístrate</a></li>
-              </ul>
-            </li>
-            <li id="wUser" class="col-12 eUser pUser aUser"><a class="titulog">Descubre</a>
-              <ul>
-                <!--li-->
-                <!--   a.homel.mainer(href='/home') Inicio-->
-                <li><a href="/profile">Perfil</a></li>
-              </ul>
-            </li>
-            <li id="wUser" class="col-12 pUser aUser eUser"><a class="titulog">Administracion</a>
-              <ul>
-                <li><a href="/admin" class="adminl">administrador</a></li>
-              </ul>
-            </li>
-            <li>
-              <ul>
-                <li id="wUser" class="pUser aUser eUser"><a href="/" class="fixed-bottom"><img src="./public/exit.svg" alt="Salir" width="40" height="40"/></a></li>
-              </ul>
-            </li>
-          </ul>
+
+        <!-- <div class="col-3 text-center .d-none .d-lg-block .d-xl-none">
+          <img src="./public/book.svg" alt="Logo utopia" class="img-fluid">
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+  <section id="acerca-de">
+    <div class="container">
+      <div class="row d-flex justify-content-center pb-3 pt-5">
+        <div class="col-md-6 ">
+          <div class="card text-center utopia-root-card layer-acerca-de">
+            <div class="card-body">
+              <h4 class="titulog">Qué es utopía</h4>
+              <p class="card-text">El proyecto utopía es un sistema integral de gestión educativo creado para cubrir las necesidades de aquellas
+                entidades que manejan mucha carga académica, demanda estudiantil y se encuentran en sectores de bajos recursos
+                y poca disponibilidad tecnológica.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-7">
+          <div class="card text-center utopia-root-card layer-acerca-de mb-5">
+            <div class="card-body">
+              <h4 class="titulog">Qué hacemos</h4>
+              <p class="card-text">
+                Utopía ofrece un servicio de gestión a la comunidad completamente gratis.
+                <br> Ofrecemos una experiencia completa en todos los dispositivos junto a una disponibilidad del 100%.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+<section id="union">
+    <section id="layer1">
+        <div class="container layer1-container">
+          <div class="row mt-3 justify-content-between">
+            <div class="col-md-4">
+              <img src="./public/utopia-background-form3.jpg" alt="Todos los dispositivos" class="img-fluid img-thumbnail img-devices">
+            </div>
+            <div class="col-md-5">
+              <div class="card text-center utopia-root-card mb-5">
+                <div class="card-body">
+                  <h4 class="titulog">Estamos presente en todos los dispositivos</h4>
+                  <p class="card-text">
+                    Garantizamos disponibilidad en todo momento y excelente rendimiento.</p>
+                  <p class="card-text">Te ofrecemos la mejor experiencia, queremos que te sientas como en casa, disfruta de nuestros servicios aun
+                    cuando no tengas conexión.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section id="layer2">
+        <div class="container layer2-container">
+          <div class="row justify-content-center">
+            <div class="col-md-5">
+              <div class="card text-center utopia-root-card mb-5">
+                <div class="card-body">
+                  <h4 class="titulog">En utopía nos importas tu</h4>
+                  <p class="card-text">
+                    Entra y descubre todo lo que tenemos para ti </p>
+                  <a href="/signin" class="btn btn-primary titulog layer2-boton">Ingresa</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex">
+        <div class="col d-inline-flex justify-content-start">
+          <h3>
+            <a href="https://makinox.github.io/PortafolioPersonal/" class="btn">Powered by: Jesus bossa</a>
+          </h3>
+        </div>
+        <div class="col d-inline-flex justify-content-end mt-2">
+          <h6 class="text-muted">©MIT Utopia1</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 <script src="./public/app.js"></script>
+
 </html>
