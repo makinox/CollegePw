@@ -84,7 +84,10 @@ module.exports = `
 
   <section id="layer2">
     <div class="container layer2-container">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center text-center">
+        <div class="col col-10" >
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2le9qLtoqV4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
         <div class="col-md-5">
           <div class="card text-center utopia-root-card mb-5">
             <div class="card-body">
