@@ -13,14 +13,17 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(auto, 40vw));
   grid-gap: 20px;
-  background-color: gray;
   justify-content: center;
   text-align: center;
-  padding: 100px
+  padding: 100px;
 }
 
-.homeLayout-hero-container {
-  border: 1px red solid;
+.homeLayout-union {
+  background-image: url('../../../assets/home/img2.svg');
+  background-repeat: no-repeat;
+  background-position-x: 160%;
+  background-position-y:5%;
+  background-size: 70%;
 }
 
 .homeLayout-hero-container h1 {
@@ -29,6 +32,11 @@
 
 .homeLayout-hero-container p {
   font-size: 20px;
+}
+
+.homeLayout-hero img  {
+  width: 400px;
+  height: 400px;
 }
 
 .homeLayout-hero-footer span {
@@ -42,11 +50,16 @@
 .homeLayout-explain {
   display: grid;
   grid-template-columns: 50vw;
-  background-color: aquamarine;
   padding: 90px;
   grid-gap: 20px;
   justify-content: center;
   text-align: center;
+
+  background-image: url('../../../assets/home/img4.svg');
+  background-repeat: no-repeat;
+  /* background-position-x: 160%; */
+  background-position-y: 250px;
+  /* background-size: 70%; */
 }
 
 .homeLayout-explain-card {
@@ -56,13 +69,16 @@
 }
 
 .homeLayout-footer {
-  background-color: bisque;
   display: grid;
   grid-template-columns: 50vw;
   grid-gap: 20px;
   justify-content: center;
   padding: 100px;
   text-align: center;
+
+  background-image: url('../../../assets/home/img3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .homeLayout-footer-card span{
