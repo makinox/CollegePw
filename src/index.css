@@ -12,3 +12,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Bootstrap */
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1);
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, .2);
+  font-size: 20px;
+}

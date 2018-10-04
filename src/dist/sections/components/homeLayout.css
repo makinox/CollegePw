@@ -1,18 +1,5 @@
-.btn {
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-  margin: 20px;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, .2);
-  font-size: 20px;
-}
-
 .homeLayout-hero {
   display: grid;
-  grid-template-columns: repeat(2, minmax(auto, 40vw));
-  grid-gap: 20px;
   justify-content: center;
   text-align: center;
   padding: 100px;
@@ -26,17 +13,44 @@
   background-size: 70%;
 }
 
+@media (min-width: 948px){
+  .homeLayout-hero {
+    grid-template-columns: repeat(2, minmax(auto, 600px));
+    grid-gap: 20px;
+  }
+}
+
+@media (max-width: 948px){
+  .homeLayout-hero {
+    grid-template-columns: 1fr;
+    /* grid-gap: 20px; */
+  }
+
+  .homeLayout-union {
+    background-position-x: 0%;
+    background-position-y:40%;
+    background-size: 130%;
+  }
+}
+
+@media (max-width: 629px){
+  .homeLayout-union {
+    background-position-y: 45%;
+    background-size: 210%;
+  }
+}
+
+.homeLayout-hero img  {
+  width: 350px;
+  height: 350px;
+}
+
 .homeLayout-hero-container h1 {
   font-size: 50px;
 }
 
 .homeLayout-hero-container p {
   font-size: 20px;
-}
-
-.homeLayout-hero img  {
-  width: 400px;
-  height: 400px;
 }
 
 .homeLayout-hero-footer span {
@@ -49,31 +63,23 @@
 
 .homeLayout-explain {
   display: grid;
-  grid-template-columns: 50vw;
-  padding: 90px;
+  grid-template-columns: minmax(auto, 600px);
+  padding: 90px 0;
   grid-gap: 20px;
   justify-content: center;
   text-align: center;
 
   background-image: url('../../../assets/home/img4.svg');
   background-repeat: no-repeat;
-  /* background-position-x: 160%; */
   background-position-y: 250px;
-  /* background-size: 70%; */
-}
-
-.homeLayout-explain-card {
-  background-color: #fff;
-  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1);
-  padding: 0 20px;
 }
 
 .homeLayout-footer {
   display: grid;
-  grid-template-columns: 50vw;
+  grid-template-columns: minmax(auto, 600px);
   grid-gap: 20px;
   justify-content: center;
-  padding: 100px;
+  padding: 100px 0;
   text-align: center;
 
   background-image: url('../../../assets/home/img3.jpg');
