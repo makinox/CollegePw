@@ -1,0 +1,1 @@
+export const base = 'https://guarded-badlands-63495.herokuapp.com/api/v1/'
