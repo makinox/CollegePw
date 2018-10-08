@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Navbar from './dist/sections/components/navbar'
 import Core from './dist/core/routes'
 
-class App extends Component {
+export default class extends React.Component {
   render() {
     return (
       <Core>
@@ -11,5 +11,3 @@ class App extends Component {
     )
   }
 }
-
-export default App

@@ -53,11 +53,11 @@
   font-size: 20px;
 }
 
-.homeLayout-hero-footer span {
+.homeLayout-hero-footer a {
   background-color: #1D3557;
 }
 
-.homeLayout-hero-footer span:last-of-type {
+.homeLayout-hero-footer a:last-of-type {
   background-color: #457B9D;
 }
 

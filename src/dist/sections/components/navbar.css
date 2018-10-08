@@ -3,9 +3,16 @@ nav {
   padding: 8px;
   box-shadow: 0 3px 3px 1px rgba(0, 0, 0, .1);
   display: grid;
-  grid-template-columns: minmax(auto, 1100px) repeat(3, auto);
   grid-gap: 10px;
   align-items: center;
+}
+
+.log {
+  grid-template-columns: minmax(auto, 1100px) repeat(3, auto);
+}
+
+.noLog {
+  grid-template-columns: minmax(auto, 1100px) repeat(3, auto);
 }
 
 nav a {
@@ -26,9 +33,18 @@ nav a img {
 
 @media (max-width: 479px) {
   nav {
-      grid-template-columns: repeat(1, auto);
       justify-content: space-around;
+      padding: 20px;
   }
+
+  .log {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .noLog {
+    grid-template-columns: repeat(1, auto);
+  }
+
   nav div:first-of-type {
       display: none;
   }

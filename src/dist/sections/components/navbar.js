@@ -7,7 +7,7 @@ import './navbar.css'
 export default (props) => (
   <header>
     {props.log ? (
-      <nav>
+      <nav className="log">
         <div>
           <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
         </div>
@@ -22,12 +22,12 @@ export default (props) => (
         </div>
       </nav>
     ) : (
-      <nav>
+      <nav className="noLog">
       <div>
         <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
       </div>
       <div>
-        <Link to='/'>Inicia sesión</Link>
+        <Link to='/login'>Inicia sesión</Link>
       </div>
     </nav>
     )}

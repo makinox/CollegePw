@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import img1 from '../../../assets/home/img1.svg'
 import './homeLayout.css'
@@ -16,8 +17,8 @@ export default () => (
             <p>Mira que te lo que te ofrece utopía para ti</p>
           </div>
           <div className="homeLayout-hero-footer">
-            <span className="btn">Saber más</span>
-            <span className="btn">Iniciar sesión</span>
+            <a href="#homeLayout-explain" className="btn">Saber más</a>
+            <Link to="/login" className="btn">Iniciar sesión</Link>
           </div>
         </div>
 
@@ -27,7 +28,7 @@ export default () => (
 
       </div>
 
-      <div className="homeLayout-explain">
+      <div className="homeLayout-explain" id="homeLayout-explain">
 
         <div className="card">
           <h2>Qué es utopía</h2>
