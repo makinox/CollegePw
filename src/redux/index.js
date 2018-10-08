@@ -9,10 +9,6 @@ const persistConfig = {
 }
 
 const initialState = {
-    products: [{}],
-    selected: [{}],
-    counter: 0,
-    total: 0,
     log: false
 }
 

@@ -6,7 +6,7 @@
 }
 
 .homeLayout-union {
-  background-image: url('../../../assets/home/img2.svg');
+  background-image: url('../../assets/home/img2.svg');
   background-repeat: no-repeat;
   background-position-x: 160%;
   background-position-y:5%;
@@ -69,7 +69,7 @@
   justify-content: center;
   text-align: center;
 
-  background-image: url('../../../assets/home/img4.svg');
+  background-image: url('../../assets/home/img4.svg');
   background-repeat: no-repeat;
   background-position-y: 250px;
 }
@@ -82,7 +82,7 @@
   padding: 100px 0;
   text-align: center;
 
-  background-image: url('../../../assets/home/img3.jpg');
+  background-image: url('../../assets/home/img3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

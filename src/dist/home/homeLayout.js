@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import img1 from '../../../assets/home/img1.svg'
+import img1 from '../../assets/home/img1.svg'
 import './homeLayout.css'
 
 export default () => (
