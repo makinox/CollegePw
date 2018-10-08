@@ -1,35 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import img1 from '../../assets/navbar/logo.svg'
-import './navbar.css'
+import NavbarLayout from './navbarLayout'
 
-export default (props) => (
-  <header>
-    {props.log ? (
-      <nav className="log">
-        <div>
-          <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
-        </div>
-        <div>
-          <Link to='/home'>Productos</Link>
-        </div>
-        <div>
-          <Link to='/detail'>Detalle</Link>
-        </div>
-        <div>
-          <span onClick={props.out} role='img' aria-label='Cerrar sesión'>⭕</span>
-        </div>
-      </nav>
-    ) : (
-      <nav className="noLog">
-      <div>
-        <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
-      </div>
-      <div>
-        <Link to='/login'>Inicia sesión</Link>
-      </div>
-    </nav>
-    )}
-  </header>
-)
+class Navbar extends React.Component {
+
+    logOut = () => {
+        if(window.confirm('Seguro que desea cerrar sesión')){
+            this.props.dispatch({
+                type: 'LOGIN',
+                payload: {
+                    log: false
+                }
+            })
+        }
+        // console.log(window.location)
+        window.location.href = '/'
+    }
+
+    render() {
+        return <NavbarLayout out={this.logOut} log={this.props.log} />
+    }
+}
+
+function mapStateToProps(state){
+    return {
+        log: state.log
+    }
+}
+
+export default connect(mapStateToProps)(Navbar)

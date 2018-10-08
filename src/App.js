@@ -1,13 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
 import Navbar from './dist/navbar/navbar'
 import Core from './dist/utils/routes/routes'
 
-export default class extends React.Component {
+class Root extends React.Component {
   render() {
     return (
-      <Core>
-        <Navbar />
+      <Core log={this.props.log}>
+        <Navbar/>
       </Core>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    log: state.log
+  }
+}
+
+export default connect(mapStateToProps)(Root)
