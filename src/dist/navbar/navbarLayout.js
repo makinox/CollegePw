@@ -22,14 +22,14 @@ export default (props) => (
         </div>
       </nav>
     ) : (
-      <nav className="noLog">
-      <div>
-        <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
-      </div>
-      <div>
-        <Link to='/login'>Inicia sesión</Link>
-      </div>
-    </nav>
-    )}
+        <nav className="noLog">
+          <div>
+            <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
+          </div>
+          <div>
+            <Link to='/login'>Inicia sesión</Link>
+          </div>
+        </nav>
+      )}
   </header>
 )

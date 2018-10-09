@@ -11,13 +11,13 @@ export default (props) => (
             <div>
                 <nav>
                     <div>
-                        <span>De ti</span>
+                        <span>Tú</span>
                     </div>
                     <div>
-                        <span>Tus clases</span>
+                        <span>Clases</span>
                     </div>
                     <div>
-                        <span>Tus notas</span>
+                        <span>Notas</span>
                     </div>
                 </nav>
             </div>
