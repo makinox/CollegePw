@@ -14,8 +14,10 @@ class Navbar extends React.Component {
                 }
             })
         }
-        // console.log(window.location)
-        window.location.href = '/'
+
+        if (window.location.pathname !== '/') {
+            window.location.href = '/'
+        }
     }
 
     render() {
