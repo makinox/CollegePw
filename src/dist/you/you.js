@@ -6,23 +6,25 @@ import API from '../utils/api/user'
 
 class You extends React.Component {
 
-    state = {
-        data: {}
-    }
-
     async componentDidMount(){
         const {data} = await API.getUser(this.props.id)
-        this.setState({data})
+        this.props.dispatch({
+            type: 'INSERT_USER',
+            payload: {
+                user: data
+            }
+        })
     }
 
     render(){
-        return <UserLayout data={this.state.data} />
+        return <UserLayout data={this.props.user} />
     }
 }
 
 function mapStateToProps(state){
     return {
-        id: state.e.id
+        id: state.e.id,
+        user: state.user
     }
 }
 

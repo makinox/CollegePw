@@ -33,6 +33,10 @@
     border-bottom: none;
 }
 
+.youLayout-container-body h4 {
+    margin: 10px 0;
+}
+
 .youLayout-container-footer {
     background-color: #fff;
     margin: 10px 0;

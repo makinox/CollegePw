@@ -5,7 +5,6 @@ import './userLayout.css'
 
 export default (props) => (
     <section>
-        {console.log(props.data)}
         <div className="user-section-container">
             <div className="user-section-header">
                 <div>

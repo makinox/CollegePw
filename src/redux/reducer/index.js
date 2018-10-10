@@ -9,6 +9,13 @@ export default function reducef(state, action) {
       }
     }
 
+    case 'INSERT_USER': {
+      return {
+        ...state,
+        user: action.payload.user
+      }
+    }
+
     default:
       return state
   }
