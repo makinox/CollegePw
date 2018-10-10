@@ -1,9 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
-import User from './userLayout'
+import UserLayout from './userLayout'
+import API from '../utils/api/user'
 
-export default class extends React.Component {
+class User extends React.Component {
+
+    state = {
+        data: {}
+    }
+
+    async componentDidMount(){
+        const {data} = await API.getUser(this.props.id)
+        this.setState({data})
+    }
+
     render(){
-        return <User />
+        return <UserLayout data={this.state.data}/>
     }
 }
+
+function mapStateToProps(state){
+    return {
+        id: state.e.id
+    }
+}
+
+export default connect(mapStateToProps)(User)

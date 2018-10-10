@@ -28,7 +28,7 @@ export default (props) => (
 
                 <div className="youLayout-container-footer">
                     <span role="img" aria-label="Cambiar contraseña" className="btn">🔒</span>
-                    <span role="img" aria-label="Cambiar datos" className="btn">🖍</span>
+                    <span role="img" aria-label="Cambiar datos" className="btn">⚙</span>
                 </div>
         </div>
     </section>
