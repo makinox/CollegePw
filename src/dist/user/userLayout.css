@@ -14,7 +14,7 @@
 
 .user-section-header-container nav {
     display: grid;
-    grid-template-columns: repeat(3, minmax(auto, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(auto, 20vw));
     grid-gap: 10px;
     justify-content: center;
     border-bottom: 1px #f3f3f3 solid;
