@@ -16,6 +16,13 @@ export default function reducef(state, action) {
       }
     }
 
+    case 'INSERT_SUBJECTS': {
+      return {
+        ...state,
+        subject: action.payload.subject
+      }
+    }
+
     default:
       return state
   }

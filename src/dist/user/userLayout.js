@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './userLayout.css'
 
@@ -18,6 +18,16 @@ export default (props) => (
                 <div>
                     <Link to="/you"><span role="img" aria-label="Configuración de perfil">⚙</span></Link>
                 </div>
+            </div>
+
+            <div className="user-section-resumen">
+                <h4>Asignaturas previas <span>{props.subject.length}</span></h4>
+                {props.subject.map((e,i) => (
+                    <div key={i}>
+                        <p>{e.name}</p>
+                        <p>{e.grade}</p>
+                    </div>
+                ))}
             </div>
         </div>
     </section>
