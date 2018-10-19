@@ -29,19 +29,19 @@ class User extends React.Component {
             }
         })
 
-        const note = await API4.getNote(this.props.id)
-        console.log(note.data)
-        // this.props.dispatch({
-        //     type: 'INSERT_SUBJECTS',
-        //     payload: {
-        //         note
-        //     }
-        // })
+        const note = await API4.getNotesByuser(this.props.id)
+        // console.log(note.data)
+        this.props.dispatch({
+            type: 'INSERT_NOTES',
+            payload: {
+                note: note.data
+            }
+        })
 
     }
 
     render(){
-        return <UserLayout data={this.props.user} sub={this.props.subject}/>
+        return <UserLayout data={this.props.user} sub={this.props.subject} note={this.props.note} />
     }
 }
 

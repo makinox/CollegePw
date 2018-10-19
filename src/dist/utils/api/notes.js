@@ -1,7 +1,7 @@
 import {base} from './base'
 
 class Note {
-    async getNote(id) {
+    async getNotesByuser(id) {
         let str = `${base}notes/:id`
         const query = await fetch(str.replace(':id',id))
         const body = await query
