@@ -21,13 +21,15 @@ export default (props) => (
             </div>
 
             <div className="user-section-resumen">
-                <h4>Asignaturas previas <span>{props.subject.length}</span></h4>
-                {props.subject.map((e,i) => (
-                    <div key={i}>
-                        <p>{e.name}</p>
-                        <p>{e.grade}</p>
-                    </div>
-                ))}
+                <div>
+                    <h4>Asignaturas previas <span>{props.subject.length}</span></h4>
+                    {props.subject.map((e, i) => (
+                        <div key={i}>
+                            <p>{e.name}</p>
+                            <p>{e.grade}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     </section>
