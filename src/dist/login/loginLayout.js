@@ -13,7 +13,7 @@ export default (props) => (
         <form onSubmit={props.submit} >
           <div>
             <label htmlFor="user" >Ingresa tu usuario</label>
-            <input type="text" name="user" />
+            <input type="text" name="user" autoFocus />
           </div>
           <div>
             <label htmlFor="password">Ingresa tu contraseña</label>

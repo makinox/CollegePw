@@ -10,7 +10,9 @@ const persistConfig = {
 
 const initialState = {
     log: false,
-    user: {}
+    user: {},
+    subject: [{}],
+    note: [{}]
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)

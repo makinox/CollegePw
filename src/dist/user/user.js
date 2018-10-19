@@ -5,6 +5,7 @@ import UserLayout from './userLayout'
 import API from '../utils/api/user'
 import API2 from '../utils/api/subjecUsers'
 import API3 from '../utils/api/subjects'
+import API4 from '../utils/api/notes'
 
 class User extends React.Component {
 
@@ -27,10 +28,20 @@ class User extends React.Component {
                 subject
             }
         })
+
+        const note = await API4.getNote(this.props.id)
+        console.log(note.data)
+        // this.props.dispatch({
+        //     type: 'INSERT_SUBJECTS',
+        //     payload: {
+        //         note
+        //     }
+        // })
+
     }
 
     render(){
-        return <UserLayout data={this.props.user} subject={this.props.subject}/>
+        return <UserLayout data={this.props.user} sub={this.props.subject}/>
     }
 }
 
@@ -39,6 +50,7 @@ function mapStateToProps(state){
         id: state.e.id,
         user: state.user,
         subject: state.subject,
+        note: state.note
     }
 }
 
