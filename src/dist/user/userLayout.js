@@ -31,13 +31,15 @@ export default (props) => (
                     ))}
                 </div>
                 <div>
-                    {/* <h4>Asignaturas notes <span>{props.sub.length}</span></h4>
-                    {props.sub.map((e, i) => (
+                    {console.log(props.note)}
+                    <h4>Asignaturas notes <span>{props.note.length}</span></h4>
+                    {props.note.map((e, i) => (
                         <div key={i}>
-                            <p>{e.name}</p>
-                            <p>{e.grade}</p>
+                            <p>{e.title}</p>
+                            <p>{e.observation}</p>
+                            <p>{e.value}</p>
                         </div>
-                    ))} */}
+                    ))}
                 </div>
             </div>
         </div>
