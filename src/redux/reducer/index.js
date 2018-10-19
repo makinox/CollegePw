@@ -23,6 +23,13 @@ export default function reducef(state, action) {
       }
     }
 
+    case 'INSERT_NOTES': {
+      return {
+        ...state,
+        note: action.payload.note
+      }
+    }
+
     default:
       return state
   }
