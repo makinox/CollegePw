@@ -30,6 +30,13 @@ export default function reducef(state, action) {
       }
     }
 
+    case 'INSERT_RATINGS': {
+      return {
+        ...state,
+        rating: action.payload.rating
+      }
+    }
+
     default:
       return state
   }

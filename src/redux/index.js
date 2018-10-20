@@ -12,7 +12,8 @@ const initialState = {
     log: false,
     user: {},
     subject: [{}],
-    note: [{}]
+    note: [{}],
+    rating: [{}]
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)

@@ -31,12 +31,21 @@ export default (props) => (
                     ))}
                 </div>
                 <div>
-                    {console.log(props.note)}
-                    <h4>Asignaturas notes <span>{props.note.length}</span></h4>
+                    <h4>Ultimas notas <span>{props.note.length}</span></h4>
                     {props.note.map((e, i) => (
                         <div key={i}>
                             <p>{e.title}</p>
                             <p>{e.observation}</p>
+                            <p>{e.value}</p>
+                        </div>
+                    ))}
+                </div>
+                <div>
+                    {console.log(props.rating)}
+                    <h4>Ultimas notas <span>{props.rating.length}</span></h4>
+                    {props.rating.map((e, i) => (
+                        <div key={i}>
+                            <p>{e.title}</p>
                             <p>{e.value}</p>
                         </div>
                     ))}
