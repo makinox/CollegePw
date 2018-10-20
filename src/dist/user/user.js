@@ -6,6 +6,7 @@ import API from '../utils/api/user'
 import API2 from '../utils/api/subjecUsers'
 import API3 from '../utils/api/subjects'
 import API4 from '../utils/api/notes'
+import API5 from '../utils/api/ratings'
 
 class User extends React.Component {
 
@@ -29,8 +30,7 @@ class User extends React.Component {
             }
         })
 
-        const note = await API4.getNotesByuser(this.props.id)
-        // console.log(note.data)
+        const note = await API4.getNotesByUser(this.props.id)
         this.props.dispatch({
             type: 'INSERT_NOTES',
             payload: {
@@ -38,10 +38,19 @@ class User extends React.Component {
             }
         })
 
+        const rating = await API5.getRatingsByUser(this.props.id)
+        // console.log(rating.data)
+        this.props.dispatch({
+            type: 'INSERT_RATINGS',
+            payload: {
+                rating: rating.data
+            }
+        })
+
     }
 
     render(){
-        return <UserLayout data={this.props.user} sub={this.props.subject} note={this.props.note} />
+        return <UserLayout data={this.props.user} sub={this.props.subject} note={this.props.note} rating={this.props.rating} />
     }
 }
 
@@ -50,7 +59,8 @@ function mapStateToProps(state){
         id: state.e.id,
         user: state.user,
         subject: state.subject,
-        note: state.note
+        note: state.note,
+        rating: state.rating
     }
 }
 
