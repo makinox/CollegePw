@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import './youLayout.css'
 
@@ -27,8 +28,8 @@ export default (props) => (
                 </div>
 
                 <div className="youLayout-container-footer">
-                    <span role="img" aria-label="Cambiar contraseña" className="btn">🔒</span>
-                    <span role="img" aria-label="Cambiar datos" className="btn">⚙</span>
+                    <Link to="/you/pass"><span role="img" aria-label="Cambiar contraseña" className="btn">🔒</span></Link>
+                    <Link to="/"><span role="img" aria-label="Cambiar datos" className="btn">⚙</span></Link>
                 </div>
         </div>
     </section>
