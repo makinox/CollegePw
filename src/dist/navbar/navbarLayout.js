@@ -12,10 +12,7 @@ export default (props) => (
           <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
         </div>
         <div>
-          <Link to='/home'>Productos</Link>
-        </div>
-        <div>
-          <Link to='/detail'>Detalle</Link>
+          <Link to='/you'>Configuración</Link>
         </div>
         <div>
           <span onClick={props.out} role='img' aria-label='Cerrar sesión'>⭕</span>
