@@ -8,7 +8,7 @@ class Root extends React.Component {
   render() {
     return (
       <Core log={this.props.log}>
-        <Navbar/>
+        <Navbar log={this.props.log} />
       </Core>
     )
   }
