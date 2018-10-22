@@ -1,48 +1,26 @@
 .section-container-login {
-    display: grid;
-    grid-template-columns: minmax(auto, 500px);
-    justify-content: center;
-    padding-top: 12vh;
-  }
+  display: grid;
+  grid-template-columns: minmax(auto, 500px);
+  justify-content: center;
+  padding-top: 12vh;
+}
   
+.section-container-login-card {
+  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 300px;
+  justify-content: center;
+  padding: 60px 0 100px 0; 
+}
+
+@media (max-width: 479px){
+
+  .section-container-login {
+    padding-top: 5vh;
+  }
+
   .section-container-login-card {
-    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 300px;
-    justify-content: center;
-    padding: 60px 0 100px 0; 
+    text-align: center;
   }
-
-  @media (max-width: 479px){
-
-    .section-container-login {
-      padding-top: 5vh;
-    }
-
-    .section-container-login-card {
-      text-align: center;
-    }
-  }
-  
-  .section-container-login-card-body form div label {
-    display: block;
-    padding: 10px 0;
-  }
-  
-  .section-container-login-card-body form div input {
-    border: none;
-    border: 1px #cacaca solid;
-    border-radius: 3px;
-    padding: 5px 0;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-    padding-left: 10px;
-  }
-  
-  .section-container-login-card-body form div button {
-    border: 1px #1D3557 solid;
-    background-color: #1D3557;
-    margin: 15px 0;
-    font-size: initial;
-  }
-  
+}

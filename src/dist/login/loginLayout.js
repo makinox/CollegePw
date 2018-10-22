@@ -20,7 +20,7 @@ export default (props) => (
             <input type="password" name="password" />
           </div>
           <div>
-            <button type="submit" className="btn">Ingresar</button>
+            <button type="submit" className="btn" style={{fontSize: 'initial'}}>Ingresar</button>
           </div>
         </form>
       </div>

@@ -17,7 +17,7 @@ export default (props) => (
           <input name="new" type="password"/>
         </div>
         <div>
-          <button type="submit" className="btn">Cambiar</button>
+          <button type="submit" className="btn" style={{fontSize: 'initial'}}>Cambiar</button>
         </div>
       </form>
     </div>
