@@ -20,15 +20,7 @@ class Navbar extends React.Component {
         }
     }
 
-    render() {
-        return <NavbarLayout out={this.logOut} log={this.props.log} />
-    }
+    render() {return <NavbarLayout out={this.logOut} log={this.props.log} />}
 }
 
-function mapStateToProps(state){
-    return {
-        log: state.log
-    }
-}
-
-export default connect(mapStateToProps)(Navbar)
+export default connect()(Navbar)
