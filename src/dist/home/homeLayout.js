@@ -13,7 +13,7 @@ export default () => (
 
         <div className="homeLayout-hero-container">
           <div className="homeLayout-hero-head">
-            <h1>Con <i style={{color: '#E63946'}}>Jezsi</i> todos podemos estudiar</h1>
+            <h1>Con <i style={{color: '#E63946'}}>Jezsy</i> todos podemos estudiar</h1>
             <p>Mira que te lo que te ofrece utopía para ti</p>
           </div>
           <div className="homeLayout-hero-footer">
