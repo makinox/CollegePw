@@ -8,15 +8,11 @@ class User {
         return await body.json() 
     }
 
-    async actualizeUser(id, pass) {
-        const form = new FormData()
-        form.append("password", pass)
-
-
+    async actualizeUser(id, bod) {
         let str = `${base}users/:id`
         const query = await fetch(str.replace(':id',id), {
             method: 'PUT',
-            body: form
+            body: bod
         })
         const body = await query
         return await body.json() 

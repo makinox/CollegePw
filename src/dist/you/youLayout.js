@@ -28,7 +28,7 @@ export default (props) => (
 
                 <div className="youLayout-container-footer">
                     <Link to="/you/pass"><span role="img" aria-label="Cambiar contraseña" className="btn">🔒</span></Link>
-                    <Link to="/"><span role="img" aria-label="Cambiar datos" className="btn">⚙</span></Link>
+                    <Link to="/you/config"><span role="img" aria-label="Cambiar datos" className="btn">⚙</span></Link>
                 </div>
         </div>
     </section>

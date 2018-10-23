@@ -12,7 +12,7 @@ export default (props) => (
           <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
         </div>
         <div>
-          <Link to='/you'>Configuración</Link>
+          <Link to='/you'><span onClick={props.out} role='img' aria-label='Configuración' style={{fontSize: '25px'}}>⚙</span></Link>
         </div>
         <div>
           <span onClick={props.out} role='img' aria-label='Cerrar sesión'>⭕</span>

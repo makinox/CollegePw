@@ -1,0 +1,37 @@
+.uconfig-section-container {
+  display: grid;
+  grid-template-columns: .6fr;
+  justify-content: center;
+  text-align: center;
+}
+
+.uconfig-section-body {
+  display: grid;
+  grid-template-columns: minmax(auto, 0.4fr); 
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .uconfig-section-body {
+    grid-template-columns: minmax(auto, 1fr); 
+  }
+}
+
+.uconfig-section-body form {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+  border-radius: 5px;
+}
+
+.uconfig-section-body form div {
+  border-bottom: 1px #ebebeb solid;
+  padding: 10px 0;
+}
+
+.uconfig-section-body form div:last-of-type {
+  border-bottom: none;
+}
+
+.uconfig-section-body label {
+  display: block;
+  padding: 10px 0;
+}

@@ -7,6 +7,7 @@ import Login from '../../login/login'
 import User from '../../user/user'
 import You from '../../you/you'
 import Password from '../../password/password'
+import Config from '../../uconfig/uconfig'
 
 export default (props) => (
   <Router>
@@ -17,6 +18,7 @@ export default (props) => (
           <Route exact path="/" component={User} />
           <Route exact path="/you" component={You} />
           <Route exact path="/you/pass" component={Password} />
+          <Route exact path="/you/config" component={Config} />
         </Switch>
       ) : (
           <Switch>
