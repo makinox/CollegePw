@@ -5,7 +5,6 @@ import './youLayout.css'
 
 export default (props) => (
     <section>
-        {console.log(props.data)}
         <div className="youLayout-container">
                 <div className="youLayout-container-header">
                     <img src="https://picsum.photos/100/100" alt="Foto de perfil"/>
