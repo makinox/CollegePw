@@ -34,7 +34,7 @@ export default () => (
           <h2>Qué es utopía</h2>
           <p>Utopia es una plataforma que brinda el servicio de gestión educacional a cualquier institución educativa de todos los niveles.
           <br />
-            Nos enfocammos en aquellas entidades que cuentan con pocos recursos y poca disponibilidad tecnologica.
+            Nos enfocamos en aquellas entidades que cuentan con pocos recursos y poca disponibilidad tecnologica.
         </p>
         </div>
 
