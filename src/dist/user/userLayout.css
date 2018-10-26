@@ -12,8 +12,10 @@
 
 .user-section-header {
     display: grid;
-    grid-template-columns: minmax(auto, 1fr) minmax(auto, 5fr) minmax(auto, 1fr);
+    grid-template-columns: minmax(auto, .2fr) ;
     border-bottom: 1px #dadada solid;
+    justify-content: center;
+    text-align: center;
 }
 
 @media (max-width: 354px) {
@@ -26,12 +28,6 @@
         margin: 0;
         padding: 0;
     }
-}
-
-.user-section-header div {
-    display: inline-block;
-    margin: 10px;
-    vertical-align: middle;
 }
 
 .user-section-header a {
