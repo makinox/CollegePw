@@ -11,11 +11,22 @@ export default (props) => (
         <div>
           <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
         </div>
-        <div>
-          <Link to='/you'><span onClick={props.out} role='img' aria-label='Configuración' style={{fontSize: '25px'}}>⚙</span></Link>
-        </div>
-        <div>
-          <span onClick={props.out} role='img' aria-label='Cerrar sesión'>⭕</span>
+        <div className="dropdown">
+          <div>
+            <img src="https://picsum.photos/30/30" alt="" />
+            <span>Username</span>
+          </div>
+          <ul>
+            <li>
+              <Link to='/you'>
+                <span onClick={props.out} role='img' aria-label='Configuración'>⚙</span>
+                <span>Configuración</span>
+              </Link>
+            </li>
+            <li>
+              <span onClick={props.out} role='img' aria-label='Cerrar sesión'>⭕ Cerrar sesión</span>
+            </li>
+          </ul>
         </div>
       </nav>
     ) : (
