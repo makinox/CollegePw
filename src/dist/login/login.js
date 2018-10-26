@@ -10,10 +10,8 @@ class LoginComponent extends React.Component {
 		e.preventDefault()
 
 		const login = await API.getLogin(e.target.user.value, e.target.password.value)
-		console.log(login)
 
 		if (login) {
-			debugger
 			await this.props.dispatch({
 				type: 'LOGIN',
 				payload: {

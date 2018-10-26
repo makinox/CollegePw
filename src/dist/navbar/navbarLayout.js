@@ -12,11 +12,11 @@ export default (props) => (
           <Link to='/'><img src={img1} alt="Logo de jesús bossa" /></Link>
         </div>
         <div className="dropdown">
-          <div>
+          <div onClick={props.click} >
             <img src="https://picsum.photos/30/30" alt="" />
             <span>Username</span>
           </div>
-          <ul>
+          <ul style={{display: `${props.display}`}}>
             <li>
               <Link to='/you'>
                 <span onClick={props.out} role='img' aria-label='Configuración'>⚙</span>
