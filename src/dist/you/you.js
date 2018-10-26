@@ -8,24 +8,12 @@ class You extends React.Component {
 
     async componentDidMount(){
         const {data} = await API.getUser(this.props.id)
-        this.props.dispatch({
-            type: 'INSERT_USER',
-            payload: {
-                user: data
-            }
-        })
+        this.props.dispatch({type: 'INSERT_USER',payload: {user: data}})
     }
 
-    render(){
-        return <UserLayout data={this.props.user} />
-    }
+    render(){return <UserLayout data={this.props.user} />}
 }
 
-function mapStateToProps(state){
-    return {
-        id: state.e.id,
-        user: state.user
-    }
-}
+function mapStateToProps(state){return {id: state.e.id,user: state.user}}
 
 export default connect(mapStateToProps)(You)
