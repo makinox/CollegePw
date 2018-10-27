@@ -14,12 +14,12 @@ export default (props) => (
         <div className="dropdown">
           <div onClick={props.click} >
             <img src="https://picsum.photos/30/30" alt="" />
-            <span>Username</span>
+            <span>{props.name}</span>
           </div>
           <ul style={{display: `${props.display}`}}>
             <li>
-              <Link to='/you'>
-                <span onClick={props.out} role='img' aria-label='Configuración'>⚙</span>
+              <Link to='/you' onClick={props.click} >
+                <span role='img' aria-label='Configuración'>⚙</span>
                 <span>Configuración</span>
               </Link>
             </li>

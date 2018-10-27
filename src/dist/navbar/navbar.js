@@ -36,7 +36,7 @@ class Navbar extends React.Component {
 		}
 	}
 
-	render() { return <NavbarLayout out={this.logOut} log={this.props.log} click={this.onClick} display={this.state.display}/> }
+	render() { return <NavbarLayout name={this.props.name} out={this.logOut} log={this.props.log} click={this.onClick} display={this.state.display}/> }
 }
 
 export default connect()(Navbar)

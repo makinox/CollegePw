@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './userLayout.css'
+import Cardi from '../cardi/cardi'
 
 export default (props) => (
     <section>
@@ -10,17 +11,14 @@ export default (props) => (
                     <img src="https://picsum.photos/100/100" alt="Imagen del usuario" />
                 </div>
                 <div>
-                    {/* <p>{props.data.name}</p> */}
                     <p>{props.data.user}</p>
-                    {/* <p>{props.data.email}</p> */}
                 </div>
             </div>
 
             <div className="user-section-resumen">
-                <div className="user-section-item" >
-                    <h4>Asignaturas previas <span>{props.sub.length}</span></h4>
+                <Cardi title="Asignaturas actuales" counter={props.sub.length} >
                     {props.sub.map((e, i) => {
-                        if (i < 3 ) {
+                        if (i < 4) {
                             return (
                                 <div key={i}>
                                     <p>{e.name}</p>
@@ -31,11 +29,11 @@ export default (props) => (
                             return null
                         }
                     })}
-                </div>
-                <div className="user-section-item">
-                    <h4>Ultimas notas <span>{props.note.length}</span></h4>
+                </Cardi >
+
+                <Cardi title="Ultimas notas" counter={props.note.length} >
                     {props.note.map((e, i) => {
-                        if (i < 3 ) {
+                        if (i < 3) {
                             return (
                                 <div key={i}>
                                     <p>{e.title}</p>
@@ -47,11 +45,11 @@ export default (props) => (
                             return null
                         }
                     })}
-                </div>
-                <div className="user-section-item">
-                    <h4>Ultimas calificaciones <span>{props.rating.length}</span></h4>
+                </Cardi >
+
+                <Cardi title="Ultimas evaluaciones" counter={props.rating.length} >
                     {props.rating.map((e, i) => {
-                        if (i < 3 ) {
+                        if (i < 4) {
                             return (
                                 <div key={i}>
                                     <p>{e.title}</p>
@@ -62,7 +60,7 @@ export default (props) => (
                             return null
                         }
                     })}
-                </div>
+                </Cardi >
             </div>
         </div>
     </section>

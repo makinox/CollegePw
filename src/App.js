@@ -8,7 +8,7 @@ class Root extends React.Component {
   render() {
     return (
       <Core log={this.props.log}>
-        <Navbar log={this.props.log} />
+        <Navbar log={this.props.log} name={this.props.name}  />
       </Core>
     )
   }
@@ -16,7 +16,8 @@ class Root extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    log: state.log
+    log: state.log,
+    name: state.user.name
   }
 }
 
