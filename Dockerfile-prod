@@ -9,6 +9,7 @@ RUN npm install --silent
 RUN npm install react-scripts@1.1.1 -g --silent
 
 COPY . /usr/src/app
+RUN npm run test:prod --silent
 RUN npm run build
 
 # production
