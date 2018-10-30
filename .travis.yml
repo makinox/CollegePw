@@ -23,5 +23,5 @@ jobs:
           secure: "utopia"
         message: "echo 'Ready'"
 
-  # - docker build -f Dockerfile-prod -t utopia .
-  # - docker run -it -p 80:80 --rm utopia
+# - docker build -f Dockerfile-prod -t utopia .
+# - docker run -it -p 80:80 --rm utopia
