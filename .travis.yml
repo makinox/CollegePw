@@ -14,8 +14,6 @@ jobs:
       script: yarn install
     - stage: Unit test
       script: yarn test:prod
-
-    if: branch = master
     - stage: Deploy
       deploy: 
         provider: firebase
