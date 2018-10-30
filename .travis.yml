@@ -11,11 +11,11 @@ services:
 jobs:
   include:
     - stage: Installing dependencies
-      script: 
-        - yarn install
+      script: yarn install
     - stage: Unit test
-      script: 
-        - yarn test:prod
+      script: yarn test:prod
+
+    if: branch = master
     - stage: Deploy
       deploy: 
         provider: firebase
