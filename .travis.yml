@@ -1,27 +1,24 @@
 env:
   global:
     secure: VI6nJRoA1wTDgXJh0dbDpHbp6w8fa/vvVZHvLCPQLSvw25FRbtwI7iU4vS5cUFm24DELrpSebSsSTQbFEe4N1n/cbuGXxLxcwgwETnWI8yHBqa2I6zmt1wTT9ppp2SEmtUuMgrUHHQsMSioOKAntA74xWi6WOqUa5oVw+PScIu0x7VYwnqmKswDLVM5OXYzPwGwUmx5rUtlvcQEFadmsAQts+Q8ELlZ9IGSRvSPV4whG66HOoA3NlueXZP4Csps9YciYX4nlHKPbeHuq7460PqbJbLj4l2TDWFDNNR2+7VSTsG0BSYP6q88cUUY54+lM0V/2PtSTFnrki8ulsg6zcEXqODiJJe1AzFRHa4wxYJKoZLXZarsmMI+yU9dGuyaUZYFHvNEeoUGyP8SKc/MQVl/Nsk06vR10GcdjkxDKxJ7MxmGU/H7TLBfleLbxB1g43bmoph1v3/4RgnB3MvFYZodvoJzmO2Fb/xvjaO3QMr5BIRMtbGrsnhK172iZeMoQrfCVDV+G1aHGpsEUoaaqdmVq/+9+LsYDgx3IYPSZ3o8k3JsFwR2D8GtyjwbPXWliEoBhrzAVDH1VISUyMl3mUCnyk7DzlrZYmdDMPOXFU1PqT2YnazQUU7ofam27vuS78rc9/vmxb/UdbbbkE+6PwOzyws2VUBYlZA3du7V9RY8=
-
+  utopia:
+    secure: bjC/ZnjK4AXzdUlBFaWIBAsjQXDzRiQNg3IDf4yB2SVSa0L+FjsIcWHQF+Y6CLQQ+sYVpZiVsnUAbppJGJihhpOKsfDwyJSVbADS/67EG2B5zuhhhLT57z1o0iWOlx4sswlpsxAcB7+fEmnB9ud+ulepmEda4hvA1+SqVUWM5QRr9uWdlQ5P+NHYtIbdKKBAKUUCmnNIPSpaD3oxrpkVJl3y4VzFtrfGcKUIYBWsj0zg4Qufq4leTwwogBfN8tf1vbLU2ocP8oxslgIK7ujsSCt4tD6xHpDc2P5C3LDBQV1x2tOYTaCF6dF5QuedgH6u1z1MoNFuSlxECNQ7Zf0FSFS9YkrZiO9ys929wR93Kr6h6+gHue77Q/JoDWCR++hBmQGXlTI0N8K/TkjPxQGr5e829Ll2R5R8bzLkqUq45vAVC+YwQICTyrQNkpmTsbEC8jf2xDljzuaXQOU12KPUO5BjOHy3wudcZyutcx2CChH9NGZPj6uQb6GNQZTA3MMUiJQrghmnC7hloE80nK5UqFe7/46PXDBLuUV5od8v0CGpzwC1dHe3HbUvAxH2gQYnwm74Mo/g16S0h/Sz30fQDNknNlpWDaHVe4xfZ9+HzA4MfY6B+r4IS5hMpATJGqtNUWjogCEdhzpwOqlk9XfQNvHgfm2J+7tnzRikdPyue6w=
 language: node_js
 node_js:
 - '10'
 services:
 - docker
-
 jobs:
   include:
-    - stage: Installing dependencies
-      script: yarn install
-    - stage: Unit test
-      script: yarn test:prod
-    - stage: Build
-      script: yarn build
-    - stage: Deploy
-      deploy: 
-        provider: firebase
-        token:
-          secure: "utopia"
-        message: "echo 'Ready'"
-
-# - docker build -f Dockerfile-prod -t utopia .
-# - docker run -it -p 80:80 --rm utopia
+  - stage: Installing dependencies
+    script: yarn install
+  - stage: Unit test
+    script: yarn test:prod
+  - stage: Build
+    script: yarn build
+  - stage: Deploy
+    deploy:
+      provider: firebase
+      token:
+        secure: utopia
+      message: echo 'Ready'
