@@ -14,6 +14,8 @@ jobs:
       script: yarn install
     - stage: Unit test
       script: yarn test:prod
+    - stage: Build
+      script: yarn build
     - stage: Deploy
       deploy: 
         provider: firebase
