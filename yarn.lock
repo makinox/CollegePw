@@ -1403,7 +1403,7 @@ babel-core@7.0.0-bridge.0:
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
   integrity sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==
 
-babel-core@^6.0.0, babel-core@^6.26.0:
+babel-core@^6.0.0, babel-core@^6.26.0, babel-core@^6.26.3:
   version "6.26.3"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.3.tgz#b2e2f09e342d0f0c88e2f02e067794125e75c207"
   integrity sha512-6jyFLuDmeidKmUEb3NM+/yawG0M2bDZ9Z1qbZP59cyHLz8kYGKYwpJP0UwUKKUiTRNvxfLesJnTedqczP7cTDA==
@@ -9217,6 +9217,13 @@ uglifyjs-webpack-plugin@^1.2.4:
     uglify-es "^3.3.4"
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
+
+unete-browser@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/unete-browser/-/unete-browser-1.0.2.tgz#a74318d0a1b95bd4883779c8fc6e379a0ea89ed4"
+  integrity sha512-eNG4gWBB0CfLopz2eLl5jta4WNo9ALBJSDf7Pp+LY6cKXWK/4Iejfcep87T++xlgiWjx/SF/IDJgtkc3yMo79g==
+  dependencies:
+    babel-core "^6.26.3"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

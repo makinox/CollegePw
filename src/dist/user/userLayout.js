@@ -12,6 +12,7 @@ export default (props) => (
                 </div>
                 <div>
                     <p>{props.data.user}</p>
+                    <span>{props.data.rol}</span>
                 </div>
             </div>
 

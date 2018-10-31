@@ -3,8 +3,15 @@ import { connect } from 'react-redux'
 
 import Login from './loginLayout'
 import API from '../utils/api/login'
+// import Conn from 'unete-browser'
 
 class LoginComponent extends React.Component {
+
+	// async componentDidMount() {
+	// 	let login = await Conn('http://192.168.10.211:5010')
+
+	// 	await login.login("Username", "Password")
+	// }
 
 	handleSubmit = async (e) => {
 		e.preventDefault()
