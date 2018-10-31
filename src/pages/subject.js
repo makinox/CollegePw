@@ -1,5 +1,15 @@
 import React from 'react'
+import SubjectLayout from '../dist/subject/subjectLayout'
+import { connect } from 'react-redux'
 
-export default class Subject extends React.Component {
-  render() {return <h1>Hola subjects</h1>}
+class Subject extends React.Component {
+  render() {return <SubjectLayout subjects={this.props.subjects} />}
 }
+
+function mapStateToProps(state){
+  return {
+    subjects: state.subject
+  }
+}
+
+export default connect(mapStateToProps)(Subject)

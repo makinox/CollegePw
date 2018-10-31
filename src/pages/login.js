@@ -8,9 +8,9 @@ import API from '../dist/utils/api/login'
 class LoginComponent extends React.Component {
 
 	// async componentDidMount() {
-	// 	let login = await Conn('http://192.168.10.211:5010')
+	// 	const App = await Conn('http://192.168.10.211:5010')
 
-	// 	await login.login("Username", "Password")
+	// 	await App.add(4,4)
 	// }
 
 	handleSubmit = async (e) => {
