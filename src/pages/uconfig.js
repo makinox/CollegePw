@@ -1,5 +1,5 @@
 import React from 'react'
-import ConfigLayout from './uconfigLayout'
+import ConfigLayout from '../dist/uconfig/uconfigLayout'
 import { connect } from 'react-redux';
 
 class Config extends React.Component {

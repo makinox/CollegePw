@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import UserLayout from './userLayout'
-import API from '../utils/api/user'
-import API2 from '../utils/api/subjecUsers'
-import API3 from '../utils/api/subjects'
-import API4 from '../utils/api/notes'
-import API5 from '../utils/api/ratings'
+import UserLayout from '../dist/user/userLayout'
+import API from '../dist/utils/api/user'
+import API2 from '../dist/utils/api/subjecUsers'
+import API3 from '../dist/utils/api/subjects'
+import API4 from '../dist/utils/api/notes'
+import API5 from '../dist/utils/api/ratings'
 
 class User extends React.Component {
 

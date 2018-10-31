@@ -1,13 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from '../../home/home'
-import Login from '../../login/login'
+import Home from '../../../pages/home'
+import Login from '../../../pages/login'
 
-import User from '../../user/user'
-import You from '../../you/you'
-import Password from '../../password/password'
-import Config from '../../uconfig/uconfig'
+import User from '../../../pages/user'
+import You from '../../../pages/you'
+import Password from '../../../pages/password'
+import Config from '../../../pages/uconfig'
+import Subjects from '../../../pages/subject'
 
 export default (props) => (
   <Router>
@@ -19,6 +20,7 @@ export default (props) => (
           <Route exact path="/you" component={You} />
           <Route exact path="/you/pass" component={Password} />
           <Route exact path="/you/config" component={Config} />
+          <Route exact path="/subjects" component={Subjects} />
         </Switch>
       ) : (
           <Switch>
