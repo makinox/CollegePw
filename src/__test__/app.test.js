@@ -1,7 +1,6 @@
 import App from '../App'
 
 describe('Test app root works', () => {
-    
   it('Project exits', () => {
     expect(App).toBeTruthy()
   })
