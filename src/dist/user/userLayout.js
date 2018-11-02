@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './userLayout.css'
-import Cardi from '../cardi/cardi'
+import Cardi from '../cards/cardLittle'
 
 export default (props) => (
     <section>

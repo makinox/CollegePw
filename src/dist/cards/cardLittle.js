@@ -1,8 +1,8 @@
 import React from 'react'
-import './cardi.css'
+import './cardLittle.css'
 
 export default (props) => (
-  <div className="cardi">
+  <div className="cardLittle">
     <h4>{props.title} <span>{props.counter}</span></h4>
       {props.children}
   </div>
