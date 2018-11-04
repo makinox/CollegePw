@@ -29,6 +29,16 @@ class Subjects {
 		const { data } = await body.json()
 		return data
     }
+
+    async deleteSubjects(id) {
+        let str = `${base}subjects/:id`
+        const query = await fetch(str.replace(':id',id), {
+			method: 'DELETE'
+		})
+		const body = await query
+		const { data } = await body.json()
+		return data
+    }
 }
 
 export default new Subjects()

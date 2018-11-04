@@ -16,8 +16,11 @@ class Subject extends React.Component {
 
   handleUpdate = (el) => this.setState({ modal: !this.state.modal, title: 'Editar asignatura', update: el})
 
-  handleDelete = (el) => {
-    window.confirm(`Estás seguro de borrar ${el}`)
+  handleDelete = async (el) => {
+    if (window.confirm(`Estás seguro de borrar ${el}`)) {
+      const res = await API.deleteSubjects(el)
+      console.log(res)
+    }
   }
 
   handleSubmit = async (e) => {
@@ -25,11 +28,11 @@ class Subject extends React.Component {
 
     const { asignature , grade } = e.target
     const form = new FormData()
-		form.append('name', asignature)
-		form.append('grade', grade)
+		form.append('name', asignature.value)
+		form.append('grade', grade.value)
 
     if (this.state.update) {
-      const res = await API.putSubjects(form, this.state.id)
+      const res = await API.putSubjects(form, this.state.update)
       console.log(res)
     } else {
       const res = await API.postSubjects(form)
