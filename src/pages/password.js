@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import PaswordLayout from '../dist/password/passwordLayout.js'
-import API from '../dist/utils/api/user'
+import API from '../utils/api/user'
 
 class Password extends React.Component {
 

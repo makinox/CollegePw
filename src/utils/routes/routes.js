@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from '../../../pages/home'
-import Login from '../../../pages/login'
+import Home from '../../pages/home'
+import Login from '../../pages/login'
 
-import User from '../../../pages/user'
-import You from '../../../pages/you'
-import Password from '../../../pages/password'
-import Config from '../../../pages/uconfig'
-import Subjects from '../../../pages/subject'
+import User from '../../pages/user'
+import You from '../../pages/you'
+import Password from '../../pages/password'
+import Config from '../../pages/uconfig'
+import Subjects from '../../pages/subject'
 
 export default (props) => (
   <Router>

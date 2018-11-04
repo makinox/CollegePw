@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Login from '../dist/login/loginLayout'
-import API from '../dist/utils/api/login'
+import API from '../utils/api/login'
 // import Conn from 'unete-browser'
 
 class LoginComponent extends React.Component {

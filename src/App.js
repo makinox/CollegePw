@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Navbar from './dist/navbar/navbar'
-import Core from './dist/utils/routes/routes'
+import Core from './utils/routes/routes'
 
 class Root extends React.Component {
   render() {

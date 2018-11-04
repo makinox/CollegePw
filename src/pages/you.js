@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 import UserLayout from '../dist/you/youLayout'
-import API from '../dist/utils/api/user'
+import API from '../utils/api/user'
 
 class You extends React.Component {
 
