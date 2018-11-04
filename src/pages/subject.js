@@ -5,18 +5,37 @@ import { connect } from 'react-redux'
 class Subject extends React.Component {
 
   state = {
-    modal: true
+    modal: false,
+    title: null,
+    update: false
   }
 
   handleNew = () => {
-    this.setState({ modal: !this.state.modal})
+    this.setState({ modal: !this.state.modal, title: 'Nueva asignatura', update: false})
   }
 
   handleUpdate = (el) => {
-    window.alert(`El elemento ${el}`)
+    this.setState({ modal: !this.state.modal, title: 'Editar asignatura', update: true})
+    console.log(el)
   }
 
-  render() {return <SubjectLayout subjects={this.props.subjects} update={this.handleUpdate} neww={this.handleNew} modal={this.state.modal}/>}
+  handleDelete = (el) => {
+    window.confirm(`Estás seguro de borrar ${el}`)
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
+  render() {return <SubjectLayout 
+    subjects={this.props.subjects} 
+    update={this.handleUpdate} 
+    neww={this.handleNew} 
+    modal={this.state.modal}
+    selected={this.state.selected}
+    title={this.state.title}
+    delete={this.handleDelete}
+    submit={this.handleSubmit}/>}
 }
 
 const mapStateToProps = (state) => {return {subjects: state.subject}}

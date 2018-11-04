@@ -9,3 +9,12 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
   cursor: pointer;
 }
+
+.subjects-section-form {
+  justify-content: center;
+  text-align: center;
+}
+
+.subjects-section-form button {
+  font-size: 16px;
+}
