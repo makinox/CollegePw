@@ -17,7 +17,7 @@ export default (props) => (
         <td>{el[props.b2]}</td>
         {props.bextra ? (<td>{el[props.bextra]}</td>) : (<></>)}
         <td>
-          <span role='img' aria-label='Editar'>🖍</span>
+          <span role='img' aria-label='Editar' onClick={() => props.update(el.id)}>🖍</span>
           <span role='img' aria-label='Modificar'>✖</span>
         </td>
       </tr>

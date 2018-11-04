@@ -26,4 +26,10 @@
 
 .tableResume-table tbody span {
   cursor: pointer;
+  border: 1px solid #818181;
+  margin: 0 5px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .2);
+  background-color: #fff;
 }

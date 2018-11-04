@@ -42,6 +42,10 @@ button {
   margin: 15px 0;
 }
 
+button:focus {
+  outline: 0;
+}
+
 label {
   display: block;
   padding: 10px 0;
