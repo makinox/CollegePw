@@ -17,7 +17,7 @@ export default (props) => (
             </div>
 
             <div className="user-section-resumen">
-                <Cardi title="Asignaturas actuales" counter={props.sub.length} >
+                <Cardi title="Asignaturas actuales" counter={props.sub.length} route="/subjects">
                     {props.sub.map((e, i) => {
                         if (i < 4) {
                             return (
@@ -32,7 +32,7 @@ export default (props) => (
                     })}
                 </Cardi >
 
-                <Cardi title="Ultimas notas" counter={props.note.length} >
+                <Cardi title="Ultimas notas" counter={props.note.length} route="/notes">
                     {props.note.map((e, i) => {
                         if (i < 3) {
                             return (
@@ -48,7 +48,7 @@ export default (props) => (
                     })}
                 </Cardi >
 
-                <Cardi title="Ultimas evaluaciones" counter={props.rating.length} >
+                <Cardi title="Ultimas evaluaciones" counter={props.rating.length} route="/stats">
                     {props.rating.map((e, i) => {
                         if (i < 4) {
                             return (
