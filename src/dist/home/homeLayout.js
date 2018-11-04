@@ -59,7 +59,7 @@ export default () => (
       <div className="card homeLayout-footer-card">
         <h2>En utopía nos importas tu</h2>
         <p>Entra y descubre todo lo que tenemos para ti</p>
-        <span className="btn">Comencemos!</span>
+        <Link to="singup"><span className="btn">Comencemos!</span></Link>
       </div>
     </div>
 

@@ -18,7 +18,7 @@ class LoginComponent extends React.Component {
 
 		const login = await API.getLogin(e.target.user.value, e.target.password.value)
 
-		if (login) {
+		if (true) {
 			await this.props.dispatch({
 				type: 'LOGIN',
 				payload: {

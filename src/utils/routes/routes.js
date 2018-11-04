@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from '../../pages/home'
 import Login from '../../pages/login'
+import Register from '../../pages/register'
 
 import User from '../../pages/user'
 import You from '../../pages/you'
@@ -26,6 +27,7 @@ export default (props) => (
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/singup" component={Register} />
           </Switch>
         )}
     </div>
