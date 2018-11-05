@@ -10,6 +10,7 @@ import You from '../../pages/you'
 import Password from '../../pages/password'
 import Config from '../../pages/uconfig'
 import Subjects from '../../pages/subject'
+import Notes from '../../pages/notes'
 
 export default (props) => (
   <Router>
@@ -22,6 +23,7 @@ export default (props) => (
           <Route exact path="/you/pass" component={Password} />
           <Route exact path="/you/config" component={Config} />
           <Route exact path="/subjects" component={Subjects} />
+          <Route exact path="/notes" component={Notes} />
         </Switch>
       ) : (
           <Switch>
