@@ -3,13 +3,13 @@ import React from 'react'
 import './loginLayout.css'
 
 export default (props) => (
-    <section className="section-container-login">
+  <section className="section-container-login">
     <div className="section-container-login-card">
-      <div className="section-container-login-card-header">
+      <div >
         <h2>Utopía</h2>
         <h3>Iniciar sesión</h3>
       </div>
-      <div className="section-container-login-card-body">
+      <div >
         <form onSubmit={props.submit} >
           <div>
             <label htmlFor="user" >Ingresa tu usuario</label>
@@ -20,7 +20,7 @@ export default (props) => (
             <input type="password" name="password" />
           </div>
           <div>
-            <button type="submit" className="btn" style={{fontSize: 'initial'}}>Ingresar</button>
+            <button type="submit" className="btn" style={{ fontSize: 'initial' }}>Ingresar</button>
           </div>
         </form>
       </div>

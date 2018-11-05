@@ -1,0 +1,26 @@
+.section-container-register {
+  display: grid;
+  grid-template-columns: minmax(auto, 500px);
+  justify-content: center;
+  padding-top: 8vh;
+}
+
+.section-container-register-card {
+  box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 300px;
+  justify-content: center;
+  padding: 60px 0 20px 0; 
+}
+
+@media (max-width: 479px){
+
+  .section-container-register {
+    padding-top: 5vh;
+  }
+
+  .section-container-register-card {
+    text-align: center;
+  }
+}
