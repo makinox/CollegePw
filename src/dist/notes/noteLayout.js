@@ -12,7 +12,7 @@ export default (props) => (
     <div>
       <Table 
         subjects={props.note}
-        h1={'title'}
+        h1={'Titulo'}
         h2={'Observación'}
         hextra={'Valor'}
         h3={'Opción'}
@@ -26,12 +26,16 @@ export default (props) => (
     <Modal modal={props.modal} close={props.neww} title={props.title}>
       <form onSubmit={props.submit} className="subjects-section-form">
         <div>
-          <label htmlFor="asignature">Asignatura</label>
+          <label htmlFor="asignature">Title</label>
           <input type="text" name="asignature"/>
         </div>
         <div>
-          <label htmlFor="grade">Grado</label>
+          <label htmlFor="grade">Observación</label>
           <input type="text" name="grade"/>
+        </div>
+        <div>
+          <label htmlFor="value">Valor</label>
+          <input type="text" name="value"/>
         </div>
         <div>
           <button className="btn">Guardar</button>
