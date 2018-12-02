@@ -1,0 +1,24 @@
+.menu {
+  position: absolute;
+  top: 10%;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.menu ul {
+  padding: 20px;
+  margin: 0;
+}
+
+.menu ul li {
+  display: block;
+  cursor: pointer;
+  border-bottom: 1px #bdbdbd solid;
+}
+
+.menu ul li:last-of-type {
+  border-bottom: none;
+}
+
+.menu ul li:hover {
+  color: #4646ff;
+}
