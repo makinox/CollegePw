@@ -6,7 +6,7 @@ import Modal from '../modal/modal'
 export default (props) => (
   <section>
     <div className="subjects-section-header">
-      <h2>Notas</h2>
+      <h2>Evaluaciones</h2>
       <button onClick={props.neww}>+</button>
     </div>
     <div>
@@ -24,11 +24,11 @@ export default (props) => (
     <Modal modal={props.modal} close={props.neww} title={props.title}>
       <form onSubmit={props.submit} className="subjects-section-form">
         <div>
-          <label htmlFor="asignature">Asignatura</label>
+          <label htmlFor="asignature">Titulo</label>
           <input type="text" name="asignature"/>
         </div>
         <div>
-          <label htmlFor="grade">Grado</label>
+          <label htmlFor="grade">Valor</label>
           <input type="text" name="grade"/>
         </div>
         <div>
