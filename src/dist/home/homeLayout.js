@@ -28,10 +28,30 @@ export default () => (
 
       </div>
 
+      <div className="homeLayout-team">
+        <div className="homeLayout-team-head">
+          <h2>Equipo de trabajo</h2>
+        </div>
+        <div className="homeLayout-team-body">
+          <div className="card">
+            <img src="https://picsum.photos/80/80" alt="Gestor comercial"/>
+            <h4>Gestor comercial</h4>
+          </div>
+          <div className="card">
+            <img src="https://picsum.photos/80/80" alt="CEO de jezsy"/>
+            <h4>CEO de jezsy</h4>
+          </div>
+          <div className="card">
+            <img src="https://picsum.photos/80/80" alt="Gestor de negocio"/>
+            <h4>Gestor de negocio</h4>
+          </div>
+        </div>
+      </div>
+
       <div className="homeLayout-explain" id="homeLayout-explain">
 
         <div className="card">
-          <h2>Qué es utopía</h2>
+          <h2>Qué es Jezsy</h2>
           <p>Utopia es una plataforma que brinda el servicio de gestión educacional a cualquier institución educativa de todos los niveles.
           <br />
             Nos enfocamos en aquellas entidades que cuentan con pocos recursos y poca disponibilidad tecnologica.

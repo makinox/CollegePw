@@ -61,6 +61,22 @@
   background-color: #457B9D;
 }
 
+.homeLayout-team {
+  text-align: center;
+}
+
+.homeLayout-team-body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  justify-items: center;
+  grid-gap: 0 10px;
+}
+
+.homeLayout-team-body img {
+  margin-top: 10px;
+  border-radius: 50px;
+}
+
 .homeLayout-explain {
   display: grid;
   grid-template-columns: minmax(auto, 600px);
