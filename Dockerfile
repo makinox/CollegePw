@@ -1,11 +1,19 @@
-FROM node:10.12
+# Use Node.js version 10
+FROM mhart/alpine-node:11
 
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+# Set the working directory
+WORKDIR /usr/src
 
-COPY package.json /usr/src/app/package.json
-RUN npm install --silent
-RUN npm install react-scripts@1.1.1 -g --silent
+# Copy package manager files to the working directory and run install
+COPY package.json yarn.lock ./
+RUN yarn install
 
-CMD ["npm", "start"]
+# Copy all files to the working directory
+COPY . .
+
+# Run tests
+# RUN CI=true yarn test
+
+# Build the app and move the resulting build to the `/public` directory
+RUN yarn build
+RUN mv ./build /public

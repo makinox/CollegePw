@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 import img1 from '../../assets/home/img1.svg'
+import img2 from '../../assets/home/img5.jpeg'
 import './homeLayout.css'
 
 export default () => (
@@ -34,7 +35,7 @@ export default () => (
         </div>
         <div className="homeLayout-team-body">
           <div className="card">
-            <img src="https://picsum.photos/80/80" alt="Gestor comercial"/>
+            <img src={img2} alt="Gestor comercial"/>
             <h4>Gestor comercial</h4>
           </div>
           <div className="card">
